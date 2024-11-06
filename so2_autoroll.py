@@ -40,6 +40,7 @@ def load_config():
         "SIMILARITY_THRESHOLD": 0.8,
         "POWER_THRESHOLD": 30,
         "DEBUG": False,
+        "DEBUG_OCR": False,
         "PREFERRED_SKILLS": []  # Default list of preferred skills
     }
     
@@ -56,6 +57,8 @@ def load_config():
                     
                     if key in config:
                         if key == "DEBUG":
+                            config[key] = value.lower() == "true"
+                        elif key == "DEBUG_OCR":
                             config[key] = value.lower() == "true"
                         elif key == "PREFERRED_SKILLS":
                             # Split skills and replace "empty" with an empty string
@@ -84,20 +87,32 @@ REROLL_WAIT_TIME = config["REROLL_WAIT_TIME"]
 SIMILARITY_THRESHOLD = config["SIMILARITY_THRESHOLD"]
 POWER_THRESHOLD = config["POWER_THRESHOLD"]
 DEBUG = config["DEBUG"]
+DEBUG_OCR = config["DEBUG_OCR"]
 PREFERRED_SKILLS = config["PREFERRED_SKILLS"]
 
 # Game window title
 GAME_WINDOW_TITLE = "StateOfDecay2 "
 SKILL_POWER = POWER_THRESHOLD / 2  # Additional power value for having a preferred skill
 
+def debug_message(msg):
+    if DEBUG:
+        print(msg)
+
 def get_game_window_position(title):
     try:
         # Encuentra la ventana con el título específico
         window = gw.getWindowsWithTitle(title)[0]  # Tomamos la primera coincidencia
+        if DEBUG_OCR:
+            screenshot = pyautogui.screenshot(region=(window.left, window.top, window.width, window.height))
+            # Guarda la imagen con un nombre que incluya el índice del personaje o un identificador único
+            unix_time = int(time.time())
+            screenshot.save(f"debug_game_window_capture_{window.width}x{window.height}_{unix_time}.png")
+
         left, top, width, height = window.left, window.top, window.width, window.height
         return window, window.left, window.top, window.width, window.height
     except IndexError:
         raise Exception(f"Could not find window '{title}'.")
+
 
 def calculate_dynamic_positions(width, height):
     skill_positions = [(int(288 / 1298 * width), int(700 / 1007 * height)),
@@ -157,19 +172,16 @@ def get_character_power(trait_text):
             if similarity >= SIMILARITY_THRESHOLD:
                 detected_traits.append(similar_trait)
                 power += traits_power_scores[similar_trait]
-                if DEBUG:
-                    print(f"Approximate match: '{ocr_trait}' -> '{similar_trait}' (Similarity: {similarity:.2f})")
-    if DEBUG:
-        print(f"Traits from OCR: {ocr_traits}")
-        print(f"Detected Traits: {detected_traits}")
+                debug_message(f"Approximate match: '{ocr_trait}' -> '{similar_trait}' (Similarity: {similarity:.2f})")
+    debug_message(f"Traits from OCR: {ocr_traits}")
+    debug_message(f"Detected Traits: {detected_traits}")
         
     return detected_traits, power
 
 def reroll():
     pyautogui.press("t")
     time.sleep(REROLL_WAIT_TIME)  # Additional wait time for character to update after reroll
-    if DEBUG:
-        print("Rerolling...")
+    debug_message("Rerolling...")
 
 # List of all possible skills (ensuring lowercase for case-insensitive matching)
 skill_list = [
@@ -196,8 +208,7 @@ def clean_skill_text(text):
         return text
     
     # Debug log when exact match fails
-    if DEBUG:
-        print(f"[DEBUG] Exact match failed for skill: '{text}'")
+    debug_message(f"[DEBUG] Exact match failed for skill: '{text}'")
     
     # If no exact match, look for the closest skill in skill_list
     best_match = ""
@@ -228,11 +239,8 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
     # Add SKILL_POWER if the skill is in PREFERRED_SKILLS
     if skill_text in PREFERRED_SKILLS:
         power += SKILL_POWER
-        if DEBUG:
-            print(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER. Total Power: {power}")
-
-    if DEBUG:
-        print(f"S{index + 1}:, Power={power}, Skill='{skill_text}', Traits={traits}")
+        debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER. Total Power: {power}")
+    debug_message(f"S{index + 1}:, Power={power}, Skill='{skill_text}', Traits={traits}")
 
     return {'traits': traits, 'power': power, 'skill': skill_text}
 
@@ -265,8 +273,7 @@ def main():
 
         # Stop if the lowest power character exceeds the threshold
         if weakest_power > POWER_THRESHOLD:
-            if DEBUG:
-                print(f"Stopping early as all characters have power above {POWER_THRESHOLD}.")
+            debug_message(f"Stopping early as all characters have power above {POWER_THRESHOLD}.")
             break
 
         # Move to the position of the weakest character
@@ -292,8 +299,7 @@ def main():
         # Explicitly block rerolls in the last second
         time_elapsed = time.time() - start_time
         if time_elapsed >= RUN_DURATION - 1:
-            if DEBUG:
-                print(f"-- Near End Explicit Lock: Evaluating Best Character from Last 2 Rerolls in Slot {weakest_index + 1}. No more rerolls will be done. --")
+            debug_message(f"-- Near End Explicit Lock: Evaluating Best Character from Last 2 Rerolls in Slot {weakest_index + 1}. No more rerolls will be done. --")
             # Use "r" up to two times to go back to the best character in reroll history (limit to 2 characters)
             if reroll_history:
                 best_character = max(reroll_history, key=lambda x: x['power'])

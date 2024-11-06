@@ -2,7 +2,7 @@
 # Set each parameter to customize the mod behavior
 
 # RUN_DURATION: Total duration in minutes for the script to run (default: 2)
-RUN_DURATION = 2
+RUN_DURATION = 1
 
 # REROLL_WAIT_TIME: Wait time in seconds between rerolls (default: 0.01 seconds)
 REROLL_WAIT_TIME = 0.01
@@ -16,6 +16,8 @@ POWER_THRESHOLD = 50
 
 # DEBUG: Set to true to enable debug mode for additional logging (default: False)
 DEBUG = true
+
+DEBUG_OCR = true
 
 # PREFERRED_SKILLS: List of preferred skills to increase the probability of selection
 # Skills should be separated by commas. Example: lichenology, hygiene, computers
