@@ -14,7 +14,7 @@ This mod automates the reroll process in **State of Decay 2** to help you find p
    - Make sure Tesseract is installed at `C:\Program Files\Tesseract-OCR\tesseract.exe` or added to your system PATH.
 
 3. **Set Up the Game**:
-   - Switch to **windowed mode** and set the resolution to **1400x1050**.
+   - Switch to **windowed mode** and set the resolution to a 4:3 or 16:9 aspect ratio.
 
 4. **Run the Mod**:
    - Start a new community, skip the tutorial, and **run `so2_autoroll.exe`**.
@@ -50,7 +50,7 @@ Adjust settings in `config.txt` to customize the mod:
 Example `config.txt`:
 
 ```plaintext
-RUN_DURATION = 10
+RUN_DURATION = 5
 REROLL_WAIT_TIME = 0.05
 SIMILARITY_THRESHOLD = 0.85
 POWER_THRESHOLD = 50

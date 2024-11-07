@@ -1,6 +1,6 @@
 import pyautogui
 import pytesseract
-from PIL import Image, ImageOps  # Reemplaza cv2 con PIL
+from PIL import Image, ImageOps, ImageDraw
 import time
 import csv
 import pygetwindow as gw
@@ -98,35 +98,84 @@ def debug_message(msg):
     if DEBUG:
         print(msg)
 
+def debug_image(image, msg):
+    if DEBUG_OCR:
+        # Guarda la imagen con un identificador único
+        unix_time = int(time.time())
+        image.save(f"{msg}_{unix_time}.png")
+
+def debug_image_with_boxes(image, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, msg):
+    draw = ImageDraw.Draw(image)
+    for pos in skill_positions:
+        x, y = pos
+        draw.rectangle([x, y, x + skill_width, y + skill_height], outline="red", width=2)
+    for pos in trait_positions:
+        x, y = pos
+        draw.rectangle([x, y, x + trait_width, y + trait_height], outline="blue", width=2)
+    unix_time = int(time.time())
+    image.save(f"{msg}_{unix_time}.png")
+    print(f"[DEBUG] Image with boxes saved as {msg}_{unix_time}.png")
+
 def get_game_window_position(title):
     try:
         # Encuentra la ventana con el título específico
         window = gw.getWindowsWithTitle(title)[0]  # Tomamos la primera coincidencia
         if DEBUG_OCR:
             screenshot = pyautogui.screenshot(region=(window.left, window.top, window.width, window.height))
-            # Guarda la imagen con un nombre que incluya el índice del personaje o un identificador único
-            unix_time = int(time.time())
-            screenshot.save(f"debug_game_window_capture_{window.width}x{window.height}_{unix_time}.png")
+            debug_image(screenshot, f"debug_game_window_capture_{window.width}x{window.height}")
 
         left, top, width, height = window.left, window.top, window.width, window.height
         return window, window.left, window.top, window.width, window.height
     except IndexError:
         raise Exception(f"Could not find window '{title}'.")
-
+    
+def get_aspect_ratio_category(width, height):
+    aspect_ratio = width / height
+    debug_message(f"width:{width} height:{height}")
+    if 1.5 <= aspect_ratio <= 1.85:  # Expand the range for 16:9 and similar wide ratios
+        return "16:9"
+    elif 1.25 <= aspect_ratio <= 1.4:  # Expand the range for 4:3 and similar ratios
+        return "4:3"
+    else:
+        return "unknown"
 
 def calculate_dynamic_positions(width, height):
-    skill_positions = [(int(288 / 1298 * width), int(700 / 1007 * height)),
-                       (int(588 / 1298 * width), int(700 / 1007 * height)),
-                       (int(878 / 1298 * width), int(700 / 1007 * height))]
-    
-    trait_positions = [(int(246 / 1298 * width), int(393 / 1007 * height)),
-                       (int(543 / 1298 * width), int(393 / 1007 * height)),
-                       (int(834 / 1298 * width), int(393 / 1007 * height))]
-    
-    skill_width = int(165 / 1298 * width)
-    skill_height = int(25 / 1007 * height)
-    trait_width = int(209 / 1298 * width)
-    trait_height = int(75 / 1007 * height)
+    # Define reference resolutions
+    ref_width = 1298
+    ref_height_16_9 = 767
+    ref_height_4_3 = 1007
+
+    # Determine aspect ratio category
+    aspect_category = get_aspect_ratio_category(width, height)
+    debug_message(f"Aspect ratio detected '{aspect_category}'.")
+
+    # Helper function to scale positions based on reference dimensions
+    def get_scaled_positions(reference_positions, ref_width, ref_height):
+        return [(int(x / ref_width * width), int(y / ref_height * height)) for x, y in reference_positions]
+
+    # Define positions and dimensions for each aspect ratio
+    if aspect_category == "16:9":
+        skill_positions_ref = [(292, 580), (588, 580), (879, 580)]
+        trait_positions_ref = [(246, 273), (542, 273), (834, 273)]
+        skill_width = int(163 / ref_width * width)
+        skill_height = int(24 / ref_height_16_9 * height)
+        trait_width = int(209 / ref_width * width)
+        trait_height = int(76 / ref_height_16_9 * height)
+        ref_height = ref_height_16_9  # Use 16:9 reference height
+    elif aspect_category == "4:3":
+        skill_positions_ref = [(288, 700), (588, 700), (878, 700)]
+        trait_positions_ref = [(246, 393), (543, 393), (834, 393)]
+        skill_width = int(165 / ref_width * width)
+        skill_height = int(25 / ref_height_4_3 * height)
+        trait_width = int(209 / ref_width * width)
+        trait_height = int(75 / ref_height_4_3 * height)
+        ref_height = ref_height_4_3  # Use 4:3 reference height
+    else:
+        raise Exception("Unsupported aspect ratio")
+
+    # Scale positions based on the selected aspect ratio
+    skill_positions = get_scaled_positions(skill_positions_ref, ref_width, ref_height)
+    trait_positions = get_scaled_positions(trait_positions_ref, ref_width, ref_height)
 
     return skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height
 
@@ -226,8 +275,8 @@ def clean_skill_text(text):
 def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height):
     # Capture images for traits and skills of a specific character
     skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
-    trait_image = capture_region(left, top, trait_positions[index], trait_width, trait_height)
-
+    trait_image = capture_region(left, top, trait_positions[index], trait_width, trait_height)   
+    
     with ThreadPoolExecutor() as executor:
         skill_text_future = executor.submit(extract_text, skill_image)
         trait_text_future = executor.submit(extract_text, trait_image)
@@ -251,6 +300,14 @@ def main():
     # Get game window and its initial position
     game_window, left, top, width, height = get_game_window_position(GAME_WINDOW_TITLE)
     skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height = calculate_dynamic_positions(width, height)
+
+    if DEBUG_OCR:
+         # Capture initial screenshot and draw boxes for verification
+        screenshot = pyautogui.screenshot(region=(left, top, width, height))
+        print(f"skill_positions: {skill_positions}")
+        print(f"trait_positions: {trait_positions}")
+        debug_image_with_boxes(screenshot, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, f"debug_game_window_capture_{width}x{height}")
+
 
     # Start initially at the first survivor
     current_position = 0
