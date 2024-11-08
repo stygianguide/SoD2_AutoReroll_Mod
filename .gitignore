@@ -6,6 +6,9 @@ dist/
 # Ignore executables and binary files
 *.exe
 
+# Ignore dll for tesseract
+tesseract/
+
 # Ignore system-specific and temporary files
 .DS_Store
 Thumbs.db

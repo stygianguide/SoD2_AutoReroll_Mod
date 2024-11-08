@@ -9,36 +9,30 @@ from concurrent.futures import ThreadPoolExecutor
 import os
 import sys
 
-# Attempt to set Tesseract path from common installation directories
-for path in [r"C:\Program Files\Tesseract-OCR\tesseract.exe", r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"]:
-    if os.path.isfile(path):
-        pytesseract.pytesseract.tesseract_cmd = path
-        print(f"[INFO] Tesseract found at: {path}")
-        break
-else:
-    # If no valid path is found, display an error and exit
-    print("[ERROR] Tesseract OCR not found. Please install Tesseract OCR.")
-    print("You can download it from: https://github.com/UB-Mannheim/tesseract/wiki")
-    sys.exit(1)
+# Set the path to the local tesseract executable
+pytesseract.pytesseract.tesseract_cmd = os.path.join(os.path.dirname(__file__), 'tesseract', 'tesseract.exe')
 
 # Load trait power scores from CSV file
 traits_power_scores = {}
 try:
-    with open('Traits_Power_Scores.csv', mode='r', encoding='utf-8') as file:
+    # Adjust the path to work with PyInstaller
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    csv_path = os.path.join(base_path, 'Traits_Power_Scores.csv')
+    with open(csv_path, mode='r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            trait_name = row['Name'].strip().lower()  # Adjust column names if needed
-            trait_power = int(row['Power'])  # Ensure Power is an integer
+            trait_name = row['Name'].strip().lower()
+            trait_power = int(row['Power'])
             traits_power_scores[trait_name] = trait_power
 except FileNotFoundError:
     print("[ERROR] Traits_Power_Scores.csv file not found. Ensure it's in the same directory as the script.")
 
 def load_config():
     config = {
-        "RUN_DURATION": 120,
+        "RUN_DURATION": 2,
         "REROLL_WAIT_TIME": 0.01,
         "SIMILARITY_THRESHOLD": 0.8,
-        "POWER_THRESHOLD": 30,
+        "POWER_THRESHOLD": 25,
         "DEBUG": False,
         "DEBUG_OCR": False,
         "PREFERRED_SKILLS": []  # Default list of preferred skills
@@ -296,6 +290,7 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 def main():
     print("Starting... Select the game window.")
     time.sleep(2)
+    print("Rolling the characters...")
 
     # Get game window and its initial position
     game_window, left, top, width, height = get_game_window_position(GAME_WINDOW_TITLE)
@@ -382,5 +377,7 @@ def main():
     # Pause if DEBUG is True to keep console open
     if DEBUG:
         input("\n[DEBUG] Press Enter to exit...")
+    else:
+        time.sleep(2)
 if __name__ == "__main__":
     main()

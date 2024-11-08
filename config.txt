@@ -8,6 +8,9 @@ RUN_DURATION = 2
 # Skills should be separated by commas. Example: lichenology, hygiene, computers
 PREFERRED_SKILLS =
 
+# POWER_THRESHOLD: Minimum power value to stop rerolling early (default: 30)
+POWER_THRESHOLD = 25
+
 # DEBUG: Set to true to enable debug mode for additional logging (default: False)
 DEBUG = false
 
@@ -17,6 +20,3 @@ REROLL_WAIT_TIME = 0.01
 # SIMILARITY_THRESHOLD: Threshold for approximate trait matching from OCR, from 0 to 1 (default: 0.8)
 # Higher values mean stricter matching.
 SIMILARITY_THRESHOLD = 0.80
-
-# POWER_THRESHOLD: Minimum power value to stop rerolling early (default: 30)
-POWER_THRESHOLD = 30

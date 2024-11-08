@@ -9,18 +9,14 @@ This mod automates the reroll process in **State of Decay 2** to help you find p
 1. **Extract the Files**:
    - Unzip all files from the mod ZIP package and place them together in one folder.
 
-2. **Install Tesseract OCR**:
-   - [Download it here](https://github.com/UB-Mannheim/tesseract/wiki).
-   - Make sure Tesseract is installed at `C:\Program Files\Tesseract-OCR\tesseract.exe` or added to your system PATH.
-
-3. **Set Up the Game**:
+2. **Set Up the Game**:
    - Switch to **windowed mode** and set the resolution to a 4:3 or 16:9 aspect ratio.
 
-4. **Run the Mod**:
+3. **Run the Mod**:
    - Start a new community, skip the tutorial, and **run `so2_autoroll.exe`**.
    - You have **2 seconds** to select the game window before the program starts.
 
-5. **Wait for Completion**:
+4. **Wait for Completion**:
    - The console will close automatically when the program finishes.
    - Start playing with your selected survivors, or run the program again if you want a different result.
 
