@@ -1,6 +1,6 @@
 import pyautogui
 import pytesseract
-from PIL import Image, ImageOps, ImageDraw
+from PIL import ImageDraw
 import time
 import csv
 import pygetwindow as gw
@@ -8,7 +8,7 @@ from difflib import SequenceMatcher
 from concurrent.futures import ThreadPoolExecutor
 import os
 import sys
-import keyboard  # To capture global key inputs
+import keyboard
 
 # Set the path to the local tesseract executable
 pytesseract.pytesseract.tesseract_cmd = os.path.join(os.path.dirname(__file__), 'tesseract', 'tesseract.exe')
@@ -28,6 +28,18 @@ try:
 except FileNotFoundError:
     print("[ERROR] Traits_Power_Scores.csv file not found. Ensure it's in the same directory as the script.")
 
+# List of all possible skills (ensuring lowercase for case-insensitive matching)
+SKILLS_LIST = [
+    "", "chemistry", "computers", "cooking", "craftsmanship", "gardening", "mechanics", 
+    "medicine", "utilities", "acting", "animal facts", "bartending", "business", 
+    "comedy", "design", "driving", "excuses", "farting around", "fishing", "geek trivia", 
+    "hairdressing", "hygiene", "ikebana", "law", "lichenology", "literature", 
+    "making coffee", "movie trivia", "music", "painting", "people skills", 
+    "pinball", "poker face", "political science", "recycling", "scrum certification", 
+    "self-promotion", "sewing", "sexting", "shopping", "sleep psychology", 
+    "sports trivia", "soundproofing", "tattoos", "tv trivia"
+]
+
 class Config:
     def __init__(self):
         self.RUN_DURATION = 2
@@ -37,6 +49,7 @@ class Config:
         self.DEBUG = False
         self.DEBUG_OCR = False
         self.PREFERRED_SKILLS = []
+        self.SKILL_POWER = 0
 
     def __str__(self):
         return str(self.__dict__)
@@ -59,9 +72,13 @@ def load_config():
                         if key in ["DEBUG", "DEBUG_OCR"]:
                             setattr(config, key, value.lower() == "true")
                         elif key == "PREFERRED_SKILLS":
-                            skills = [skill.strip() if skill.strip().lower() != "empty" else "" for skill in value.split(",")]
-                            if skills != [""]:
-                                setattr(config, key, skills)
+                            skills = [skill.strip().lower() for skill in value.split(",")]
+                            # Include "empty" if present and filter based on SKILLS_LIST
+                            if "empty" in skills:
+                                filtered_skills = [""] + [skill for skill in SKILLS_LIST if skill in skills]
+                            else:
+                                filtered_skills = [skill for skill in SKILLS_LIST if skill in skills]
+                            setattr(config, key, filtered_skills)
                         elif key in ["RUN_DURATION", "POWER_THRESHOLD"]:
                             setattr(config, key, int(value))
                         elif key == "REROLL_WAIT_TIME" or key == "SIMILARITY_THRESHOLD":
@@ -88,7 +105,7 @@ PREFERRED_SKILLS = config.PREFERRED_SKILLS
 
 # Game window title
 GAME_WINDOW_TITLE = "StateOfDecay2 "
-SKILL_POWER = POWER_THRESHOLD / 2  # Additional power value for having a preferred skill
+SKILL_POWER = config.POWER_THRESHOLD / 2  # Additional power value for having a preferred skill
 
 # Flag and variable for duration
 restart_flag = False
@@ -121,7 +138,7 @@ def debug_message(msg):
 
 def debug_image(image, msg):
     if DEBUG_OCR:
-        # Guarda la imagen con un identificador único
+        # Save the image with a timestamp
         unix_time = int(time.time())
         image.save(f"{msg}_{unix_time}.png")
 
@@ -139,8 +156,8 @@ def debug_image_with_boxes(image, skill_positions, skill_width, skill_height, tr
 
 def get_game_window_position(title):
     try:
-        # Encuentra la ventana con el título específico
-        window = gw.getWindowsWithTitle(title)[0]  # Tomamos la primera coincidencia
+        # Find the game window by title
+        window = gw.getWindowsWithTitle(title)[0]  # Take the first window if there are multiple
         if DEBUG_OCR:
             screenshot = pyautogui.screenshot(region=(window.left, window.top, window.width, window.height))
             debug_image(screenshot, f"debug_game_window_capture_{window.width}x{window.height}")
@@ -211,24 +228,20 @@ def capture_region(left, top, position, width, height):
     image = screenshot.convert('RGB')  # Convert to RGB for Pillow
     return image
 
-def preprocess_image_for_ocr(image):
-    # Convert to grayscale
-    gray_image = ImageOps.grayscale(image)
-    # Apply a binary threshold to make the text more distinct
-    binary_image = gray_image.point(lambda p: p > 150 and 255)
-    return binary_image
-
-
-def extract_text(image):
-    processed_image = preprocess_image_for_ocr(image)
+def extract_text(processed_image):
     text = pytesseract.image_to_string(processed_image, config="--psm 6 -l eng -c tessedit_char_blacklist=.!@#$%^&*()[]{};:<>")
-    return text.lower().strip()
+    text = text.strip()
+    # Guardar la imagen si el texto extraído está vacío
+    if config.DEBUG_OCR and  not text:
+        debug_image(processed_image, "empty_processed_image")
+        debug_message("[DEBUG] Processed image text is empty, saved image as 'empty_processed_image'")
+    
+    return text.lower()
 
 def calculate_similarity(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
-def get_character_power(trait_text):
-    ocr_traits = trait_text.splitlines()
+def get_character_power(ocr_traits):
     detected_traits = []
     power = 0
 
@@ -245,7 +258,8 @@ def get_character_power(trait_text):
                 detected_traits.append(similar_trait)
                 power += traits_power_scores[similar_trait]
                 debug_message(f"Approximate match: '{ocr_trait}' -> '{similar_trait}' (Similarity: {similarity:.2f})")
-    debug_message(f"Traits from OCR: {ocr_traits}")
+    if DEBUG_OCR:
+        debug_message(f"Traits from OCR: {ocr_traits}")
     debug_message(f"Detected Traits: {detected_traits}")
         
     return detected_traits, power
@@ -255,66 +269,112 @@ def reroll():
     time.sleep(REROLL_WAIT_TIME)  # Additional wait time for character to update after reroll
     debug_message("Rerolling...")
 
-# List of all possible skills (ensuring lowercase for case-insensitive matching)
-skill_list = [
-    "chemistry", "computers", "cooking", "craftsmanship", "gardening", "mechanics", 
-    "medicine", "utilities", "acting", "animal facts", "bartending", "business", 
-    "comedy", "design", "driving", "excuses", "farting around", "fishing", "geek trivia", 
-    "hairdressing", "hygiene", "ikebana", "law", "lichenology", "literature", 
-    "making coffee", "movie trivia", "music", "painting", "people skills", 
-    "pinball", "poker face", "political science", "recycling", "scrum certification", 
-    "self-promotion", "sewing", "sexting", "shopping", "sleep psychology", 
-    "sports trivia", "soundproofing", "tattoos", "tv trivia"
-]
+def remove_non_letters(text):
+    """Remove all non-letter characters from the text."""
+    return ''.join([char for char in text if char.isalpha() or char.isspace()])
 
-def clean_skill_text(text):
-    # Cleans detected skill text by first trying an exact match, then by approximation
-    text = text.strip().lower()
+def remove_single_letters(text):
+    """Remove single letters at the end of the text."""
+    words = text.split()
+    return ' '.join([word for word in words if len(word) > 1])
+
+def clean_ocr_text(text):
+    """Clean and process the OCR text."""
+    text = remove_non_letters(text)
+    text = remove_single_letters(text)
+    return text.strip().lower()
+
+
+def clean_skill_text(text, config):
+    """Clean and process the skill text, trying exact match first, then similarity."""
+    text = clean_ocr_text(text)
 
     # If the text is empty, immediately return an empty string
     if text == "":
         return ""
 
     # Attempt an exact match
-    if text in skill_list:
+    if text in SKILLS_LIST:
         return text
     
     # Debug log when exact match fails
-    debug_message(f"[DEBUG] Exact match failed for skill: '{text}'")
+    if config.DEBUG:
+        debug_message(f"[DEBUG] Exact match failed for skill: '{text}'")
     
-    # If no exact match, look for the closest skill in skill_list
+    # If no exact match, look for the closest skill in SKILLS_LIST
     best_match = ""
     highest_similarity = 0
     
-    for skill in skill_list:
+    for skill in SKILLS_LIST:
         similarity = SequenceMatcher(None, text, skill).ratio()
         if similarity > highest_similarity:
             highest_similarity = similarity
             best_match = skill
     
     # Return the closest match if it meets the similarity threshold; otherwise, return an empty string
-    return best_match if highest_similarity >= SIMILARITY_THRESHOLD else ""
+    return best_match if highest_similarity >= config.SIMILARITY_THRESHOLD else ""
 
-def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height):
-    # Capture images for traits and skills of a specific character
-    skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
-    trait_image = capture_region(left, top, trait_positions[index], trait_width, trait_height)   
+
+def analyze_skills(skill_image, config):
+    """Analyze skills from the skill image."""
+    skill_text = extract_text(skill_image)
+    return clean_skill_text(skill_text, config)
+
+def analyze_traits(trait_image, config):
+    """Analyze traits and power from the trait image."""
+    trait_text = extract_text(trait_image)
     
+    # Save the image if the text is empty
+    if not trait_text.strip():
+        debug_image(trait_image, "empty_trait_image")
+        if config.DEBUG_OCR:
+            debug_message("[DEBUG] Trait image text is empty, saved image")
+    
+    lines = trait_text.splitlines()
+    cleaned_lines = [clean_ocr_text(line) for line in lines]
+    traits, power = get_character_power(cleaned_lines)
+    return traits, power
+
+def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config):
+    futures = []
     with ThreadPoolExecutor() as executor:
-        skill_text_future = executor.submit(extract_text, skill_image)
-        trait_text_future = executor.submit(extract_text, trait_image)
-        skill_text = clean_skill_text(skill_text_future.result())
-        trait_text = trait_text_future.result()
+        # Capture image for traits
+        trait_image = capture_region(left, top, trait_positions[index], trait_width, trait_height)
+        futures.append(executor.submit(analyze_traits, trait_image, config))
 
-    traits, power = get_character_power(trait_text)
-    
+        # Capture image for skills only if there are preferred skills
+        if config.PREFERRED_SKILLS:
+            skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
+            futures.append(executor.submit(analyze_skills, skill_image, config))
+
+        results = [future.result() for future in futures]
+
+    if config.PREFERRED_SKILLS:
+        skill_text = results[1]
+        traits, power = results[0]
+    else:
+        skill_text = ""
+        traits, power = results[0]
+
     # Add SKILL_POWER if the skill is in PREFERRED_SKILLS
-    if skill_text in PREFERRED_SKILLS:
-        power += SKILL_POWER
-        debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER. Total Power: {power}")
-    debug_message(f"S{index + 1}:, Power={power}, Skill='{skill_text}', Traits={traits}")
+    if  skill_text in config.PREFERRED_SKILLS:
+        power += config.SKILL_POWER
+        debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER.")
 
-    return {'traits': traits, 'power': power, 'skill': skill_text}
+    # Create the result dictionary
+    result = {
+        "power": power,
+        "traits": traits
+    }
+
+    if config.PREFERRED_SKILLS:
+        result["skill"] = skill_text
+
+
+    # Debug log for the analyzed character
+    debug_message(f"S{index + 1}: {result}")
+
+    return result
 
 def main():
     global window_selected
@@ -341,7 +401,7 @@ def main():
     pyautogui.press("right")
     
     # Initialize data for all three characters
-    survivors = [analyze_character(left, top, i, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height) for i in range(3)]
+    survivors = [analyze_character(left, top, i, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config) for i in range(3)]
     reroll_history = []  # Store the last characters generated in the active slot
 
     start_time = time.time()
@@ -375,7 +435,7 @@ def main():
 
         # Perform reroll and save character to history for final evaluation
         reroll()
-        rerolled_character = analyze_character(left, top, weakest_index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height)
+        rerolled_character = analyze_character(left, top, weakest_index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config)
         
         # Add character to reroll history
         reroll_history.append(rerolled_character)

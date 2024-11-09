@@ -5,7 +5,8 @@
 RUN_DURATION = 1
 
 # PREFERRED_SKILLS: List of preferred skills to increase the probability of selection
-# Skills should be separated by commas. Example: lichenology, hygiene, computers
+# Skills should be separated by commas. Example: empty, lichenology, hygiene, computers
+# Use the special word empty if you prefer characters without skill
 PREFERRED_SKILLS =
 
 # POWER_THRESHOLD: Minimum power value to stop rerolling early (default: 25)

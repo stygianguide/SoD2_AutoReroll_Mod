@@ -11,25 +11,27 @@ Cleaned Offices,15
 Convention Volunteer,15
 Forensic Scientist,15
 From a Big Family,15
-Germophobe,15
+Germophobe A,15
+Germophobe B,15
 Good Habits,15
 Hand Model,15
 Hates Shiny Food,15
 Homemaker,15
 Hotelier,15
 House Had Black Mold,15
-Lived in Squalor,2
+Lived in Squalor B,15
 Never Been Sick,15
 Prison Tattoo Artist,15
 Sewage System Operator,15
 Tattoo Artist,15
 Window Cleaner,15
 Exuberant,13
-Baseball Fan,12
-Basketball Fan,10
+Baseball Fan A,12
+Baseball Fan B,12
+Basketball Fan A,12
 Beatboxer,12
 Blacksmith,12
-Football Fan,10
+Football Fan A,12
 Got into Bar Fights,12
 Jogger,12
 Loves to Sing,12
@@ -40,10 +42,11 @@ Professional Singer,12
 Sang in a Band,12
 Saxophonist,12
 Skeet Shooter,12
-Watched Sports,10
+Watched Sports A,12
 Amateur Hypnotist,10
 Army Brat,10
 Band Geek,10
+Basketball Fan B,10
 Bouncer,10
 Broad-Shouldered,10
 Can Take a Punch,10
@@ -53,6 +56,7 @@ Determined,10
 Early Riser,10
 Electrician,10
 Energetic,10
+Football Fan B,10
 Football Star,10
 Foster Parent,10
 From a Fishing Town,10
@@ -78,7 +82,7 @@ Left for Dead,10
 Licensed Birth Coach,10
 Lived at a High Altitude,10
 Lived in the Desert,10
-Materials Engineer,0
+Materials Engineer B,10
 Meter Reader,10
 Military Washout,10
 Miner,10
@@ -91,7 +95,7 @@ Piano Mover,10
 Played Basketball,10
 Played Rugby,10
 Played Soccer,10
-Played Softball,0
+Played Softball B,10
 Played Sports,10
 Played Tetherball,10
 Preschool Teacher,10
@@ -112,6 +116,7 @@ Takes Power Naps,10
 Tough,10
 Used to Humidity,10
 Used to the Cold,10
+Watched Sports B,10
 Worked at Power Station,10
 Young,10
 Youth Baseball Coach,10
@@ -128,13 +133,14 @@ BASE Jumper,5
 Basket Weaver,5
 Beekeeper,5
 Blew Stuff Up,5
-Bounty Hunter,0
+Bounty Hunter A,5
 Boxing Coach,5
 Brave,5
 Cheerful,5
-Climber,0
+Climber B,5
 Combat Engineer,5
-Competitive Shooter,5
+Competitive Shooter A,5
+Competitive Shooter B,5
 Confident,5
 Cosplayer,5
 Crochet Artist,5
@@ -151,7 +157,8 @@ Fitness Boxer,5
 Fitness Instructor,5
 Foolhardy,5
 Former Goth,5
-Fought in the Pits,5
+Fought in the Pits A,5
+Fought in the Pits B,5
 Fresh-Faced,5
 Goofball,5
 Gym Rat,5
@@ -173,7 +180,7 @@ Knife Thrower,5
 Knitter,5
 Laughs Easily,5
 Lived on the Bayou,5
-Loves Fireworks,0
+Loves Fireworks B,5
 Made an Indie Game,5
 Martial Arts Teacher,5
 Military LARPer,5
@@ -194,7 +201,7 @@ Quilter,5
 Rebellious as a Teen,5
 Renaissance Fairgoer,5
 Rock Climber,5
-Science Geek,0
+Science Geek B,5
 Separated from Unit,5
 Sold Crafts Online,5
 Theme Park Enthusiast,5
@@ -210,7 +217,8 @@ Was Homeless,5
 Wingsuit Flyer,5
 Wise,5
 Action Choreographer,3
-Active Duty Military,3
+Active Duty Military A,3
+Active Duty Military B,3
 Air Marshal,3
 Amateur Acrobat,3
 Angsty,3
@@ -220,7 +228,8 @@ Astronomer,3
 Biathlete,3
 Blogger,3
 BMX Competitor,3
-Bold Driver,3
+Bold Driver A,3
+Bold Driver B,3
 Bus Driver,3
 Caravan Driver,3
 Career Coach,3
@@ -242,7 +251,9 @@ Fanfic Writer,3
 Film Director,3
 Former Billionaire,3
 Former Gang Member,3
-Freelance Consultant,3
+Freelance Consultant A,3
+Freelance Consultant B,3
+Freelance Consultant C,3
 Freerunner,3
 Game Designer,3
 Geologist,3
@@ -264,18 +275,20 @@ Lecturer,3
 Lichenologist,3
 Likes to Fight,3
 Loved School,3
-Loves to Drive,3
+Loves to Drive A,3
+Loves to Drive B,3
 Mall Cop,3
 MCP Certified,3
 MMA Fighter,3
-Motorcycle Enthusiast,3
+Motorcycle Enthusiast A,3
+Motorcycle Enthusiast B,3
 Muni Rider,3
 Navy Veteran,3
 Neurotic,3
 Nimble,3
 Offroad Biker,3
 Overachiever,3
-Pageant Wagoneer,2
+Pageant Wagoneer C,3
 Paralegal,3
 Patient,3
 Philosophy Major,3
@@ -294,7 +307,10 @@ Sheriff's Deputy,3
 Sign Twirler,3
 Skater,3
 Software Engineer,3
-Special Forces,3
+Special Forces A,3
+Special Forces B,3
+Special Forces C,3
+Special Forces D,3
 State Trooper,3
 Straight-A Student,3
 Student Mentor,3
@@ -327,7 +343,9 @@ Architect,2
 Aspiring Vigilante,2
 Astronomy Professor,2
 At Home in a Bar,2
-Attended Trade School,2
+Attended Trade School A,2
+Attended Trade School B,2
+Attended Trade School C,2
 Audiophile,2
 Auto Body Technician,2
 Automechanic,2
@@ -335,16 +353,18 @@ Automotive Technician,2
 Avid Game Player,2
 Avid Hunter,2
 Backpacker,2
-Bad Back,-17
+Bad Back A,2
 Baker,2
 Ballet Dancer,2
 Ballroom Dancer,2
 Bartender,2
 Basement Dweller,2
-Beer Lover,2
+Beer Lover A,2
+Beer Lover B,2
 Booze Nerd,2
 Botanist,2
-Brush Clearer,2
+Brush Clearer A,2
+Brush Clearer B,2
 Building a Gyrocopter,2
 Building Super,2
 Built Battle Robots,2
@@ -380,8 +400,8 @@ Does Tons of Squats,2
 Does Yoga,2
 Dog Person,2
 Drummer,2
-Encouraging,0
-Environmentalist,0
+Encouraging A,2
+Environmentalist A,2
 Excellent Game Master,2
 Exiled,2
 Exotic Dancer,2
@@ -434,7 +454,11 @@ Had an Herb Garden,2
 Had LAN Parties,2
 Halitosis,2
 Handy,2
-Hardcore Prepper,2
+Hardcore Prepper A,2
+Hardcore Prepper B,2
+Hardcore Prepper C,2
+Hardcore Prepper D,2
+Hardcore Prepper E,2
 Hated Thanksgiving,2
 Hates Trespassers,2
 Hemp Enthusiast,2
@@ -465,15 +489,20 @@ LARPer,2
 Leads from Behind,2
 Led a Quiet Life,2
 Left Someone Behind,2
-Lies About Age,0
+Lies About Age C,2
 Likes Army Fatigues,2
+Lived in Squalor A,2
 Loved Being Single,2
-Loved Camping,2
-Loved Going to Movies,2
-Loved Scary Movies,2
+Loved Camping A,2
+Loved Camping B,2
+Loved Going to Movies A,2
+Loved Going to Movies B,2
+Loved Scary Movies A,2
+Loved Scary Movies B,2
 Loved to Dance,2
-Loves Baking,0
-Loves Cars,2
+Loves Baking B,2
+Loves Cars A,2
+Loves Cars B,2
 Loves Spicy Food,2
 Loves the Outdoors,2
 Machiavellian,2
@@ -483,6 +512,7 @@ Made Science Videos,2
 Makes Art from Junk,2
 Marathon Runner,2
 Mason,2
+Materials Engineer C,2
 Measures Twice,2
 Medicine Hoarder,2
 Meticulous,2
@@ -492,12 +522,15 @@ Mixologist,2
 Moonshiner,2
 Never Holds Back,2
 No Belief in Fairness,2
-Nostalgic,2
+Nostalgic A,2
+Nostalgic B,2
 Nurturing,2
 Oil and Tire Tech,2
 Operations Manager,2
 Overcame Anger Issues,2
 Owned a Nursery,2
+Pageant Wagoneer A,2
+Pageant Wagoneer B,2
 Painter,2
 Paronomasiac,2
 Part-time Barista,2
@@ -509,10 +542,12 @@ Piano Teacher,2
 Picky Eater,2
 Picnicker,2
 Pit Crew,2
-Played in a Band,2
+Played in a Band A,2
+Played in a Band B,2
 Podcaster,2
 Political Moderate,2
-Practical Joker,2
+Practical Joker A,2
+Practical Joker B,2
 Prankster,2
 Prefers the Sidelines,2
 Pro Gamer,2
@@ -567,10 +602,10 @@ Taught Gymnastics,2
 Tech Support,2
 Technically Royalty,2
 Telemarketer,2
-Tells Bad Jokes,0
+Tells Bad Jokes A,2
 Tells Tall Tales,2
 Theatre Nerd,2
-Tinkerer,-8
+Tinkerer A,2
 Took a Gap Year,2
 Took Crazy Road Trips,2
 Took Decoy Duty,2
@@ -586,7 +621,8 @@ Voice Actor,2
 Volunteer Coordinator,2
 Wandering Guitarist,2
 War Reenactor,2
-Was Always Sick,2
+Was Always Sick A,2
+Was Always Sick B,2
 Watched Cooking Shows,2
 Watched Westerns,2
 Weekend Warrior,2
@@ -619,7 +655,8 @@ Ammo Hobbyist,0
 Angler,0
 Animal Control,0
 Animal Lover,0
-Antiques Buyer,0
+Antiques Buyer A,0
+Antiques Buyer B,0
 Anxious All the Time,0
 Apprentice Plumber,0
 Army Engineer,0
@@ -652,7 +689,9 @@ Biotech Scientist,0
 Birdwatcher,0
 Blade Collector,0
 Bleak Outlook,0
-Bodyguard,0
+Bodyguard A,0
+Bodyguard B,0
+Bounty Hunter B,0
 Breaking Champion,0
 Bronto Gas Attendant,0
 Bronto Gas Cashier,0
@@ -682,16 +721,19 @@ CEO,0
 CFO,0
 Chainsaw Sculptor,0
 Charity Worker,0
-Chemical Engineer,0
+Chemical Engineer A,0
+Chemical Engineer B,0
 Chemist,0
 Chemistry Professor,0
 Child Care Worker,0
 Child of Celebrities,0
-Childhood Gymnast,0
+Childhood Gymnast A,0
+Childhood Gymnast B,0
 Chiropractor,0
 Choral Director,0
 Churrascaria Server,0
 City Council Member,0
+Climber A,0
 Community Manager,0
 Competitive Eater,0
 Competitive Sniper,0
@@ -705,10 +747,12 @@ Crossbow Hunter,0
 Culinary Specialist,0
 Custodian,0
 Dated Online,0
-Day Laborer,0
+Day Laborer A,0
+Day Laborer B,0
 Day Trader,0
 Delivery Driver,0
-Demolitionist,0
+Demolitionist A,0
+Demolitionist B,0
 Dense Bone Condition,0
 Dentist,0
 Did Pool Maintenance,0
@@ -726,9 +770,11 @@ Eats Like a Bird,0
 Electrical Engineer,0
 Empathetic,0
 EMT,0
+Encouraging B,0
 Engineering Student,0
 Entourage Member,0
 Entrepreneur,0
+Environmentalist B,0
 Epidemiologist,0
 Erratic Driver,0
 Euthanized Animals,0
@@ -753,9 +799,11 @@ Food Critic,0
 Food Sharer,0
 Forestry Technician,0
 Forklift Driver,0
-Former Activist,0
+Former Activist A,0
+Former Activist B,0
 Former Burglar,0
-Former Homeowner,0
+Former Homeowner A,0
+Former Homeowner B,0
 Former Inmate,0
 Former Lieutenant,0
 Former Lifeguard,0
@@ -811,7 +859,7 @@ Halo Champion,0
 HAM Radio Operator,0
 Has a Lead Foot,0
 Has a Routine,0
-Has Nightmares,-8
+Has Nightmares A,0
 Hated Camping,0
 Hated the Boss,0
 Hates to be Alone,0
@@ -876,6 +924,8 @@ Learned to Sew,0
 Learned to Shop,0
 Learned Utilities,0
 Librarian,0
+Lies About Age A,0
+Lies About Age B,0
 Likes Fishing,0
 Likes to Take Things,0
 Line Cook,0
@@ -901,7 +951,9 @@ Lost Wife,0
 Loved Fast Food,0
 Loved Riding Bikes,0
 Loved to Hunt,0
+Loves Baking A,0
 Loves Canning,0
+Loves Fireworks A,0
 Loves Jigsaw Puzzles,0
 Loves to Explore,0
 Loves to Mentor,0
@@ -912,6 +964,7 @@ Mail Carrier,0
 Majored in Chemistry,0
 Massage Therapist,0
 Masseuse,0
+Materials Engineer A,0
 Meal Delivery Driver,0
 Mechanical Engineer,0
 Medical Researcher,0
@@ -976,6 +1029,7 @@ Pilot,0
 Plans Ahead,0
 Plastic Surgeon,0
 Played Car Games,0
+Played Softball A,0
 Plumber,0
 Police Negotiator,0
 Political Operative,0
@@ -1007,8 +1061,9 @@ RC Pilot,0
 Ready for Action,0
 Real Estate Agent,0
 Reality TV Failure,0
-Receptionist,0
-Reckless,-5
+Receptionist A,0
+Receptionist B,0
+Reckless B,0
 Rescued a Puppy,0
 Rescues Spiders,0
 Research Engineer,0
@@ -1024,9 +1079,11 @@ Sales Associate,0
 Sales Engineer,0
 Sanitation Engineer,0
 Sawbones,0
+Science Geek A,0
 Science Teacher,0
 Scout,0
-Scrapyard Worker,0
+Scrapyard Worker A,0
+Scrapyard Worker B,0
 Security Obsessed,0
 Self-Conscious,0
 Self-Effacing,0
@@ -1086,6 +1143,7 @@ Tapped a Water Tower,0
 Taught Elementary School,0
 Taxidermist,0
 Tech Director,0
+Tells Bad Jokes B,0
 Test Engineer,0
 The Muscle,0
 Toll Booth Operator,0
@@ -1126,7 +1184,8 @@ Veterinarian,0
 Veterinary Pathologist,0
 Video Game Producer,0
 Visited Yard Sales,0
-Vlogger,0
+Vlogger A,0
+Vlogger B,0
 Volunteer Firefighter,0
 Voyeur,0
 Waited Them Out,0
@@ -1137,7 +1196,8 @@ Warehouse Stocker,0
 Was in ROTC,0
 Was Unemployed,0
 Waste Disposal Engineer,0
-Waste Sorter,0
+Waste Sorter A,0
+Waste Sorter B,0
 Web Developer,0
 Weird Nickname,0
 Weirdo,0
@@ -1152,7 +1212,8 @@ Worked at an Office,0
 Worked at Tartan Mart,0
 Yoga Instructor,0
 Youth Counselor,0
-Zombie Hunter,0
+Zombie Hunter A,0
+Zombie Hunter B,0
 Zoologist,0
 Belligerent,-2
 Braggart,-2
@@ -1179,6 +1240,7 @@ Has a Pain Disorder,-5
 Has Chronic Pain,-5
 Has Fibromyalgia,-5
 Hesitates in Combat,-5
+Reckless A,-5
 Soft,-5
 Back Pain,-7
 Brittle,-7
@@ -1198,6 +1260,7 @@ Couch Potato,-8
 Easily Bored,-8
 Had Knee Replaced,-8
 Has Cataracts,-8
+Has Nightmares B,-8
 Hates Exercise,-8
 Heart Problems,-8
 Human Potato,-8
@@ -1208,6 +1271,7 @@ Night Terrors,-8
 Serial Plant Murderer,-8
 Sloth-Like Metabolism,-8
 Stoner,-8
+Tinkerer B,-8
 Tires Quickly,-8
 Quick to Despair,-9
 Absent-Minded,-10
@@ -1256,6 +1320,7 @@ Weak Swing,-10
 Worst Fighter Ever,-10
 Lung Cancer Survivor,-13
 One Lung,-15
+Bad Back B,-17
 Low Pain Treshold,-17
 Asthma,-18
 Decrepit,-18
