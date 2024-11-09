@@ -11,5 +11,16 @@ REM Copy config.txt and Traits_Power_Scores.csv to the dist folder
 copy config.txt dist\config.txt
 copy README.md dist\README.md
 
-REM Pause to keep the console open after completion
-pause
+REM Change to the dist directory
+cd dist
+
+REM Compress all files in the dist directory into mod.zip
+powershell Compress-Archive -Path * -DestinationPath mod.zip
+
+REM Delete all files in the dist directory except mod.zip
+for %%f in (*) do (
+    if not "%%f" == "mod.zip" del "%%f"
+)
+
+REM Change back to the original directory
+cd ..

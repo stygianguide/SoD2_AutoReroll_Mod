@@ -72,12 +72,9 @@ def load_config():
                         if key in ["DEBUG", "DEBUG_OCR"]:
                             setattr(config, key, value.lower() == "true")
                         elif key == "PREFERRED_SKILLS":
-                            skills = [skill.strip().lower() for skill in value.split(",")]
-                            # Include "empty" if present and filter based on SKILLS_LIST
-                            if "empty" in skills:
-                                filtered_skills = [""] + [skill for skill in SKILLS_LIST if skill in skills]
-                            else:
-                                filtered_skills = [skill for skill in SKILLS_LIST if skill in skills]
+                            skills = [skill.strip().lower() for skill in value.split(",") if skill.strip() and skill.strip().lower() != ""]
+                            # Filter based on SKILLS_LIST and replace "empty" with ""
+                            filtered_skills = ["" if skill == "empty" else skill for skill in skills if skill in SKILLS_LIST or skill == "empty"]
                             setattr(config, key, filtered_skills)
                         elif key in ["RUN_DURATION", "POWER_THRESHOLD"]:
                             setattr(config, key, int(value))
@@ -344,8 +341,11 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 
         # Capture image for skills only if there are preferred skills
         if config.PREFERRED_SKILLS:
+            debug_message(f"Preferred skills: {config.PREFERRED_SKILLS}")
             skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
             futures.append(executor.submit(analyze_skills, skill_image, config))
+        else:
+            debug_message("Skipping skill analysis as there are no preferred skills")
 
         results = [future.result() for future in futures]
 
@@ -464,7 +464,7 @@ def main():
     # Display characters in the same order as in the game
     print("Final survivors:")
     for idx, survivor in enumerate(survivors, 1):
-        print(f"S{idx}: Power='{survivor.get('power', 0)}', Skill={survivor.get('skill', '')}, Traits={survivor.get('traits', [])}")
+        print(f"S{idx}: {survivor}")
 
 # Main script
 if __name__ == "__main__":
