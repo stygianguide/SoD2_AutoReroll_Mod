@@ -28,16 +28,21 @@ try:
 except FileNotFoundError:
     print("[ERROR] Traits_Power_Scores.csv file not found. Ensure it's in the same directory as the script.")
 
+class Config:
+    def __init__(self):
+        self.RUN_DURATION = 2
+        self.REROLL_WAIT_TIME = 0.01
+        self.SIMILARITY_THRESHOLD = 0.8
+        self.POWER_THRESHOLD = 25
+        self.DEBUG = False
+        self.DEBUG_OCR = False
+        self.PREFERRED_SKILLS = []
+
+    def __str__(self):
+        return str(self.__dict__)
+
 def load_config():
-    config = {
-        "RUN_DURATION": 2,
-        "REROLL_WAIT_TIME": 0.01,
-        "SIMILARITY_THRESHOLD": 0.8,
-        "POWER_THRESHOLD": 25,
-        "DEBUG": False,
-        "DEBUG_OCR": False,
-        "PREFERRED_SKILLS": []  # Default list of preferred skills
-    }
+    config = Config()
     
     if os.path.isfile("config.txt"):
         with open("config.txt", "r") as file:
@@ -50,40 +55,36 @@ def load_config():
                     key = key.strip()
                     value = value.strip()
                     
-                    if key in config:
-                        if key == "DEBUG":
-                            config[key] = value.lower() == "true"
-                        elif key == "DEBUG_OCR":
-                            config[key] = value.lower() == "true"
+                    if hasattr(config, key):
+                        if key in ["DEBUG", "DEBUG_OCR"]:
+                            setattr(config, key, value.lower() == "true")
                         elif key == "PREFERRED_SKILLS":
-                            # Split skills and replace "empty" with an empty string
                             skills = [skill.strip() if skill.strip().lower() != "empty" else "" for skill in value.split(",")]
-                            # Only assign if there are skills specified, otherwise keep as empty list
                             if skills != [""]:
-                                config[key] = skills
+                                setattr(config, key, skills)
                         elif key in ["RUN_DURATION", "POWER_THRESHOLD"]:
-                            config[key] = int(value)
-                        elif key in ["REROLL_WAIT_TIME", "SIMILARITY_THRESHOLD"]:
-                            config[key] = float(value)
+                            setattr(config, key, int(value))
+                        elif key == "REROLL_WAIT_TIME" or key == "SIMILARITY_THRESHOLD":
+                            setattr(config, key, float(value))
                 except ValueError:
-                    print(f"[WARNING] Invalid value for '{key}': '{value}'. Using default: {config[key]}")
-                except Exception as e:
-                    print(f"[ERROR] Unexpected error reading '{key}': {e}. Using default: {config[key]}")
-    # Convert RUN_DURATION from minutes to seconds
-    config["RUN_DURATION"] *= 60
+                    continue
+
+    if config.DEBUG:
+        print(f"Loaded configuration: {config}")
+
     return config
 
 # Load configuration at the start
 config = load_config()
 
 # Use config values in the script
-RUN_DURATION = config["RUN_DURATION"]
-REROLL_WAIT_TIME = config["REROLL_WAIT_TIME"]
-SIMILARITY_THRESHOLD = config["SIMILARITY_THRESHOLD"]
-POWER_THRESHOLD = config["POWER_THRESHOLD"]
-DEBUG = config["DEBUG"]
-DEBUG_OCR = config["DEBUG_OCR"]
-PREFERRED_SKILLS = config["PREFERRED_SKILLS"]
+RUN_DURATION = config.RUN_DURATION * 60  # Convert RUN_DURATION from minutes to seconds
+REROLL_WAIT_TIME = config.REROLL_WAIT_TIME
+SIMILARITY_THRESHOLD = config.SIMILARITY_THRESHOLD
+POWER_THRESHOLD = config.POWER_THRESHOLD
+DEBUG = config.DEBUG
+DEBUG_OCR = config.DEBUG_OCR
+PREFERRED_SKILLS = config.PREFERRED_SKILLS
 
 # Game window title
 GAME_WINDOW_TITLE = "StateOfDecay2 "
@@ -415,7 +416,7 @@ if __name__ == "__main__":
         if new_duration == 0:
             print("Exiting the program.")
             break
-        config["RUN_DURATION"] = new_duration
+        config.RUN_DURATION = new_duration
         restart_flag = False
         new_duration = 0
         continue
