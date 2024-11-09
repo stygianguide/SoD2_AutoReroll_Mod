@@ -32,14 +32,13 @@ The mod works best without any preferred skills, as it then focuses solely on tr
 
 - `so2_autoroll.exe` - Main executable.
 - `config.txt` - Configuration file for custom settings.
-- `Traits_Power_Scores.csv` - Trait power scoring data.
 - `README.md` - This instruction file.
 
 ### Configuring `config.txt`
 
 Adjust settings in `config.txt` to customize the mod:
 
-- `RUN_DURATION`: Total run time in minutes (default: 5). Increase this if you're looking for rare skills.
+- `RUN_DURATION`: Total run time in minutes (default: 2). Increase this if you're looking for rare skills.
 - `PREFERRED_SKILLS`: List of preferred skills (e.g., `lichenology, hygiene, empty`). Note: adding skills may reduce overall trait power as the mod prioritizes those skills.
 - `DEBUG`: Set to `true` to keep the console open after the program completes and display detailed logs.
 

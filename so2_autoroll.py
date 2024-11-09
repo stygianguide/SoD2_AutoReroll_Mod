@@ -8,6 +8,7 @@ from difflib import SequenceMatcher
 from concurrent.futures import ThreadPoolExecutor
 import os
 import sys
+import keyboard  # To capture global key inputs
 
 # Set the path to the local tesseract executable
 pytesseract.pytesseract.tesseract_cmd = os.path.join(os.path.dirname(__file__), 'tesseract', 'tesseract.exe')
@@ -88,6 +89,31 @@ PREFERRED_SKILLS = config["PREFERRED_SKILLS"]
 GAME_WINDOW_TITLE = "StateOfDecay2 "
 SKILL_POWER = POWER_THRESHOLD / 2  # Additional power value for having a preferred skill
 
+# Flag and variable for duration
+restart_flag = False
+new_duration = 0
+window_selected = False
+
+def set_duration(key):
+    global restart_flag, new_duration
+    new_duration = int(key.name) * 60
+    restart_flag = True
+    print(f"\nDuration set to {new_duration // 60} minutes.")
+
+def cancel_process():
+    global restart_flag, new_duration
+    new_duration = 0
+    restart_flag = True
+    print("\nProcess canceled.")
+
+# Bind keys 1 to 9 to set the duration in minutes
+for i in range(1, 10):
+    keyboard.add_hotkey(str(i), set_duration, args=[keyboard.KeyboardEvent('down', 0, str(i))])
+
+# Bind key '0' to cancel the process
+keyboard.add_hotkey('0', cancel_process)
+
+
 def debug_message(msg):
     if DEBUG:
         print(msg)
@@ -121,7 +147,9 @@ def get_game_window_position(title):
         left, top, width, height = window.left, window.top, window.width, window.height
         return window, window.left, window.top, window.width, window.height
     except IndexError:
-        raise Exception(f"Could not find window '{title}'.")
+        print(f"Could not find window '{title}'.")
+        time.sleep(2)
+        raise Exception(f"Exiting")
     
 def get_aspect_ratio_category(width, height):
     aspect_ratio = width / height
@@ -288,8 +316,11 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
     return {'traits': traits, 'power': power, 'skill': skill_text}
 
 def main():
-    print("Starting... Select the game window.")
-    time.sleep(2)
+    global window_selected
+    if not window_selected:
+        print("Starting... Select the game window.")
+        time.sleep(2)
+        window_selected = True
     print("Rolling the characters...")
 
     # Get game window and its initial position
@@ -325,7 +356,7 @@ def main():
 
         # Stop if the lowest power character exceeds the threshold
         if weakest_power > POWER_THRESHOLD:
-            debug_message(f"Stopping early as all characters have power above {POWER_THRESHOLD}.")
+            print(f"Stopping early as all characters have power above {POWER_THRESHOLD}.")
             break
 
         # Move to the position of the weakest character
@@ -373,11 +404,18 @@ def main():
     print("Final survivors:")
     for idx, survivor in enumerate(survivors, 1):
         print(f"S{idx}: Power='{survivor.get('power', 0)}', Skill={survivor.get('skill', '')}, Traits={survivor.get('traits', [])}")
-    
-    # Pause if DEBUG is True to keep console open
-    if DEBUG:
-        input("\n[DEBUG] Press Enter to exit...")
-    else:
-        time.sleep(2)
+
+# Main script
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
+        print("\nPress a key (1-9) to run the script again for that number of minutes, or '0' to exit.")
+        while not restart_flag:
+            time.sleep(1)
+        if new_duration == 0:
+            print("Exiting the program.")
+            break
+        config["RUN_DURATION"] = new_duration
+        restart_flag = False
+        new_duration = 0
+        continue
