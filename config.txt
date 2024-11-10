@@ -2,7 +2,7 @@
 # Set each parameter to customize the mod behavior
 
 # RUN_DURATION: Total duration in minutes for the script to run (default: 2)
-RUN_DURATION = 1
+RUN_DURATION = 2
 
 # PREFERRED_SKILLS: List of preferred skills to increase the probability of selection
 # Skills should be separated by commas. Example: empty, lichenology, hygiene, computers

@@ -33,7 +33,7 @@ The mod works best without any preferred skills, as it then focuses solely on tr
 
 - **so2_autoroll.exe** - Main executable.
 - **config.txt** - Configuration file for custom settings.
-- **README.md** - This instruction file.
+- **README.txt** - This instruction file.
 
 ### Configuring **config.txt**
 

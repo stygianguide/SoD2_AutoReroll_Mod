@@ -9,7 +9,7 @@ pyinstaller --onefile --icon=app_icon.ico --add-data "tesseract;./tesseract" --a
 
 REM Copy config.txt and Traits_Power_Scores.csv to the dist folder
 copy config.txt dist\config.txt
-copy README.md dist\README.md
+copy README.txt dist\README.txt
 
 REM Change to the dist directory
 cd dist
