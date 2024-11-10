@@ -115,11 +115,15 @@ def set_duration(key):
     restart_flag = True
     print(f"\nDuration set to {new_duration // 60} minutes.")
 
+# Variable de control global para cancelar el proceso
+cancel_process_flag = False
+
 def cancel_process():
-    global restart_flag, new_duration
+    global cancel_process_flag, restart_flag, new_duration
     new_duration = 0
     restart_flag = True
-    print("\nProcess canceled.")
+    cancel_process_flag = True
+    print("[INFO] Process cancel has been requested.")
 
 # Bind keys 1 to 9 to set the duration in minutes
 for i in range(1, 10):
@@ -376,8 +380,15 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 
     return result
 
+def move_cursor_below_traits_square(left, top, trait_position, trait_width, trait_height):
+    """Move the cursor to 20 pixels below the center of the traits square."""
+    x, y = trait_position
+    center_x = left + x + trait_width // 2
+    center_y = top + y + trait_height + 20  # Move 20 pixels below the traits square
+    pyautogui.moveTo(center_x, center_y)
+
 def main():
-    global window_selected
+    global window_selected, cancel_process_flag
     if not window_selected:
         print("Starting... Select the game window.")
         time.sleep(2)
@@ -396,9 +407,9 @@ def main():
         debug_image_with_boxes(screenshot, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, f"debug_game_window_capture_{width}x{height}")
 
 
-    # Start initially at the first survivor
+    # Start initially at the first survivor by moving the cursor to the traits square
     current_position = 0
-    pyautogui.press("right")
+    move_cursor_below_traits_square(left, top, trait_positions[current_position], trait_width, trait_height)
     
     # Initialize data for all three characters
     survivors = [analyze_character(left, top, i, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config) for i in range(3)]
@@ -406,6 +417,11 @@ def main():
 
     start_time = time.time()
     while time.time() - start_time < RUN_DURATION:
+    # Check if the process has been cancelled
+        if cancel_process_flag:
+            print("[INFO] Process cancelled by user.")
+            break
+    
     # Check if the game window is still active
         if not game_window.isActive:
             print("[ERROR] The game window is no longer active. Exiting script.")
@@ -420,18 +436,9 @@ def main():
             print(f"Stopping early as all characters have power above {POWER_THRESHOLD}.")
             break
 
-        # Move to the position of the weakest character
-        moves_needed = weakest_index - current_position
-        if moves_needed != 0:
-            reroll_history = []  # Clear reroll history when changing slots
-            if moves_needed > 0:
-                for _ in range(moves_needed):
-                    pyautogui.press("right")
-                current_position = weakest_index
-            elif moves_needed < 0:
-                for _ in range(-moves_needed):
-                    pyautogui.press("left")
-                current_position = weakest_index
+        # Move to the position of the weakest character by moving the cursor to the traits square
+        move_cursor_below_traits_square(left, top, trait_positions[weakest_index], trait_width, trait_height)
+        current_position = weakest_index
 
         # Perform reroll and save character to history for final evaluation
         reroll()
@@ -470,7 +477,8 @@ def main():
 if __name__ == "__main__":
     while True:
         main()
-        print("\nPress a key (1-9) to run the script again for that number of minutes, or '0' to exit.")
+        if not cancel_process_flag:
+            print("\nPress a key (1-9) to run the script again for that number of minutes, or '0' to exit.")
         while not restart_flag:
             time.sleep(1)
         if new_duration == 0:
