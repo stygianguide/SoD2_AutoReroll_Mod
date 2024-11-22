@@ -10,6 +10,7 @@ This mod automates the reroll process in **State of Decay 2** to help you find p
    - Unzip all files from the mod ZIP package and place them together in one folder.
 
 2. **Set Up the Game**:
+   - Make sure that the game is set to English.
    - Switch to **windowed mode** and set the resolution to a 4:3 or 16:9 aspect ratio.
 
 3. **Run the Mod**:

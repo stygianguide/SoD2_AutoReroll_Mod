@@ -14,12 +14,12 @@ copy README.txt dist\README.txt
 REM Change to the dist directory
 cd dist
 
-REM Compress all files in the dist directory into mod.zip
-powershell Compress-Archive -Path * -DestinationPath mod.zip
+REM Compress all files in the dist directory into SoD2_AutoReroll_Mod.zip
+powershell Compress-Archive -Path * -DestinationPath SoD2_AutoReroll_Mod.zip
 
 REM Delete all files in the dist directory except mod.zip
 for %%f in (*) do (
-    if not "%%f" == "mod.zip" del "%%f"
+    if not "%%f" == "SoD2_AutoReroll_Mod.zip" del "%%f"
 )
 
 REM Change back to the original directory

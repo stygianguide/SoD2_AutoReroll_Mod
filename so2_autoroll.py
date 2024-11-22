@@ -42,7 +42,7 @@ SKILLS_LIST = [
 
 class Config:
     def __init__(self):
-        self.RUN_DURATION = 2
+        self.RUN_DURATION = 2*60 # Default duration is 2 minutes
         self.REROLL_WAIT_TIME = 0.01
         self.SIMILARITY_THRESHOLD = 0.8
         self.POWER_THRESHOLD = 25
@@ -76,7 +76,9 @@ def load_config():
                             # Filter based on SKILLS_LIST and replace "empty" with ""
                             filtered_skills = ["" if skill == "empty" else skill for skill in skills if skill in SKILLS_LIST or skill == "empty"]
                             setattr(config, key, filtered_skills)
-                        elif key in ["RUN_DURATION", "POWER_THRESHOLD"]:
+                        elif key =="RUN_DURATION":
+                         setattr(config, key, (int(value) *60 ))
+                        elif key ==  "POWER_THRESHOLD":
                             setattr(config, key, int(value))
                         elif key == "REROLL_WAIT_TIME" or key == "SIMILARITY_THRESHOLD":
                             setattr(config, key, float(value))
@@ -92,7 +94,6 @@ def load_config():
 config = load_config()
 
 # Use config values in the script
-RUN_DURATION = config.RUN_DURATION * 60  # Convert RUN_DURATION from minutes to seconds
 REROLL_WAIT_TIME = config.REROLL_WAIT_TIME
 SIMILARITY_THRESHOLD = config.SIMILARITY_THRESHOLD
 POWER_THRESHOLD = config.POWER_THRESHOLD
@@ -416,7 +417,7 @@ def main():
     reroll_history = []  # Store the last characters generated in the active slot
 
     start_time = time.time()
-    while time.time() - start_time < RUN_DURATION:
+    while time.time() - start_time < config.RUN_DURATION:
     # Check if the process has been cancelled
         if cancel_process_flag:
             print("[INFO] Process cancelled by user.")
@@ -449,7 +450,7 @@ def main():
 
         # Explicitly block rerolls in the last second
         time_elapsed = time.time() - start_time
-        if time_elapsed >= RUN_DURATION - 1:
+        if time_elapsed >= config.RUN_DURATION - 1:
             debug_message(f"-- Near End Explicit Lock: Evaluating Best Character from Last 2 Rerolls in Slot {weakest_index + 1}. No more rerolls will be done. --")
             # Use "r" up to two times to go back to the best character in reroll history (limit to 2 characters)
             if reroll_history:
