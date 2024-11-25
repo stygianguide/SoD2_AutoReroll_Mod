@@ -4,20 +4,21 @@
 # RUN_DURATION: Total duration in minutes for the script to run (default: 2)
 RUN_DURATION = 2
 
+# POWER_THRESHOLD: Minimum power value to stop rerolling early (default: 25)
+POWER_THRESHOLD = 25
+
 # PREFERRED_SKILLS: List of preferred skills to increase the probability of selection
 # Skills should be separated by commas. Example: empty, lichenology, hygiene, computers
 # Use the special word empty if you prefer characters without skill
-PREFERRED_SKILLS = 
+PREFERRED_SKILLS =
 
-# POWER_THRESHOLD: Minimum power value to stop rerolling early (default: 25)
-POWER_THRESHOLD = 25
+# SKILL_POWER: Additional power value for having a preferred skill
+# Increasing this value will prioritize characters with the preferred skill, even if they have bad traits
+# If SKILL_POWER is zero, it will be set to half of POWER_THRESHOLD
+SKILL_POWER = 0
 
 # DEBUG: Set to true to enable debug mode for additional logging (default: False)
 DEBUG = false
 
-# REROLL_WAIT_TIME: Wait time in seconds between rerolls (default: 0.01 seconds)
+# REROLL_WAIT_TIME: Wait time in seconds between rerolls (default: 0.01 seconds. Increase for slow computers)
 REROLL_WAIT_TIME = 0.01
-
-# SIMILARITY_THRESHOLD: Threshold for approximate trait matching from OCR, from 0 to 1 (default: 0.8)
-# Higher values mean stricter matching.
-SIMILARITY_THRESHOLD = 0.80

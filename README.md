@@ -26,7 +26,7 @@ This mod automates the reroll process in **State of Decay 2** to help you find p
 
 ## Details and Advanced Configuration
 
-The mod prioritizes survivors based on the **relative power of their traits**, calculated from each trait's base benefits and hero bonuses. If you set **preferred skills** in **config.txt**, the mod will try to prioritize those skills, though it cannot guarantee specific skills will appear. For rare skills like **lichenology**, it may need to run up to 15 minutes to find them due to their rarity.
+The mod prioritizes survivors based on the **relative power of their traits**, calculated from each trait's base benefits and hero bonuses. If you set **preferred skills** in **config.txt**, the mod will try to prioritize those skills, though it cannot guarantee specific skills will appear. You can configure the preference for the skill by configuring the SKILL_POWER on config.txt. For rare skills like **lichenology**, it may need to run up to 15 minutes to find them due to their rarity.
 
 The mod works best without any preferred skills, as it then focuses solely on traits, maximizing the overall power of selected survivors. In about 10 minutes, the mod can often find characters with highly favorable traits.
 
@@ -48,9 +48,9 @@ Example **config.txt**:
 
 ```plaintext
 RUN_DURATION = 5
-REROLL_WAIT_TIME = 0.05
-SIMILARITY_THRESHOLD = 0.85
-POWER_THRESHOLD = 50
+REROLL_WAIT_TIME = 0.01
+POWER_THRESHOLD = 30
+SKILL_POWER = 10
 DEBUG = true
 PREFERRED_SKILLS = lichenology, hygiene, computers, empty
 ```

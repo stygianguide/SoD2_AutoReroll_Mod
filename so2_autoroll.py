@@ -46,10 +46,10 @@ class Config:
         self.REROLL_WAIT_TIME = 0.01
         self.SIMILARITY_THRESHOLD = 0.8
         self.POWER_THRESHOLD = 25
+        self.SKILL_POWER = 13
         self.DEBUG = False
         self.DEBUG_OCR = False
         self.PREFERRED_SKILLS = []
-        self.SKILL_POWER = 0
 
     def __str__(self):
         return str(self.__dict__)
@@ -78,7 +78,7 @@ def load_config():
                             setattr(config, key, filtered_skills)
                         elif key =="RUN_DURATION":
                          setattr(config, key, (int(value) *60 ))
-                        elif key ==  "POWER_THRESHOLD":
+                        elif key in ["POWER_THRESHOLD", "SKILL_POWER"]:
                             setattr(config, key, int(value))
                         elif key == "REROLL_WAIT_TIME" or key == "SIMILARITY_THRESHOLD":
                             setattr(config, key, float(value))
@@ -87,7 +87,8 @@ def load_config():
 
     if config.DEBUG:
         print(f"Loaded configuration: {config}")
-
+        if not config.PREFERRED_SKILLS:
+            print(f"Skipping skill analysis as there are no preferred skills")
     return config
 
 # Load configuration at the start
@@ -103,7 +104,15 @@ PREFERRED_SKILLS = config.PREFERRED_SKILLS
 
 # Game window title
 GAME_WINDOW_TITLE = "StateOfDecay2 "
-SKILL_POWER = config.POWER_THRESHOLD / 2  # Additional power value for having a preferred skill
+
+# Additional power value for having a preferred skill
+if config.SKILL_POWER:
+    SKILL_POWER = config.SKILL_POWER # Use the configured value if set and not zero
+elif config.POWER_THRESHOLD % 2 != 0:
+    SKILL_POWER = (config.POWER_THRESHOLD + 1) // 2  # Rounded up if odd
+else:
+    SKILL_POWER = config.POWER_THRESHOLD // 2  # Divide by 2 if even
+
 
 # Flag and variable for duration
 restart_flag = False
@@ -346,11 +355,8 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 
         # Capture image for skills only if there are preferred skills
         if config.PREFERRED_SKILLS:
-            debug_message(f"Preferred skills: {config.PREFERRED_SKILLS}")
             skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
             futures.append(executor.submit(analyze_skills, skill_image, config))
-        else:
-            debug_message("Skipping skill analysis as there are no preferred skills")
 
         results = [future.result() for future in futures]
 
@@ -363,8 +369,8 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 
     # Add SKILL_POWER if the skill is in PREFERRED_SKILLS
     if  skill_text in config.PREFERRED_SKILLS:
-        power += config.SKILL_POWER
-        debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER.")
+        power += SKILL_POWER
+        debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER: {SKILL_POWER}.")
 
     # Create the result dictionary
     result = {
