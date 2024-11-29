@@ -5,7 +5,7 @@ rmdir /s /q dist
 del /q *.spec
 
 REM Run PyInstaller to create the executable
-pyinstaller --onefile --icon=app_icon.ico --add-data "tesseract;./tesseract" --add-data "Traits_Power_Scores.csv;." --console so2_autoroll.py
+pyinstaller --onefile --icon=app_icon.ico --add-data "tesseract;./tesseract" --add-data "Traits_Power_Scores.csv;."  --version-file=version.txt --console so2_autoroll.py
 
 REM Copy config.txt and Traits_Power_Scores.csv to the dist folder
 copy config.txt dist\config.txt
