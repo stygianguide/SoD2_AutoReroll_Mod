@@ -14,8 +14,7 @@ PREFERRED_SKILLS =
 
 # SKILL_POWER: Additional power value for having a preferred skill
 # Increasing this value will prioritize characters with the preferred skill, even if they have bad traits
-# If SKILL_POWER is zero, it will be set to half of POWER_THRESHOLD
-SKILL_POWER = 0
+SKILL_POWER = 10
 
 # DEBUG: Set to true to enable debug mode for additional logging (default: False)
 DEBUG = false

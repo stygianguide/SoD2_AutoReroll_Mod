@@ -46,7 +46,7 @@ class Config:
         self.REROLL_WAIT_TIME = 0.01
         self.SIMILARITY_THRESHOLD = 0.8
         self.POWER_THRESHOLD = 25
-        self.SKILL_POWER = 13
+        self.SKILL_POWER = 10
         self.DEBUG = False
         self.DEBUG_OCR = False
         self.PREFERRED_SKILLS = []
@@ -107,12 +107,7 @@ GAME_WINDOW_TITLE = "StateOfDecay2 "
 
 # Additional power value for having a preferred skill
 if config.SKILL_POWER:
-    SKILL_POWER = config.SKILL_POWER # Use the configured value if set and not zero
-elif config.POWER_THRESHOLD % 2 != 0:
-    SKILL_POWER = (config.POWER_THRESHOLD + 1) // 2  # Rounded up if odd
-else:
-    SKILL_POWER = config.POWER_THRESHOLD // 2  # Divide by 2 if even
-
+    SKILL_POWER = config.SKILL_POWER
 
 # Flag and variable for duration
 restart_flag = False
@@ -367,11 +362,6 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
         skill_text = ""
         traits, power = results[0]
 
-    # Add SKILL_POWER if the skill is in PREFERRED_SKILLS
-    if  skill_text in config.PREFERRED_SKILLS:
-        power += SKILL_POWER
-        debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER: {SKILL_POWER}.")
-
     # Create the result dictionary
     result = {
         "power": power,
@@ -380,7 +370,10 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 
     if config.PREFERRED_SKILLS:
         result["skill"] = skill_text
-
+            # Add SKILL_POWER if the skill is in PREFERRED_SKILLS
+        if  skill_text in config.PREFERRED_SKILLS:
+            result["skill_power"] = SKILL_POWER
+            debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER: {SKILL_POWER}.")
 
     # Debug log for the analyzed character
     debug_message(f"S{index + 1}: {result}")
@@ -434,9 +427,26 @@ def main():
             print("[ERROR] The game window is no longer active. Exiting script.")
             sys.exit(1)
 
-        # Identify the character with the lowest power and reroll them
-        weakest_index = min(range(3), key=lambda x: survivors[x].get('power', float('inf')))
-        weakest_power = survivors[weakest_index]['power']
+        # Determine the weakest character
+        temp_powers = []
+        for i, survivor in enumerate(survivors):
+            power = survivor['power']
+            temp_powers.append(power)
+
+        # Add SKILL_POWER to the strongest character with a preferred skill
+        if config.PREFERRED_SKILLS:
+            for skill in config.PREFERRED_SKILLS:
+                characters_with_skill = [s for s in survivors if s.get('skill') == skill]
+                if characters_with_skill:
+                    strongest_with_skill = max(characters_with_skill, key=lambda s: s['power'])
+                    index_of_strongest = survivors.index(strongest_with_skill)
+                    temp_powers[index_of_strongest] += SKILL_POWER
+                    debug_message(
+                        f"Adding SKILL_POWER to the strongest survivor with preferred skill '{skill}': "
+                        f"Survivor {index_of_strongest + 1}, new temp power: {temp_powers[index_of_strongest]}."
+                    )
+        weakest_index = min(range(3), key=lambda x: temp_powers[x])
+        weakest_power = temp_powers[weakest_index]
 
         # Stop if the lowest power character exceeds the threshold
         if weakest_power > POWER_THRESHOLD:
