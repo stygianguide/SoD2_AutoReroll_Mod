@@ -1,0 +1,2686 @@
+Name,Positive Effect(s),Negative Effect(s),Provided Hero Bonus,Power Score [default]
+A Little Forgetful,,,"Breaks the Tension
+(+3 Morale)",0
+A Little Sadistic,,Keep their morale at 30+ to avoid conflicts,"Hard Choices
+(+3 Morale)",0
+Absent-Minded,,"-66% Medicine Experience Rate 
+-66% Chemistry Experience Rate 
+Sometimes wastes materials 
+-66% Wits Experience Rate",None,0
+Accountant,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Action Choreographer,,,"Combat Exercises
+(+50% Fighting XP Rate)",0
+Action Movie Extra,,,"Notices Things
+(+25% Standing Rewards)",0
+Action Videographer,,,"Good Entertainment
+(+4 Morale)",0
+Active Duty Military A,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Active Duty Military B,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Admin Assistant,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Adrenaline Junkie,,Sometimes wastes medicine,"Taking Risks
+(+5 Max Health)",20
+Advertiser,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Aeronautics Engineer,+100% Mechanics Experience Rate,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Afraid of Everything,,Often the target when conflicts occur,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Afraid of Rats,,,"Pest Control
+(+15 Max Food Storage)",0
+Agriculture Professor,Morale bonus from having a Garden,,,2
+Air Marshal,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Air Traffic Control,,,"Frequent Check-ins
+(-15% Radio Cooldowns)",0
+Aircraft Mechanic,+100% Mechanics Experience Rate,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Airsoft Commando,,,"Outdoor Living
+(+2 Beds)",0
+All Out of Fucks,,Keep their morale at 30+ to avoid conflicts,"Hard Choices
+(+3 Morale)",0
+Always Cold,,-20 Max Stamina,"Siestas
+(-20% Fatigue Severity)",100
+Always Kept Moving,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Always Packed a Lunch,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Always Paid for Dinner,,,"Party Planning
+(+4 Morale)",0
+Always Ready to Move,,,,0
+Always Vigilant,,,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Always Wanted to Camp,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Amateur Acrobat,,,"Impressive Moves
+(+25% XP Rate)",0
+Amateur Boxer,,,,0
+Amateur Comic,,,"Breaks the Tension
+(+3 Morale)",0
+Amateur Hypnotist,,,"Breathing Exercise
+(+10 Max Stamina)",50
+Amateur Painter,,,"Exceptional Taste
+(+3 Morale)",0
+Amateur Pilot,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Ammo Hoarder,Morale bonus from an upgraded Storage,,"Ready Access Mags
+(+15 Max Ammo Storage)",2
+Ammo Hobbyist,,Sometimes wastes ammo,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Anarchist,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Hard Choices
+(+3 Morale)",0
+Angler,,,"Outdoor Living
+(+2 Beds)",0
+Angsty,,Can become frustrated at only -20 morale,"Journal Writing
+(+25% XP Rate)",0
+Animal Control,,,"Pest Control
+(+15 Max Food Storage)",0
+Animal Lover,,,"Outdoor Living
+(+2 Beds)",0
+Antiques Buyer A,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Antiques Buyer B,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Anxious All the Time,,-5 Morale,"Target of Sympathy
+(+3 Morale)",0
+Apprentice Plumber,,,,0
+Architect,Morale bonus from the Staging Area,,,2
+Army Brat,,,"Personal Strength
+(+5 Max Stamina)",25
+Army Engineer,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Army Grunt,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Army Motor Pool,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Army Veteran,,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Arthritis,,-75% Cardio Experience Rate,"Target of Sympathy
+(+3 Morale)",0
+Ascetic,-50% Food Consumed Per Day,,"Responsibility
+(+1 Labor)",0
+Aspiring Vigilante,Morale bonus from Shooting training facilities,Keep their morale at 10+ to avoid conflicts,"Maintains Firearms
+(-10% Durability Loss Per Shot (Guns))",2
+Assembly-Line Worker,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Assistant Principal,,,"Silence Policy
+(-2 Noise)",0
+Asthma,Morale bonus from an upgraded Infirmary,"-20 Max Stamina 
+-66% Cardio Experience Rate","Target of Sympathy
+(+3 Morale)",102
+Astronomer,,,"Seminars
+(+50% XP Rate)",0
+Astronomy Professor,Morale bonus from an upgraded Workshop,,"Notices Things
+(+25% Standing Rewards)",2
+At Home in a Bar,Morale bonus from Stills and Bars,,"Social Chameleon
+(+3 Morale)",2
+Attended Trade School A,Morale bonus from an upgraded Workshop,,"Stacking System
+(+15 Max Materials Storage)",2
+Attended Trade School B,Morale bonus from the Auto Shop,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Attended Trade School C,Morale bonus from an upgraded Workshop,,"Effective Sealants
+(+15 Max Fuel Storage)",2
+Attending Physician,,,"Medical Reference
+(+1 Meds Per Day)",2
+Audio Engineer,+10m Enemy Detection Range,,"Silence Policy
+(-2 Noise)",0
+Audiophile,,+1 Noise,"Party Planning
+(+4 Morale)",0
+Auditor,,,"Notices Things
+(+25% Standing Rewards)",0
+Authoritarian,+50% Standing Rewards,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Tough Negotiation
+(+30% Influence Gained)",1
+Auto Body Technician,Morale bonus from the Auto Shop,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Auto Detailer,Morale bonus from the Auto Shop,,"Cleaning Chart
+(+50 Infection Resistance)",352
+Automated Systems Tech,,,"Consistent Routine
+(+1 Labor)",0
+Automechanic,Morale bonus for the Auto Shop,,"Detailed Checklist
+(+33% Facility Action Speed)",2
+Automotive Technician,Morale bonus from the Auto Shop,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Autopsy Technician,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+AV Technician,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Avid Game Player,Morale bonus from an upgraded Lounge,,,2
+Avid Hunter,Morale bonus from outdoor bed facilities,,"Maintains Firearms
+(-10% Durability Loss Per Shot (Guns))",2
+Avionics Technician,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Avoids First Name,,,None,0
+Awful Fashion Sense,,Often the target when conflicts occur,"Mending
+(+5 Max Health)",20
+Back Pain,,"-10 Max Carrying Capacity 
+-5 Light Carrying Capacity 
+-20 Max Health",None,80
+Backpacker,Morale bonus from outdoor bed facilities,,"Pack Maintenance
+(+10 Max Carrying Capacity)",2
+Backwoods Upbringing,,,"Pest Control
+(+15 Max Food Storage)",0
+Bad Back A,Morale bonus from an upgraded Infirmary,-15 Max Carrying Capacity,"Medical Inventory
+(+15 Max Meds Storage)",2
+Bad Back B,,"-20 Max Health 
+-30 Max Stamina","Medical Inventory
+(+15 Max Meds Storage)",230
+Bad Carpenter,,"Sometimes wastes materials 
+-66% Craftsmanship Experience Rate",None,0
+Bad Leg,,,None,0
+Bad Shot,,"Sometimes wastes ammo 
+-66% Shooting Experience Rate",None,0
+Bad Shoulder,Morale bonus from an upgraded Infirmary,"-5 Max Carrying Capacity 
+-75% Fighting Experience Rate",None,2
+Baggage Handler,,,"Pack Maintenance
+(+10 Max Carrying Capacity)",0
+Bagpiper,+10 Max Stamina,-5 Morale (Community),"Breathing Exercise
+(+10 Max Stamina)",105
+Baker,+3 Morale (Community),,"Sealed Containers
+(+15 Max Food Storage)",3
+Ballet Dancer,Morale bonus from having a Lounge,,"Consistent Routine
+(+1 Labor)",2
+Ballroom Dancer,Morale bonus from having a Lounge,,"Party Planning
+(+4 Morale)",2
+Band Geek,,,"Breathing Exercise
+(+10 Max Stamina)",50
+Barber,,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",0
+Barista,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Bartender,Morale bonus from Stills and Bars,,"Party Planning
+(+4 Morale)",2
+BASE Jumper,,,"Taking Risks
+(+5 Max Health)",20
+Baseball Fan A,Morale bonus from facilities with a Projector,,"Intramural Sports
+(+10 Max Stamina)",52
+Baseball Fan B,Morale bonus from facilities with a Projector,,"Intramural Sports
+(+10 Max Stamina)",52
+Basement Dweller,Morale bonus from luxury bed facilities,-33% Standing Rewards,"Gives People Space
+(+3 Morale)",2
+Basket Weaver,,,"Mending
+(+5 Max Health)",20
+Basketball Fan A,Morale bonus from facilities with a Projector,,"Intramural Sports
+(+10 Max Stamina)",52
+Basketball Fan B,,,"Intramural Sports
+(+10 Max Stamina)",50
+BBQ Master,,,"Nose to Tail
+(+1 Food Per Day)",0
+Bead Crafter,,,"Pack Maintenance
+(+10 Max Carrying Capacity)",0
+Beatboxer,+5 Max Stamina,,"Good Entertainment
+(+4 Morale)",25
+Beautician,,,"Sincere Praise
+(+25% Standing Rewards)",0
+Beekeeper,+30 Max Health,,"Nose to Tail
+(+1 Food Per Day)",120
+Beer Lover A,Morale bonus from Stills and Bars,,"Party Planning
+(+4 Morale)",2
+Beer Lover B,Morale bonus from Stills and Bars,,"Party Planning
+(+4 Morale)",2
+Behavior Analyst,,,"Formal Recognition
+(+50% Standing Rewards)",1
+Believes in People,,,"Sincere Praise
+(+25% Standing Rewards)",0
+Belligerent,,"Keep their morale at 30+ to avoid conflicts 
+-3 Morale (Community) 
+Can become frustrated at only -20 morale","Tough Negotiation
+(+30% Influence Gained)",3
+Biathlete,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Bike Courier,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Biochemist,,,,0
+Biotech Scientist,,,"Medical Reference
+(+1 Meds Per Day)",2
+Birdwatcher,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Blacksmith,Morale bonus from the Forge,,"Personal Strength
+(+5 Max Stamina)",27
+Blade Collector,,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",0
+Bleak Outlook,,-7 Morale,"Target of Sympathy
+(+3 Morale)",0
+Blew Stuff Up,,Sometimes wastes ammo,"Taking Risks
+(+5 Max Health)",20
+Blogger,,,"Journal Writing
+(+25% XP Rate)",0
+Blood Plague Survivor,-100% Plague Infection,,"Back from the Edge
+(+15 Max Health)",53
+BMX Competitor,,,"Impressive Moves
+(+25% XP Rate)",0
+Bodyguard A,,,None,0
+Bodyguard B,,,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Bold Driver A,,Sometimes wastes fuel,"Driver Training
+(+25% Fuel Efficiency)",0
+Bold Driver B,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Booze Nerd,Morale bonus from Stills and Bars,,"Party Planning
+(+4 Morale)",2
+Botanist,Morale bonus from having a Garden,,"Nose to Tail
+(+1 Food Per Day)",2
+Both Knees Replaced,Morale bonus from an upgraded Infirmary,-66% Cardio Experience Rate,"Target of Sympathy
+(+3 Morale)",2
+Bouncer,,,"Personal Strength
+(+5 Max Stamina)",25
+Bounty Hunter A,,,"Hard Determination
+(+10 Max Health)",40
+Bounty Hunter B,,,,0
+Boxing Coach,Morale bonus from Fighting training facilities,,"Combat Exercises
+(+50% Fighting XP Rate)",2
+Braggart,+50% Standing Rewards,"-3 Morale (Community) 
+Often the target when conflicts occur","Tough Negotiation
+(+30% Influence Gained)",4
+Brave,,,"Taking Risks
+(+5 Max Health)",20
+Breaking Champion,,,,0
+Brittle,,"Can become frustrated at only -20 morale 
+-30 Max Health","Tough Negotiation
+(+30% Influence Gained)",120
+Broad-Shouldered,+15 Max Carrying Capacity,,"Personal Strength
+(+5 Max Stamina)",25
+Bronto Gas Attendant,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Bronto Gas Cashier,,,"Consistent Routine
+(+1 Labor)",0
+Brush Clearer A,Morale bonus from Outdoor Bed facilities,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",2
+Brush Clearer B,Morale bonus from Outdoor Bed facilities,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",2
+Building a Gyrocopter,Morale bonus from an upgraded Workshop,,,2
+Building Super,Morale bonus from an upgraded Workshop,,"Quiet Time
+(-1 Noise)",2
+Built a PC,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Built a Treehouse,,,,0
+Built Barricades,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Built Battle Robots,Morale bonus from an upgraded Workshop,,"Good Entertainment
+(+4 Morale)",2
+Built the Worst Deck,,"Sometimes wastes materials 
+-33% Craftsmanship Experience Rate",None,0
+Burglar,,,"Silence Policy
+(-2 Noise)",0
+Burly,,Keep their morale at 10+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",0
+Burned House Down,,-66% Chemistry Experience Rate,"Back from the Edge
+(+15 Max Health)",60
+Burned It All Down,,Sometimes wastes fuel,"Hard Choices
+(+3 Morale)",0
+Bus Driver,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Busybody,,Often the target when conflicts occur,"Friendly Reminders
+(+1 Labor)",0
+Butcher,,,"Nose to Tail
+(+1 Food Per Day)",0
+Cab Driver,,,,0
+Cabinetmaker,Morale bonus from an upgraded Workshop,,"Careful Demolition
+(+1 Materials Per Day)",2
+Cable Installer,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Cafeteria Manager,,,,0
+Cake Decorator,,,"Party Planning
+(+4 Morale)",0
+Camp Counselor,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Camp Physician,,,"Medical Reference
+(+1 Meds Per Day)",2
+Campaign Manager,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Campfire Cook,Morale bonus from outdoor bed facilities,,"Nose to Tail
+(+1 Food Per Day)",2
+Can Sleep Anywhere,-1 Beds Used,,"Outdoor Living
+(+2 Beds)",0
+Can Take a Punch,-40% Injury Severity,,"Personal Strength
+(+5 Max Stamina)",25
+Can't Sleep Alone,-1 Beds Used,"-3 Morale (Community) 
+Often the target when conflicts occur","Backrubs
+(+5 Max Carrying Capacity)",3
+Cancer Survivor,+4 Morale,,"Back from the Edge
+(+15 Max Health)",60
+Candlestick Maker,Morale bonus from the Forge,,,2
+Canvasser,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Car Hobbyist,Morale bonus from the Auto Shop,,"Vehicle Delivery
+(Unlocks Vehicle Delivery)",2
+Car Thief,,,"Vehicle Delivery
+(Unlocks Vehicle Delivery)",0
+Caravan Driver,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Caravan Mechanic,Morale bonus from an upgraded Workshop,,"Siphoning System
+(+1 Fuel Per Day)",2
+Career Coach,,,"Seminars
+(+50% XP Rate)",0
+Caring,+3 Morale (Community),,"Words of Comfort
+(Unlocks Encouragement)",3
+Carny,Morale bonus from outdoor bed facilities,-10% Standing Rewards,"Friendly Outreach
+(+15% Influence Gained)",2
+Carpenter,,,"Stacking System
+(+15 Max Materials Storage)",0
+Carries Hand Sanitizer,+50 Infection Resistance,,"Hygiene Standards
+(+100 Infection Resistance)",1050
+Cartographer,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Case Modder,,,,0
+Cashier,,,"Consistent Routine
+(+1 Labor)",0
+Cat Burglar,,,"Lights Out
+(+15 Max Stamina)",75
+Cat Lover,,,"Backrubs
+(+5 Max Carrying Capacity)",0
+Cat Person,,,"Siestas
+(-20% Fatigue Severity)",0
+Cautious,,,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+CEO,+50% Standing Rewards,,"Tough Negotiation
+(+30% Influence Gained)",1
+CFO,,-25% Standing Rewards,"Tough Negotiation
+(+30% Influence Gained)",0
+Chainsaw Sculptor,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Changed Jobs a Lot,,,"Chillness
+(+3 Morale)",0
+Charity Worker,,,"Responsibility
+(+1 Labor)",0
+Cheerful,+4 Morale,,"Positive Outlook
+(+25% XP Rate)",0
+Chef,Morale bonus from an upgraded Kitchen,,,2
+Chemical Engineer A,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Chemical Engineer B,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Chemist,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Chemistry Professor,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Child Care Worker,,,"Siestas
+(-20% Fatigue Severity)",0
+Child of Celebrities,,-25% Standing Rewards,"Friendly Outreach
+(+15% Influence Gained)",0
+Childhood Gymnast A,,,,0
+Childhood Gymnast B,,,"Morning Yoga
+(-25% Injury Severity)",0
+Chiropractor,,-66% Medicine Experience Rate,"Personal Strength
+(+5 Max Stamina)",25
+Choral Director,+50% Standing Rewards,,"Friendly Reminders
+(+1 Labor)",1
+Churrascaria Server,,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",0
+Cigar Enthusiast,,-10 Max Stamina,"Exceptional Taste
+(+3 Morale)",50
+City Council Member,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Cleaned Offices,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Clever,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Climber A,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Climber B,,,"Taking Risks
+(+5 Max Health)",20
+Closed-Minded,,"Keep their morale at 10+ to avoid conflicts 
+-75% Wits Experience Rate",None,0
+Clumsy,,"-66% Chemistry Experience Rate 
+Sometimes wastes materials 
+-66% Fighting Experience Rate",None,0
+Code Ninja,,,"Analytical Methods
+(+50% XP Rate)",0
+Coffee Connoisseur,,Can become frustrated at only -20 morale,"Exceptional Taste
+(+3 Morale)",0
+College Fencer,,,"Fighting Tips
+(+25% Fighting XP Rate)",0
+College Freshman,,,"Seminars
+(+50% XP Rate)",0
+College Professor,,,"Seminars
+(+50% XP Rate)",0
+Combat Engineer,,,"Taking Risks
+(+5 Max Health)",20
+Combat Medic,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Comic Book Dealer,Morale bonus from an upgraded Lounge,,"Storytelling
+(+4 Morale)",2
+Comic Collector,Morale bonus from an upgraded Lounge,,"Storytelling
+(+4 Morale)",2
+Community Manager,,,"Formal Recognition
+(+50% Standing Rewards)",1
+Competitive Eater,+30 Max Stamina,+100% Food Consumed Per Day,"Nose to Tail
+(+1 Food Per Day)",150
+Competitive Shooter A,Morale bonus from Shooting training facilities,,"Shooting Advice
+(+25% Shooting XP Rate)",2
+Competitive Shooter B,Morale bonus from Shooting training facilities,,"Firearms Training
+(+50% Shooting XP Rate)",2
+Competitive Sniper,,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Complainer,,"Keep their morale above 30+ to avoid conflicts 
+-5 Morale 
+Can become frustrated at only -20 morale","Friendly Reminders
+(+1 Labor)",0
+Comptroller,,,"Rotation System
+(+15 Max Food Storage)",0
+Compulsive Gardener,"Morale bonus from having a Garden 
++25% Gardening Experience Rate",,"Nose to Tail
+(+1 Food Per Day)",2
+Compulsive Upcycler,,Often the target when conflicts occur,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+"Computer ""Expert""",,-75% Computers Experience Rate,None,0
+Confectioner,Morale bonus from an upgraded Kitchen,,"Sealed Containers
+(+15 Max Food Storage)",2
+Confident,"+50% Standing Rewards 
++20 Max Health",,"Moral Support
+(Unlocks Encouragement)",81
+Conspiracy Theorist,,-33% Wits Experience Rate,"Storytelling
+(+4 Morale)",0
+Construction Manager,Morale bonus from having a Staging Area,,"Work Schedule
+(+2 Labor)",2
+Contractor,Morale bonus from the Staging Area,,,2
+Convention Volunteer,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Cookie Shop Employee,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Cosplayer,,,"Mending
+(+5 Max Health)",20
+Couch Potato,Morale bonus from luxury bed facilities,"-66% Cardio Experience Rate 
+Often the target when conflicts occur 
+-1 Labor 
+-50% Standing Rewards","Siestas
+(-20% Fatigue Severity)",3
+Coupon Cutter,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Covered Wars,,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Crazy Metabolism,+45 Max Stamina,"Sometimes wastes food 
++100% Food Consumed Per Day","Setting the Pace
+(+33% Facility Action Speed)",225
+Criminal Leader,+75% Standing Rewards,Keep their morale at 30+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",2
+Crochet Artist,,,"Mending
+(+5 Max Health)",20
+Cross-Stitcher,,,"Mending
+(+5 Max Health)",20
+Crossbow Hunter,,,"Nose to Tail
+(+1 Food Per Day)",0
+Culinary Specialist,,,"Consistent Routine
+(+1 Labor)",0
+Cult Film Junkie,,,"Exceptional Taste
+(+3 Morale)",0
+Custodian,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Customer Service,,,"Mediation
+(+6 Morale)",0
+D-I-Y Remodeler,Morale bonus from an upgraded Workshop,,"Outdoor Living
+(+2 Beds)",2
+Dancer,Morale bonus from having a Lounge,,"Impressive Moves
+(+25% XP Rate)",2
+Daredevil,"-30% Injury Severity 
++30 Max Health",Sometimes wastes medicine,"Taking Risks
+(+5 Max Health)",140
+Dated Online,,,,0
+Day Laborer A,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Day Laborer B,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Day Trader,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Decathlete,Morale bonus from Fighting training facilities,,"Fitness Guru
+(+50% Cardio XP Rate)",2
+Decent Shot,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Decrepit,,"-75% Cardio Experience Rate 
+-75% Fighting Experience Rate 
+-45 Max Stamina","Target of Sympathy
+(+3 Morale)",225
+Deer Hunter,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Delivery Driver,,,"Frequent Check-ins
+(-15% Radio Cooldowns)",0
+Demolitionist A,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Demolitionist B,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Dental Hygienist,,,"Breaks the Tension
+(+3 Morale)",0
+Dense Bone Condition,-100% Injury Chance,,"Medical Reference
+(+1 Meds Per Day)",-4
+Dentist,,,"Medical Reference
+(+1 Meds Per Day)",2
+Dependable Friend,"Can handle -60 morale without frustration 
++50% Standing Rewards",,"Sounding Board
+(+50% Wits XP Rate)",1
+Designated Marksman,Morale Bonus from Shooting training facilities,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Determined,"+20 Max Health 
+Can handle -60 morale without frustration 
++20 Max Stamina",,"Hard Determination
+(+10 Max Health)",220
+Did Pool Maintenance,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Did Trampoline Stunts,,,"Impressive Moves
+(+25% XP Rate)",0
+Diesel Mechanic,Morale bonus from the Auto Shop,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Dieter,-25% Food Consumed Per Day,,,0
+Digestive Problems,Morale bonus from having a Latrine,"-7 Morale 
+-10 Max Health","Meal Plan
+(-25% Food Consumed Overall)",42
+Digital Artist,,,"Exceptional Taste
+(+3 Morale)",0
+Dirty Cop,,Keep their morale at 30+ to avoid conflicts,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Disorganized,,-3 Morale (Community),"Chillness
+(+3 Morale)",3
+Distrusts Outsiders,,Keep their morale at 10+ to avoid conflicts,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Diver,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Does Heavy Lifting,,,"Pack Maintenance
+(+10 Max Carrying Capacity)",0
+Does Tons of Squats,"Morale bonus from Fighting training facilities 
++10 Max Carrying Capacity",,"Morning Yoga
+(-25% Injury Severity)",2
+Does Yoga,Morale bonus from Fighting training facilities,,"Morning Yoga
+(-25% Injury Severity)",2
+Dog Person,,,"Chillness
+(+3 Morale)",0
+Dog Walker,,,"Consistent Routine
+(+1 Labor)",0
+Dolorous,,"Can become frustrated at only -20 morale 
+Often the target when conflicts occur 
+-3 Morale","Helpful Mockery
+(+5 Max Stamina)",25
+Doomed,,"Sometimes wastes medicine 
+-45 Max Health","Sufficient Caution
+(Unlocks Rooftop Recon)",180
+Drag Racer,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Dream Therapist,,,"Quiet Time
+(-1 Noise)",0
+Drill Sergeant,,,"Moral Support
+(Unlocks Encouragement)",0
+Drinks Cold Medicine,"Morale bonus from Stills and Bars 
++50 Infection Resistance",,"Medical Inventory
+(+15 Max Meds Storage)",352
+Drove a Crappy Car,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Drug Dealer,,,"Dosage Control
+(+25% Healing Item Efficacy)",0
+Drug-Resistant,,-50% Healing Item Efficacy,None,0
+Drummer,,,"Good Entertainment
+(+4 Morale)",0
+Early Riser,+10 Max Stamina,,"Morning Yoga
+(-25% Injury Severity)",50
+Easily Bored,,-66% Wits Experience Rate,"Chillness
+(+3 Morale)",0
+Easily Distracted,,-66% Wits Experience Rate,None,0
+Eats Like a Bird,-50% Food Consumed Per Day,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Electrical Engineer,,,,0
+Electrician,,,"Lights Out
+(+15 Max Stamina)",75
+Empathetic,Avoids getting into conflicts,,"Moral Support
+(Unlocks Encouragement)",0
+EMT,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Encouraging A,"Can handle -60 morale without frustration 
++3 Morale",,"Sincere Praise
+(+25% Standing Rewards)",0
+Encouraging B,,,"Words of Comfort
+(Unlocks Encouragement)",0
+Endurance Cyclist,Morale bonus from Fighting training facilities,,"Fitness Guru
+(+50% Cardio XP Rate)",2
+Energetic,+10 Max Stamina,,"Setting the Pace
+(+33% Facility Action Speed)",50
+Engineering Student,,,,0
+English Major,Morale bonus from an upgraded Lounge,,"Journal Writing
+(+25% XP Rate)",2
+Entourage Member,,,"Backrubs
+(+5 Max Carrying Capacity)",0
+Entrepreneur,+50% Standing Rewards,,"Tough Negotiation
+(+30% Influence Gained)",1
+Environmentalist A,+3 Morale,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Environmentalist B,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Epidemiologist,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Erratic,,"Often the target when conflicts occur 
+-33% Standing Rewards","Taking Risks
+(+5 Max Health)",20
+Erratic Driver,,"Sometimes wastes fuel 
+-25% Fuel Efficiency",None,0
+Ethnobotanist,,,"Seminars
+(+50% XP Rate)",0
+Ethnomusicologist,,,"Seminars
+(+50% XP Rate)",0
+Euthanized Animals,,,"Dosage Control
+(+25% Healing Item Efficacy)",0
+Excellent Game Master,+50% Standing Rewards,,"Good Entertainment
+(+4 Morale)",1
+Exiled,Can handle -60 morale without frustration,-50% Standing Rewards,"Gives People Space
+(+3 Morale)",1
+Exotic Dancer,Morale bonus from having a Lounge,,,2
+Expert Traveler,+10 Light Carrying Capacity,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Explosives Engineer,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Exterminator,,,"Pest Control
+(+15 Max Food Storage)",0
+Extremely Competitive,,Keep their morale at 10+ to avoid conflicts,"Setting the Pace
+(+33% Facility Action Speed)",0
+Extremely Loyal,,,"Hard Choices
+(+3 Morale)",0
+Exuberant,"-40% Fatigue Severity 
++20 Max Stamina",,"Positive Outlook
+(+25% XP Rate)",100
+Face Painter,,,"Party Planning
+(+4 Morale)",0
+Factory Manager,"Morale bonus from the Staging Area 
++50% Standing Rewards",,"Stacking System
+(+15 Max Materials Storage)",3
+Factory Worker,,,"Work Schedule
+(+2 Labor)",0
+Fanfic Writer,,,"Journal Writing
+(+25% XP Rate)",0
+Farm Manager,Morale bonus from large-slot Farms,,"Work Schedule
+(+2 Labor)",2
+Farmer,Morale bonus from large-slot Farms,,"Nose to Tail
+(+1 Food Per Day)",2
+Farmhand,Morale bonus from large-slot Farms,,,2
+Fast Food Worker,,,"Work Schedule
+(+2 Labor)",0
+Fastidious,+3 Morale (Community),,"Cleaning Chart
+(+50 Infection Resistance)",353
+Fears Needles,,-20 Max Health,"Sufficient Caution
+(Unlocks Rooftop Recon)",80
+Feckless,,Sometimes wastes medicine,"Taking Risks
+(+5 Max Health)",20
+Feels Embarathy,,,"Words of Comfort
+(Unlocks Encouragement)",0
+Fiery Protester,,"Keep their morale at 30+ to avoid conflicts 
+Can become frustrated at only -20 morale","Tough Negotiation
+(+30% Influence Gained)",0
+Fights Defensively,"-40% Injury Severity 
++30 Max Health",,"Voice of Reason
+(+5 Max Health)",140
+Film Buff,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Film Critic,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Film Director,+75% Standing Rewards,,"Sounding Board
+(+50% Wits XP Rate)",2
+Filthy,,"-25 Infection Resistance 
+Often the target when conflicts occur 
+-33% Standing Rewards","Chillness
+(+3 Morale)",175
+Fire Marshal,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Firefighter,,,"Siestas
+(-20% Fatigue Severity)",0
+Firewatch Officer,Morale bonus from outdoor bed facilities,,"Frequent Check-ins
+(-15% Radio Cooldowns)",2
+Fish Noodler,,,"Nose to Tail
+(+1 Food Per Day)",0
+Fished Professionally,,,"Nose to Tail
+(+1 Food Per Day)",0
+Fitness Boxer,Morale bonus from Fighting training facilities,,"Fitness Guru
+(+50% Cardio XP Rate)",2
+Fitness Instructor,Morale bonus from Fighting training facilities,,"Fitness Guru
+(+50% Cardio XP Rate)",2
+Fixed Refrigerators,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Flatulent,,"Often the target when conflicts occur 
+-33% Standing Rewards","Gives People Space
+(+3 Morale)",0
+Fleet Manager,,,"Work Schedule
+(+2 Labor)",0
+Flight Attendant,,,"Friendly Reminders
+(+1 Labor)",0
+Flincher,,-66% Fighting Experience Rate,None,0
+Flinches at Noises,,-66% Shooting Experience Rate,"Quiet Time
+(-1 Noise)",0
+Flipped Houses,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Florist,,,"Exceptional Taste
+(+3 Morale)",0
+Foam Dart Champion,,,"Party Planning
+(+4 Morale)",0
+Food Allergies,,-20 Max Health,"Meal Plan
+(-25% Food Consumed Overall)",80
+Food Borrower,,"Sometimes wastes food 
+Often the target when conflicts occur 
++50% Food Consumed Per Day","Backrubs
+(+5 Max Carrying Capacity)",0
+Food Critic,Morale bonus from an upgraded Kitchen,-5 Morale,"Meal Plan
+(-25% Food Consumed Overall)",2
+Food Hoarder,Morale bonus from upgraded Storage,,"Sealed Containers
+(+15 Max Food Storage)",2
+Food Sharer,-25% Food Consumed Per Day,,"Backrubs
+(+5 Max Carrying Capacity)",0
+Food Torturer,,"Sometimes wastes food 
+-66% Cooking Experience Rate",None,0
+Food Truck Owner,Morale bonus from an upgraded Kitchen,,"Setting the Pace
+(+33% Facility Action Speed)",2
+Foodie,Morale bonus from an upgraded Kitchen,,"Party Planning
+(+4 Morale)",2
+Foolhardy,,Sometimes wastes Medicine,"Taking Risks
+(+5 Max Health)",20
+Foot Pain,Morale bonus from an upgraded Infirmary,-10 Max Carrying Capacity,"Medical Reference
+(+1 Meds Per Day)",4
+Football Fan A,Morale bonus from facilities with a Projector,,"Intramural Sports
+(+10 Max Stamina)",52
+Football Fan B,,,"Intramural Sports
+(+10 Max Stamina)",50
+Football Star,,,"Intramural Sports
+(+10 Max Stamina)",50
+Forensic Scientist,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Forestry Technician,,,"Quiet Time
+(-1 Noise)",0
+Forgetful,,"-66% Medicine Experience Rate 
+-66% Chemistry Experience Rate 
+-33% Wits Experience Rate",None,0
+Forklift Driver,,,"Rotation System
+(+15 Max Food Storage)",0
+Former Activist A,,Can become frustrated at only -20 morale,"Moral Support
+(Unlocks Encouragement)",0
+Former Activist B,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Inspiring Speeches
+(Unlocks Inspiration)",0
+Former Aquarium Security,,,"Storytelling
+(+4 Morale)",0
+Former Billionaire,,-25% Standing Rewards,"Analytical Methods
+(+50% XP Rate)",0
+Former Bodybuilder,Morale bonus from Fighting training facilities,,"Hard Determination
+(+10 Max Health)",42
+Former Burglar,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Former Gang Member,Avoids getting into conflicts,,"Seminars
+(+50% XP Rate)",0
+Former Goth,,,"Mending
+(+5 Max Health)",20
+Former Homeowner A,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Former Homeowner B,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Former Inmate,,,"Consistent Routine
+(+1 Labor)",0
+Former Lieutenant,,,"Moral Support
+(Unlocks Encouragement)",0
+Former Lifeguard,,,"Notices Things
+(+25% Standing Rewards)",0
+Former Metalhead,,,"Exceptional Taste
+(+3 Morale)",0
+Former Model,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Former Pacifist,Avoids getting into conflicts,,"Words of Comfort
+(Unlocks Encouragement)",0
+Former Raider,,Keep their morale 10+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",0
+Former Rock Star,,,"Good Entertainment
+(+4 Morale)",0
+Former Shut-In,,,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Fortified Home,,,,0
+Forum Admin,,,"Mediation
+(+6 Morale)",0
+Foster Parent,,,"Lights Out
+(+15 Max Stamina)",75
+Fought in the Pits A,,,"Hard Determination
+(+10 Max Health)",40
+Fought in the Pits B,,Keep their morale at 10+ to avoid conflicts,"Back from the Edge
+(+15 Max Health)",60
+Freelance Consultant A,+50% Standing Rewards,,"Seminars
+(+50% XP Rate)",1
+Freelance Consultant B,+50% Standing Rewards,,"Seminars
+(+50% XP Rate)",1
+Freelance Consultant C,+50% Standing Rewards,,"Seminars
+(+50% XP Rate)",1
+Freerunner,,,"Impressive Moves
+(+25% XP Rate)",0
+Frequent Anxiety,,-5 Morale,"Target of Sympathy
+(+3 Morale)",0
+Fresh-Faced,+4 Morale,,"Positive Outlook
+(+25% XP Rate)",0
+Friendly,"Can handle -60 morale without frustration 
++50% Standing Rewards",,"Friendly Outreach
+(+15% Influence Gained)",1
+From a Big Family,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+From a Fishing Town,+10 Max Stamina,,"Nose to Tail
+(+1 Food Per Day)",50
+From a Military Family,,,"Responsibility
+(+1 Labor)",0
+From a Rural Area,+30 Max Stamina,,"Mending
+(+5 Max Health)",170
+From the Great Lakes,+10 Max Stamina,,"Nose to Tail
+(+1 Food Per Day)",50
+Frontier Con Artist,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Frontier Deejay,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Frontier Prospector,,,,0
+Frontier Runner,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Frontier Scout,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Frontier Sniper,,,,0
+Frustrated,,-25 Morale,None,0
+Fry Cook,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Fugitive,,,,0
+Funeral Home Director,,,"Words of Comfort
+(Unlocks Encouragement)",0
+Funny,+4 Morale,,"Breaks the Tension
+(+3 Morale)",0
+Furniture Adjuster,+3 Morale (Community),,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",3
+Furniture Restorer,Morale bonus from an upgraded Workshop,,"Careful Demolition
+(+1 Materials Per Day)",2
+Fussy,,"Can become frustrated at only -20 morale 
+Keep their morale at 10+ to avoid conflicts 
+-3 Morale 
+-33% Wits Experience Rate","Stacking System
+(+15 Max Materials Storage)",0
+Game Designer,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Gardener,Morale bonus from having a Garden,,"Nose to Tail
+(+1 Food Per Day)",2
+Gas Hoarder,Morale bonus from upgraded Storage,,"Effective Sealants
+(+15 Max Fuel Storage)",2
+Gas Station Attendant,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Gave to Every Panhandler,,,"Friendly Outreach
+(+15% Influence Gained)",0
+General Practitioner,,,"Medical Reference
+(+1 Meds Per Day)",2
+Generator Technician,,,"Lights Out
+(+15 Max Stamina)",75
+Generous,+25% Standing Rewards,,"Good Example
+(+33% Facility Action Speed)",0
+Geneticist,,,"Medical Reference
+(+1 Meds Per Day)",2
+Geo Systems Engineer,,,,0
+Geocacher,Morale bonus from outdoor bed facilities,,"Emergency Stashes
+(Unlocks Emergency Supplies)",2
+Geologist,,,"Analytical Methods
+(+50% XP Rate)",0
+Germophobe A,,Often the target when conflicts occur,"Hygiene Standards
+(+100 Infection Resistance)",700
+Germophobe B,+50 Infection Resistance,Often the target when conflicts occur,"Hygiene Standards
+(+100 Infection Resistance)",1050
+Getaway Driver,,,,0
+Gets Carsick,,-50% Fuel Efficiency,None,0
+Gets Migraines,Morale bonus from an upgraded Infirmary,-30 Max Health,"Medical Inventory
+(+15 Max Meds Storage)",122
+Gets Rashes,Morale bonus from an upgraded Infirmary,-10 Max Carrying Capacity,"Medical Reference
+(+1 Meds Per Day)",4
+Ghost Writer,,,"Storytelling
+(+4 Morale)",0
+Glazier,Morale bonus from the Forge,,"Stacking System
+(+15 Max Materials Storage)",2
+Glutton,Morale bonus from an upgraded Kitchen,"Sometimes wastes food 
++50% Food Consumed Per Day","Siestas
+(-20% Fatigue Severity)",2
+Goes by Last Name,,,None,0
+Golf Caddy,,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Golfer,,,"Intramural Sports
+(+10 Max Stamina)",50
+Good Arm,,,"Impressive Moves
+(+25% XP Rate)",0
+Good Habits,+50 Infection Resistance,,"Hygiene Standards
+(+100 Infection Resistance)",1050
+Good Listener,+25% Standing Rewards,,"Sounding Board
+(+50% Wits XP Rate)",0
+Good Posture,+5 Max Carrying Capacity,,"Morning Yoga
+(-25% Injury Severity)",0
+Goofball,+3 Morale (Community),"-1 Labor 
+Often the target when conflicts occur","Positive Outlook
+(+25% XP Rate)",3
+Got Beaten Up,Avoids getting into conflicts,,,0
+Got Fired a Lot,,"-1 Labor 
+Often the target when conflicts occur","Chillness
+(+3 Morale)",0
+Got into Bar Fights,Morale bonus from Stills and Bars,Keep their morale at 30+ to avoid conflicts,"Helpful Mockery
+(+5 Max Stamina)",27
+Gracious,+3 Morale (Community),,"Sincere Praise
+(+25% Standing Rewards)",3
+Great Cook,Morale bonus from an upgraded Kitchen,,"Nose to Tail
+(+1 Food Per Day)",2
+Greedy,,-10% Standing Rewards,,0
+Green Thumb,"Morale bonus from having a Garden 
++50% Gardening Experience Rate",,"Nose to Tail
+(+1 Food Per Day)",2
+Grew Tomatoes,Morale bonus from having a Garden,,"Nose to Tail
+(+1 Food Per Day)",2
+Grew Up Around Cars,Morale bonus from an Auto Shop,,"Vehicle Delivery
+(Unlocks Vehicle Delivery)",2
+Grew Up in Suburbia,,-10 Max Stamina,"Consistent Routine
+(+1 Labor)",50
+Grew Up on a Farm,Morale bonus from large-slot Farms,,,2
+Grew Up Poor,,,"Responsibility
+(+1 Labor)",0
+Grognard,,,"Seminars
+(+50% XP Rate)",0
+Groundskeeper,,,"Pest Control
+(+15 Max Food Storage)",0
+Guidance Counselor,Avoids getting into conflicts,,"Sounding Board
+(+50% Wits XP Rate)",0
+Guilt-Motivated,,Can become frustrated at only -20 morale,"Responsibility
+(+1 Labor)",0
+Guitarist,,,"Good Entertainment
+(+4 Morale)",0
+Gullible,,-33% Wits Experience Rate,"Sincere Praise
+(+25% Standing Rewards)",0
+Gun Dealer,,,"Maintains Firearms
+(-10% Durability Loss Per Shot (Guns))",0
+Gun Spinner,Morale bonus from Shooting training facilities,,,2
+Gunsmith,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Gym Rat,Morale bonus from Fighting training facilities,,"Fitness Guru
+(+50% Cardio XP Rate)",2
+Gymnast,,,"Morning Yoga
+(-25% Injury Severity)",0
+Gynecologist,,,"Medical Reference
+(+1 Meds Per Day)",2
+Habitual Volunteer,,,"Positive Outlook
+(+25% XP Rate)",0
+Had a Beloved Aunt,,,,0
+Had a Chemistry Set,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Had a Close Cousin,,,,0
+Had a Flower Garden,Morale bonus from having a Garden,,"Quiet Time
+(-1 Noise)",2
+Had a Garage Band,,,"Good Entertainment
+(+4 Morale)",0
+Had a Gorgeous Backyard,Morale bonus from having a Garden,,"Exceptional Taste
+(+3 Morale)",2
+Had a Loud Neighbor,,,"Quiet Time
+(-1 Noise)",0
+Had a Paper Route,,,"Consistent Routine
+(+1 Labor)",0
+Had a Retirement Fund,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Had a Scholarship,,,,0
+Had a Son,,,"Target of Sympathy
+(+3 Morale)",0
+Had a Troubled Youth,,,,0
+Had Alcohol Issues,,,,0
+Had an Absent Father,,,"Target of Sympathy
+(+3 Morale)",0
+Had an Electric Fence,,,"Taking Risks
+(+5 Max Health)",20
+Had an Herb Garden,Morale bonus from having a Garden,,"Nose to Tail
+(+1 Food Per Day)",2
+Had Knee Replaced,Morale bonus from an upgraded Infirmary,-66% Cardio Experience Rate,"Target of Sympathy
+(+3 Morale)",2
+Had LAN Parties,,,"Party Planning
+(+4 Morale)",0
+Had Older Brothers,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Had Weapons Training,,,"Fighting Tips
+(+25% Fighting XP Rate)",0
+Halitosis,,"Often the target when conflicts occur 
+-33% Standing Rewards","Gives People Space
+(+3 Morale)",0
+Hall Monitor,,,"Silence Policy
+(-2 Noise)",0
+Halo Champion,,,"Formal Recognition
+(+50% Standing Rewards)",1
+HAM Radio Operator,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Hand Model,,"-66% Shooting Experience Rate 
+-66% Fighting Experience Rate","Hygiene Standards
+(+100 Infection Resistance)",700
+Handy,Morale bonus from an upgraded Workshop,,"Effective Sealants
+(+15 Max Fuel Storage)",2
+Hang Glider,,,"Taking Risks
+(+5 Max Health)",20
+Hard as Nails,"-40% Injury Severity 
++30 Max Health",,"Personal Strength
+(+5 Max Stamina)",145
+Hard to Kill,"-40% Injury Severity 
++45 Max Health",,"Taking Risks
+(+5 Max Health)",200
+Hardcore Prepper A,Morale bonus from the Armory,,,2
+Hardcore Prepper B,Morale bonus from the Armory,,"Emergency Stashes
+(Unlocks Emergency Supplies)",2
+Hardcore Prepper C,Morale bonus from the Armory,,,2
+Hardcore Prepper D,Morale bonus from the Armory,,,2
+Hardcore Prepper E,Morale bonus from the Armory,,,2
+Hardy,"-30% Injury Severity 
++10 Max Health",,"Personal Strength
+(+5 Max Stamina)",65
+Has a Lead Foot,,"Sometimes wastes fuel 
+-33% Fuel Efficiency",None,0
+Has a Pain Disorder,Morale bonus from an upgraded Infirmary,-10 Max Health,"Medical Inventory
+(+15 Max Meds Storage)",42
+Has a Routine,,,,0
+Has Allergies,,-20 Max Stamina,"Hygiene Standards
+(+100 Infection Resistance)",800
+Has an Old Work Injury,,"-15 Max Carrying Capacity 
+-5 Light Carrying Capacity 
+-20 Max Health","Back from the Edge
+(+15 Max Health)",140
+Has Astigmatism,,-66% Shooting Experience Rate,None,0
+Has Cataracts,,-75% Shooting Experience Rate,"Target of Sympathy
+(+3 Morale)",0
+Has Chronic Pain,Morale bonus from an upgraded Infirmary,-20 Max Health,"Medical Reference
+(+1 Meds Per Day)",84
+Has Fibromyalgia,Morale bonus from an upgraded Infirmary,-30 Max Health,"Medical Inventory
+(+15 Max Meds Storage)",122
+Has Nightmares A,,,,0
+Has Nightmares B,,"-20 Max Stamina 
++33% Fatigue Severity","Target of Sympathy
+(+3 Morale)",100
+Has Rough Hands,"+20 Max Stamina 
++10 Max Health",,"Personal Strength
+(+5 Max Stamina)",165
+Has Seen It All,,,"Back from the Edge
+(+15 Max Health)",60
+Has Severe Allergies,,-30 Max Stamina,"Hygiene Standards
+(+100 Infection Resistance)",850
+Has Shaky Hands,,"Sometimes wastes ammo 
+-66% Shooting Experience Rate",None,0
+Has Traumatic Flashbacks,,-7 Morale,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Hated Camping,,,"High Expectations
+(+33% Facility Action Speed)",0
+Hated Thanksgiving,+3 Morale,,"Quiet Time
+(-1 Noise)",0
+Hated the Boss,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","High Expectations
+(+33% Facility Action Speed)",0
+Hates Exercise,Morale bonus from luxury bed facilities,-66% Cardio Experience Rate,"Siestas
+(-20% Fatigue Severity)",2
+Hates Horror Movies,,-5 Morale,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Hates Shiny Food,-25% Food Consumed Per Day,,"Hygiene Standards
+(+100 Infection Resistance)",700
+Hates to be Alone,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Hates Trespassers,,Keep their morale at 10+ to avoid conflicts,"Hard Choices
+(+3 Morale)",0
+Having Midlife Crisis,,,"Taking Risks
+(+5 Max Health)",20
+Hearse Driver,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Heart Problems,Morale bonus from an upgraded Infirmary,-66% Cardio Experience Rate,"Target of Sympathy
+(+3 Morale)",2
+Heavy Hitter,+25% Fighting Experience Rate,,"Personal Strength
+(+5 Max Stamina)",25
+Held the Line,,,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Helpful to a Fault,,Often the target when conflicts occur,"Good Example
+(+33% Facility Action Speed)",0
+Hemp Enthusiast,Morale bonus from gardens that grow Meds,Sometimes wastes medicine,"Moral Support
+(Unlocks Encouragement)",2
+Hero Complex,,Often the target when conflicts occur,"Inspiring Speeches
+(Unlocks Inspiration)",0
+Hesitant,,,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Hesitates in Combat,,-66% Fighting Experience Rate,"Voice of Reason
+(+5 Max Health)",20
+Hibachi Cook,,,"Nose to Tail
+(+1 Food Per Day)",0
+High Lung Capacity,+20 Max Stamina,,"Breathing Exercise
+(+10 Max Stamina)",150
+High Metabolism,+20 Max Stamina,"Sometimes wastes food 
++50% Food Consumed Per Day","Setting the Pace
+(+33% Facility Action Speed)",100
+High Pain Threshold,"+30 Max Health 
++50% Fighting Experience Rate",,"Personal Strength
+(+5 Max Stamina)",145
+High School Athlete,+20 Max Stamina,,"Intramural Sports
+(+10 Max Stamina)",150
+High School Mascot,,,"Helpful Mockery
+(+5 Max Stamina)",25
+High School Teacher,,,"Silence Policy
+(-2 Noise)",0
+Highly Responsible,"+1 Labor 
++25% Standing Rewards",,"Responsibility
+(+1 Labor)",0
+Highway Patrol,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Hiker,Morale bonus from outdoor bed facilities,,"Gives People Space
+(+3 Morale)",2
+Hit the Range,Morale bonus from Shooting training facilities,,"Ammo Wishlist
+(+1 Ammo Per Day)",2
+"Hits First, Hits Hard",,Keep their morale at 10+ to avoid conflicts,,0
+Hoarder,Morale Bonus from upgraded Storage,"-1 Beds 
+Often the target when conflicts occur","Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Holding Out Hope,+4 Morale,,"Inspiring Speeches
+(Unlocks Inspiration)",0
+Holed Up at a Farm,Morale bonus from large-slot Farms,,"Nose to Tail
+(+1 Food Per Day)",2
+Homebody,,,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Homebrewer,"Morale bonus from Stills and Bars 
++25% Chemistry Experience Rate",,"Party Planning
+(+4 Morale)",2
+Homemaker,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Homeopath,,-75% Medicine Experience Rate,"Friendly Outreach
+(+15% Influence Gained)",0
+Hong Kong Cinema Fan,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Hopeful,+6 Morale,,"Positive Outlook
+(+25% XP Rate)",0
+Hopeless Romantic,,,"Inspiring Speeches
+(Unlocks Inspiration)",0
+Horse Jockey,,,None,0
+Horse Surgeon,,,"Nose to Tail
+(+1 Food Per Day)",0
+Hospice Nurse,,,"Words of Comfort
+(Unlocks Encouragement)",0
+Hospital Admin,,,"Work Schedule
+(+2 Labor)",0
+Hostler,,,"Work Schedule
+(+2 Labor)",0
+Hotelier,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Hothead,,Keep their morale at 30+ to avoid conflicts,,0
+House Had Black Mold,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Huge Jerk,,"Can become frustrated at only -20 morale 
+Keep their morale at 30+ to avoid conflicts 
+-7 Morale (Community) 
+-66% Standing Rewards","Hard Choices
+(+3 Morale)",8
+Huge Savings Account,,,"Voice of Reason
+(+5 Max Health)",20
+Human Potato,Morale bonus from luxury bed facilities,"-66% Cardio Experience Rate 
+Often the target when conflicts occur 
+-66% Fighting Experience Rate",None,2
+Human Resources,Avoids getting into conflicts,-50% Standing Rewards,"Mediation
+(+6 Morale)",1
+Hunting Trips,Morale bonus from outdoor bed facilities,,,2
+HVAC Repair,Morale bonus from an upgraded Workshop,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Hydraulics Technician,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Hyper-Partisan,,Keep their morale at 30+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",0
+Hyper-Prepared,,,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Hypochondriac,Morale bonus from an upgraded Infirmary,"Sometimes wastes medicine 
+Often the target when conflicts occur 
++25% Injury Severity","Medical Reference
+(+1 Meds Per Day)",4
+Ice Road Trucker,-40% Fatigue Severity,,"Back from the Edge
+(+15 Max Health)",60
+Idealist,,Can become frustrated at only -20 morale,"Positive Outlook
+(+25% XP Rate)",0
+Idyllic Childhood,,,"Positive Outlook
+(+25% XP Rate)",0
+Immature,,"-66% Wits Experience Rate 
+-33% Standing Rewards","Breaks the Tension
+(+3 Morale)",0
+Immortal,"-40% Injury Severity 
++45 Max Health",,"Taking Risks
+(+5 Max Health)",200
+Impostor Syndrome,,-50% Standing Rewards,"Responsibility
+(+1 Labor)",1
+In Mourning,,-7 Morale,"Words of Comfort
+(Unlocks Encouragement)",0
+In Recovery,,Morale penalty from Stills and Bars,"Target of Sympathy
+(+3 Morale)",0
+In the Peace Corps,,,"Responsibility
+(+1 Labor)",0
+In Witness Protection,,,"Silence Policy
+(-2 Noise)",0
+In-Home Caregiver,,,"Words of Comfort
+(Unlocks Encouragement)",0
+Inattentive Cook,,"Sometimes wastes food 
+-66% Cooking Experience Rate",None,0
+Incompetent,,"Often the target when conflicts occur 
+-1 Labor 
+-50% Standing Rewards","Overcompensating
+(+1 Labor)",1
+Incredible Immune System,+100 Infection Resistance,,"Chillness
+(+3 Morale)",700
+Indefatigable,"-40% Fatigue Severity 
++30 Max Stamina",,"Moral Support
+(Unlocks Encouragement)",150
+Indie App Developer,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Insomniac,Morale bonus from luxury bed facilities,"-20 Max Stamina 
++33% Fatigue Severity","Quiet Time
+(-1 Noise)",102
+Inspired by Courage,,,"Taking Risks
+(+5 Max Health)",20
+Installed Sprinklers,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Insular,,Keep their morale at 10+ to avoid conflicts,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Interior Designer,,,"Exceptional Taste
+(+3 Morale)",0
+Internet Troll,,Keep their morale at 30+ to avoid conflicts,"Helpful Mockery
+(+5 Max Stamina)",25
+Into Boxing,,,,0
+Into Cheesy Movies,Morale bonus from facilities with a Projector,,"Words of Comfort
+(Unlocks Encouragement)",2
+Into Fly Fishing,,,"Outdoor Living
+(+2 Beds)",0
+Into Gardening Shows,Morale bonus from having a Garden,,"Consistent Routine
+(+1 Labor)",2
+Into Model Trains,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Into Nostalgia,,,"Storytelling
+(+4 Morale)",0
+Into Roller Derby,,,"Intramural Sports
+(+10 Max Stamina)",50
+Into Ultimate Frisbee,,,"Intramural Sports
+(+10 Max Stamina)",50
+Into Weaving,,,"Mending
+(+5 Max Health)",20
+Irresponsible,,"-33% Standing Rewards 
+Often the target when conflicts occur","Chillness
+(+3 Morale)",0
+Irritable,,"Keep their morale at 30+ to avoid conflicts 
+-3 Morale 
+Can become frustrated at only -20 morale","Tough Negotiation
+(+30% Influence Gained)",0
+Island Survivor,,,"Back from the Edge
+(+15 Max Health)",60
+IT Worker,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Itchy Trigger Finger,,"Sometimes wastes ammo 
+-33% Shooting Experience Rate",None,0
+Janitor,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Jeweler,Morale bonus from the Forge,,,2
+Jogger,Morale bonus from Fighting training facilities,,"Breathing Exercise
+(+10 Max Stamina)",52
+Joint Problems,Morale bonus from an upgraded Infirmary,-75% Cardio Experience,"Target of Sympathy
+(+3 Morale)",2
+Judge,,,"Mediation
+(+6 Morale)",0
+Juggler,"+25% Fighting Experience Rate 
++25% Shooting Experience Rate 
++25% Cardio Experience Rate",,"Impressive Moves
+(+25% XP Rate)",0
+Junkyard Worker,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Jury-Rigger,Morale bonus from an upgraded Workshop,Sometimes wastes materials,"Vehicle Delivery
+(Unlocks Vehicle Delivery)",2
+Just Keeps Going,"-40% Fatigue Severity 
++45 Max Stamina",,"Moral Support
+(Unlocks Encouragement)",225
+K9 Officer,,,"Combat Exercises
+(+50% Fighting XP Rate)",0
+Katana Barber,,,,0
+Keeps a Steady Pace,,,"Consistent Routine
+(+1 Labor)",0
+Keeps Hidden Pouches,"+10 Light Carrying Capacity 
++10 Max Carrying Capacity 
++1 Max Item Stack",,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Kendo Instructor,Morale bonus from Fighting training facilities,,,2
+Kept a Vigil,,,,0
+Kept Smartphone,,,"Target of Sympathy
+(+3 Morale)",0
+Kind Eyes,+25% Standing Rewards,,"Sounding Board
+(+50% Wits XP Rate)",0
+Kind of an Idiot,,"Sometimes wastes materials 
+-66% Wits Experience Rate",None,0
+Kleptomaniac,,"-7 Morale (Community) 
+Often the target when conflicts occur","Emergency Stashes
+(Unlocks Emergency Supplies)",7
+Knife Fighter,,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",0
+Knife Thrower,,,"Taking Risks
+(+5 Max Health)",20
+Knitter,,,"Mending
+(+5 Max Health)",20
+Lab Technician,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Lacks Boundaries,,"Often the target when conflicts occur 
+-5 Morale (Community) 
+-33% Standing Rewards","Backrubs
+(+5 Max Carrying Capacity)",5
+Landscape Architect,,,"Exceptional Taste
+(+3 Morale)",0
+Landscaper,,,"Outdoor Living
+(+2 Beds)",0
+Lapsed Catholic,,,,0
+LARPer,,,"Party Planning
+(+4 Morale)",0
+Laughs Easily,+4 Morale,,"Positive Outlook
+(+25% XP Rate)",0
+Lawyer,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Lazy,Morale bonus from luxury bed facilities,"-66% Cardio Experience Rate 
+Often the target when conflicts occur 
+-1 Labor 
+-50% Standing Rewards","Siestas
+(-20% Fatigue Severity)",3
+Leads from Behind,,-33% Standing Rewards,"Gives People Space
+(+3 Morale)",0
+Learned about Lichen,,,None,0
+Learned Better Hygiene,,,None,0
+Learned Chemistry,,,None,0
+Learned Computing,,,None,0
+Learned Craftsmanship,,,None,0
+Learned Mechanics,,,None,0
+Learned Medicine,,,None,0
+Learned Scrum,,,None,0
+Learned Sleep Psychology,,,None,0
+Learned Soundproofing,,,None,0
+Learned to Cook,,,None,0
+Learned to Drive,,,None,0
+Learned to Fish,,,None,0
+Learned to Garden,,,None,0
+Learned to Recycle,,,None,0
+Learned to Sew,,,None,0
+Learned to Shop,,,None,0
+Learned Utilities,,,None,0
+Lecturer,,,"Seminars
+(+50% XP Rate)",0
+Led a Quiet Life,,,"Gives People Space
+(+3 Morale)",0
+Left for Dead,"+30 Max Health 
++10 Max Stamina",Can become frustrated at only -20 morale,"Back from the Edge
+(+15 Max Health)",230
+Left Someone Behind,,,"Hard Choices
+(+3 Morale)",0
+Librarian,-1 Noise,,"Silence Policy
+(-2 Noise)",0
+Licensed Birth Coach,,,"Breathing Exercise
+(+10 Max Stamina)",50
+Lichenologist,,,"Analytical Methods
+(+50% XP Rate)",0
+Lies About Age A,+25% Standing Rewards,,"Friendly Outreach
+(+15% Influence Gained)",0
+Lies About Age B,+25% Standing Rewards,,"Moral Support
+(Unlocks Encouragement)",0
+Lies About Age C,+25% Standing Rewards,,"Social Chameleon
+(+3 Morale)",0
+Likes Army Fatigues,,,"Exceptional Taste
+(+3 Morale)",0
+Likes Fishing,,,,0
+Likes to Fight,+50% Fighting Experience Rate,Keep their morale at 30+ to avoid conflicts,"Fighting Tips
+(+25% Fighting XP Rate)",0
+Likes to Take Things,,Often the target when conflicts occur,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Line Cook,,,"Nose to Tail
+(+1 Food Per Day)",0
+Lived Among Celebrities,+25% Standing Rewards,,"Sincere Praise
+(+25% Standing Rewards)",1
+Lived at a High Altitude,+30 Max Stamina,,"Outdoor Living
+(+2 Beds)",150
+Lived by a Code,,,"High Expectations
+(+33% Facility Action Speed)",0
+Lived by the Sword,,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",0
+Lived Downtown,,,,0
+Lived in a Bunker,,,"Rotation System
+(+15 Max Food Storage)",0
+Lived in Squalor A,,"Often the target when conflicts occur 
+-25 Infection Resistance","Chillness
+(+3 Morale)",175
+Lived in Squalor B,+50 Infection Resistance,,"Cleaning Chart
+(+50 Infection Resistance)",700
+Lived in the Desert,+20 Max Stamina,,"Siestas
+(-20% Fatigue Severity)",100
+Lived on a Rooftop,,,,0
+Lived on Spoiled Food,-25% Food Consumed Per Day,,"Rotation System
+(+15 Max Food Storage)",0
+Lived on the Bayou,+10 Max Health,,"Outdoor Living
+(+2 Beds)",40
+Lived on the Road,,,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Lived Out of a Car,,,"Outdoor Living
+(+2 Beds)",0
+Lives on Pasta,-25% Food Consumed Per Day,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Local Computer Expert,,,"Frequent Check-ins
+(-15% Radio Cooldowns)",0
+Locksmith,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Longsuffering Martyr,+1 Labor,"-3 Morale 
+Keep their morale at 10+ to avoid conflicts","Friendly Reminders
+(+1 Labor)",0
+Loose Cannon Cop,,,,0
+Looter,,,"Ammo Wishlist
+(+1 Ammo Per Day)",0
+Lost a Brother,,-3 Morale,"Target of Sympathy
+(+3 Morale)",0
+Lost a Sister,,-3 Morale,"Target of Sympathy
+(+3 Morale)",0
+Lost Family,,-3 Morale,"Target of Sympathy
+(+3 Morale)",0
+Lost Father,,-3 Morale,"Target of Sympathy
+(+3 Morale)",0
+Lost Security Blanket,,"-25% Standing Rewards 
+-20 Max Stamina","Sufficient Caution
+(Unlocks Rooftop Recon)",100
+Lost Wife,,-3 Morale,"Target of Sympathy
+(+3 Morale)",0
+Loved Being Single,,,"Social Chameleon
+(+3 Morale)",0
+Loved Camping A,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Loved Camping B,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Loved Fast Food,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Loved Going to Movies A,Morale bonus from facilities with a Projector,,"Chillness
+(+3 Morale)",2
+Loved Going to Movies B,Morale bonus from facilities with a Projector,,"Party Planning
+(+4 Morale)",2
+Loved Riding Bikes,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Loved Scary Movies A,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Loved Scary Movies B,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Loved School,,,"Analytical Methods
+(+50% XP Rate)",0
+Loved to Dance,Morale bonus from having a Lounge,,"Party Planning
+(+4 Morale)",2
+Loved to Hunt,,,,0
+Loves Baking A,,,,0
+Loves Baking B,"Morale bonus from an upgraded Kitchen 
++100% Cooking Experience Rate",,"Sealed Containers
+(+15 Max Food Storage)",2
+Loves Canning,+50% Cooking Experience Rate,,"Rotation System
+(+15 Max Food Storage)",0
+Loves Cars A,Morale bonus from the Auto Shop,,"Vehicle Delivery
+(Unlocks Vehicle Delivery)",2
+Loves Cars B,Morale bonus from the Auto Shop,,,2
+Loves Fireworks A,,,,0
+Loves Fireworks B,,Sometimes wastes ammo,"Taking Risks
+(+5 Max Health)",20
+Loves Jigsaw Puzzles,,,"Quiet Time
+(-1 Noise)",0
+Loves Spicy Food,"Morale bonus from an upgraded Kitchen 
++10 Max Stamina",,None,52
+Loves the Outdoors,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Loves to be Scared,+3 Morale,,"Taking Risks
+(+5 Max Health)",20
+Loves to Drive A,,Sometimes wastes fuel,"Driver Training
+(+25% Fuel Efficiency)",0
+Loves to Drive B,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Loves to Explore,,,,0
+Loves to Mentor,+33% Experience Rate,,"Moral Support
+(Unlocks Encouragement)",0
+Loves to Sing,+5 Max Stamina,,"Good Entertainment
+(+4 Morale)",25
+Low Metabolism,-25% Food Consumed Per Day,-20 Max Stamina,"Siestas
+(-20% Fatigue Severity)",100
+Low Pain Treshold,,"-30 Max Health 
+-66% Fighting Experience Rate",None,120
+Lumberjack,,,"Stacking System
+(+15 Max Materials Storage)",0
+Lung Cancer Survivor,Morale bonus from an upgraded Infirmary,"-75% Cardio Experience Rate 
+-45 Max Stamina","Back from the Edge
+(+15 Max Health)",287
+Lurker,,-66% Cardio Experience Rate,"Quiet Time
+(-1 Noise)",0
+Machiavellian,,Keep their morale at 10+ to avoid conflicts,"Hard Choices
+(+3 Morale)",0
+Machinist,Morale bonus from an upgraded Workshop,,"Detailed Checklist
+(+33% Facility Action Speed)",2
+Made an Indie Game,,,"Hard Determination
+(+10 Max Health)",40
+Made Cosplay Swords,Morale bonus from the Forge,,"Exceptional Taste
+(+3 Morale)",2
+Made Science Videos,,,"Good Entertainment
+(+4 Morale)",0
+Magician,,,,0
+Magnanimous,,,"Formal Recognition
+(+50% Standing Rewards)",1
+Mail Carrier,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Majored in Chemistry,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Makes Art from Junk,,,"Creates Art
+(+4 Morale)",0
+Mall Cop,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Marathon Runner,Morale bonus from Fighting training facilities,,"Moral Support
+(Unlocks Encouragement)",2
+Martial Arts Teacher,Morale bonus from Fighting training facilities,,"Combat Exercises
+(+50% Fighting XP Rate)",2
+Mason,Morale bonus from an upgraded Workshop,,,2
+Massage Therapist,,,"Backrubs
+(+5 Max Carrying Capacity)",0
+Masseuse,,,"Backrubs
+(+5 Max Carrying Capacity)",0
+Materials Engineer A,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Materials Engineer B,+20 Max Stamina,,"Effective Sealants
+(+15 Max Fuel Storage)",100
+Materials Engineer C,Morale bonus from the Forge,,,2
+MCP Certified,,,"Analytical Methods
+(+50% XP Rate)",0
+Meal Delivery Driver,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Measures Twice,Morale bonus from Staging Area,,"Stacking System
+(+15 Max Materials Storage)",2
+Mechanical Engineer,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Medical Researcher,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Medicine Hoarder,Morale bonus from upgraded Storage,,"Medical Inventory
+(+15 Max Meds Storage)",2
+Medicine Merchant,,-66% Medicine Experience Rate,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Meditates,Avoids getting into conflicts,,,0
+Meek,,-50% Standing Rewards,"Quiet Time
+(-1 Noise)",1
+Mentally Trained,,-66% Wits Experience Rate,None,0
+Messy,,-5 Morale (Community),"Chillness
+(+3 Morale)",5
+Meter Reader,,,"Lights Out
+(+15 Max Stamina)",75
+Meticulous,Morale bonus from the Staging Area,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Detailed Checklist
+(+33% Facility Action Speed)",2
+Microbiologist,,,"Medical Reference
+(+1 Meds Per Day)",2
+Middle Manager,+50% Standing Rewards,,"Tough Negotiation
+(+30% Influence Gained)",1
+Migrant Worker,,,,0
+Military Contractor,,,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Military LARPer,,,"Mending
+(+5 Max Health)",20
+Military Police,,,"High Expectations
+(+33% Facility Action Speed)",0
+Military Washout,,,"Helpful Mockery
+(+5 Max Stamina)",25
+Militia Member,,,,0
+Miner,+20 Max Stamina,,"Work Schedule
+(+2 Labor)",100
+Miniature Collector,,,"Exceptional Taste
+(+3 Morale)",0
+Minored in Chemistry,,,"Social Chameleon
+(+3 Morale)",0
+Mixologist,Morale bonus from Stills and Bars,,"Party Planning
+(+4 Morale)",2
+MMA Fighter,,,"Combat Exercises
+(+50% Fighting XP Rate)",0
+Mobile Developer,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Model Hobbyist,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Moonshiner,Morale bonus from Stills and Bars,,"Party Planning
+(+4 Morale)",2
+Motivational Speaker,,,"Moral Support
+(Unlocks Encouragement)",0
+Motorcycle Enthusiast A,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Motorcycle Enthusiast B,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Mountain Biker,,,"Hard Determination
+(+10 Max Health)",40
+Mountain Climber,,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Moved Around at Night,,,"Lights Out
+(+15 Max Stamina)",75
+Mud Runner,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Mule Driver,,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Muni Rider,,,"Impressive Moves
+(+25% XP Rate)",0
+Mycologist,,,,0
+Mystery Shopper,,,"High Expectations
+(+33% Facility Action Speed)",0
+National Guard,,,"Consistent Routine
+(+1 Labor)",0
+Naturopath,,-66% Gardening Experience Rate,"Friendly Outreach
+(+15% Influence Gained)",0
+Navy Veteran,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Nearsighted,,"Sometimes waster ammo 
+-33% Shooting Experience Rate",None,0
+Neat,+3 Morale (Community),,"Cleaning Chart
+(+50 Infection Resistance)",353
+Needs Alone Time,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Quiet Time
+(-1 Noise)",0
+Needs Quiet Time,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Quiet Time
+(-1 Noise)",0
+Neighborhood Watch,,,"Notices Things
+(+25% Standing Rewards)",0
+Nerve Damage,+30 Max Health,+66% Injury Severity,"Back from the Edge
+(+15 Max Health)",180
+Neurotic,,"-5 Morale (Community) 
+Keep their morale at 10+ to avoid conflicts 
+-10% Standing Rewards","Voice of Reason
+(+5 Max Health)",25
+Never Been Sick,+100 Infection Resistance,,"Hygiene Standards
+(+100 Infection Resistance)",1400
+Never Cries,"-30% Injury Severity 
++10 Max Health",,"Hard Determination
+(+10 Max Health)",80
+Never Exercised,,-20 Max Stamina,"Siestas
+(-20% Fatigue Severity)",100
+Never Fell in Love,,,"High Expectations
+(+33% Facility Action Speed)",0
+Never Holds Back,,Keep their morale at 30+ to avoid conflicts,"Hard Choices
+(+3 Morale)",0
+Never Used Turn Signals,,"Sometimes wastes fuel 
+-25% Fuel Efficiency",None,0
+News Camera Operator,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Night Terrors,,"-20 Max Stamina 
+Often the target when conflicts occur 
+-33% Fatigue Severity","Target of Sympathy
+(+3 Morale)",100
+Night Watch,,,"Lights Out
+(+15 Max Stamina)",75
+Nihilist,Can handle -60 morale without frustration,-3 Morale (Community),"Hard Choices
+(+3 Morale)",3
+Nimble,,,"Impressive Moves
+(+25% XP Rate)",0
+Nine Lives,,,"Hard Determination
+(+10 Max Health)",40
+No Belief in Destiny,,,"Hard Determination
+(+10 Max Health)",40
+No Belief in Fairness,,,"Hard Choices
+(+3 Morale)",0
+No Common Sense,,"Sometimes wastes materials 
+Often the target when conflicts occur 
+-66% Wits Experience Rate",None,0
+No Filter,,"Keep their morale at 30+ to avoid conflicts 
+-33% Standing Rewards","Helpful Mockery
+(+5 Max Stamina)",25
+Noisy,+10% Standing Rewards,"+1 Noise 
+Often the target when conflicts occur","Meal Plan
+(-25% Food Consumed Overall)",0
+Nomadic Sleeper,-1 Beds Used,Often the target when conflicts occur,"Outdoor Living
+(+2 Beds)",0
+Nostalgic A,,,"Storytelling
+(+4 Morale)",0
+Nostalgic B,,,"Storytelling
+(+4 Morale)",0
+Nosy,,-3 Morale (Community),"Friendly Reminders
+(+1 Labor)",3
+Nuclear Engineer,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Nuclear Scientist,,,"Lights Out
+(+15 Max Stamina)",75
+Nudist,,"Often the target when conflicts occur 
+Can become frustrated at only -20 morale","Outdoor Living
+(+2 Beds)",0
+Nurse,,,"Dosage Control
+(+25% Healing Item Efficacy)",0
+Nurturing,+3 Morale (Community),,"Sincere Praise
+(+25% Standing Rewards)",3
+Nutritionist,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Observant,,,"Friendly Reminders
+(+1 Labor)",0
+Occasional Hunter,,,,0
+Occasionally Narcoleptic,,+50% Fatigue Severity,None,0
+Offroad Biker,,,"Impressive Moves
+(+25% XP Rate)",0
+Oil and Tire Tech,Morale bonus from the Auto Shop,,"Work Schedule
+(+2 Labor)",2
+Old and Tired,,"-66% Cardio Experience Rate 
+-66% Fighting Experience Rate 
+-20 Max Stamina","Siestas
+(-20% Fatigue Severity)",100
+Old Veteran,+25% Standing Rewards,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Once Ate a Gorilla,-25% Food Consumed Per Day,,"Nose to Tail
+(+1 Food Per Day)",0
+Once Ran for Days,,,"Hard Determination
+(+10 Max Health)",40
+Oncologist,,,"Words of Comfort
+(Unlocks Encouragement)",0
+One Lung,,"-45 Max Stamina 
+-75% Cardio Experience Rate","Back from the Edge
+(+15 Max Health)",285
+Opera Singer,+20 Max Stamina,,"Good Entertainment
+(+4 Morale)",100
+Operating Engineer,,,"Stacking System
+(+15 Max Materials Storage)",0
+Operations Manager,Morale bonus from the Staging Area,,"Work Schedule
+(+2 Labor)",2
+Optimist,"Can handle -60 morale without frustration 
++4 Morale",Often the target when conflicts occur,"Positive Outlook
+(+25% XP Rate)",0
+Orderly,,,,0
+Organized,+5 Light Carrying Capacity,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Overachiever,+1 Labor,,"Seminars
+(+50% XP Rate)",0
+Overcame Anger Issues,,,"Chillness
+(+3 Morale)",0
+Overcame Fears,,,"Back from the Edge
+(+15 Max Health)",60
+Overconfident,,"Keep their morale at 10+ to avoid conflicts 
+-66% Wits Experience Rate","Positive Outlook
+(+25% XP Rate)",0
+Overplanner,Morale bonus from the Staging Area,"-3 Morale (Community) 
+Often the target when conflicts occur","Meal Plan
+(-25% Food Consumed Overall)",5
+Overworked,+1 Labor,-20 Max Stamina,"Setting the Pace
+(+33% Facility Action Speed)",100
+Owned a Nursery,Morale bonus from large-slot Farms,,"Nose to Tail
+(+1 Food Per Day)",2
+Pack Rat,,+1 Beds Used,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Pageant Wagoneer A,,,"Good Entertainment
+(+4 Morale)",0
+Pageant Wagoneer B,,,"Good Entertainment
+(+4 Morale)",0
+Pageant Wagoneer C,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Paintballer,Morale bonus from Shooting training facilities,,"Intramural Sports
+(+10 Max Stamina)",52
+Painter,,,"Exceptional Taste
+(+3 Morale)",0
+Panicky,,"-7 Morale 
+Keep their morale at 10+ to avoid conflicts 
+-33% Standing Rewards","Overcompensating
+(+1 Labor)",0
+Panicky Fighter,,-66% Fighting Experience Rate,None,0
+Paparazzi,,,"Helpful Mockery
+(+5 Max Stamina)",25
+Paralegal,,,"Journal Writing
+(+25% XP Rate)",0
+Park Ranger,,,,0
+Paronomasiac,,"Often the target when conflicts occur 
+-33% Wits Experience Rate","Breaks the Tension
+(+3 Morale)",0
+Part-time Barista,,,"Storytelling
+(+4 Morale)",0
+Partner in a Law Firm,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Passive Aggressive,,"Often the target when conflicts occur 
+-10% Standing Rewards","Friendly Reminders
+(+1 Labor)",0
+Pastry Chef,Morale bonus from an upgraded Kitchen,,"Sealed Containers
+(+15 Max Food Storage)",2
+Patent Collector,Morale bonus from an upgraded Workshop,,,2
+Pathetic,,"-45 Max Health 
+-50% Standing Rewards","Overcompensating
+(+1 Labor)",181
+Patient,,,"Positive Outlook
+(+25% XP Rate)",0
+PC Gamer,Morale bonus from facilities with a Projector,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Peacemaker,Avoids getting into conflicts,,,0
+Pedantic,,"Keep their morale at 10+ to avoid conflicts 
+-10% Standing Rewards","High Expectations
+(+33% Facility Action Speed)",0
+Pediatrician,,,,0
+Perpetual Underdog,,,"Hard Determination
+(+10 Max Health)",40
+Personal Trainer,Morale bonus from Fighting training facilities,,"Moral Support
+(Unlocks Encouragement)",2
+Pessimist,,"Easiliy Frustrated 
+Often the target when conflicts occur 
+-5 Morale","Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Pet Rock Artist,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Petroleum Engineer,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Pharmacist,,,"Dosage Control
+(+25% Healing Item Efficacy)",0
+Pharmacy Technician,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Philanthropist,,,"Responsibility
+(+1 Labor)",0
+Philosophy Major,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Photographer,,,,0
+Physically Trained,,-66% Cardio Experience Rate,None,0
+Piano Mover,,,"Personal Strength
+(+5 Max Stamina)",25
+Piano Teacher,,,"Good Entertainment
+(+4 Morale)",0
+Picky Eater,"Morale bonus from an upgraded Kitchen 
+-25% Food Consumed Per Day",Often the target when conflicts occur,"Meal Plan
+(-25% Food Consumed Overall)",2
+Picnicker,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Pilot,,,"Frequent Check-ins
+(-15% Radio Cooldowns)",0
+Pinball Wizard,,,"Impressive Moves
+(+25% XP Rate)",0
+Pit Crew,Morale bonus from the Auto Shop,,"Setting the Pace
+(+33% Facility Action Speed)",2
+Plane Crash Survivor,,,"Back from the Edge
+(+15 Max Health)",60
+Plans Ahead,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Plastic Surgeon,,,"Medical Reference
+(+1 Meds Per Day)",2
+Played Basketball,,,"Intramural Sports
+(+10 Max Stamina)",50
+Played Car Games,,,,0
+Played in a Band A,,,"Good Entertainment
+(+4 Morale)",0
+Played in a Band B,,,"Good Entertainment
+(+4 Morale)",0
+Played Rugby,,,"Intramural Sports
+(+10 Max Stamina)",50
+Played Soccer,,,"Intramural Sports
+(+10 Max Stamina)",50
+Played Softball A,,,,0
+Played Softball B,,,"Intramural Sports
+(+10 Max Stamina)",50
+Played Sports,,,"Intramural Sports
+(+10 Max Stamina)",50
+Played Tetherball,,,"Intramural Sports
+(+10 Max Stamina)",50
+Played Zombie Games,+6 Morale,,"Positive Outlook
+(+25% XP Rate)",0
+Plumber,,,,0
+Podcaster,,,"Storytelling
+(+4 Morale)",0
+Police Detective,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Police Negotiator,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Police Officer,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Police Sergeant,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Political Moderate,Avoids getting into conflicts,,"Mediation
+(+6 Morale)",0
+Political Operative,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Poor Bedside Manner,,"-5 Morale (Community) 
+-66% Medicine Experience Rate","Breaks the Tension
+(+3 Morale)",5
+Poor Typist,,-66% Computers Experience Rate,"Overcompensating
+(+1 Labor)",0
+Power Engineer,,,,0
+Powerline Technician,,,,0
+Practical Joker A,+4 Morale,Often the target when conflicts occur,"Breaks the Tension
+(+3 Morale)",0
+Practical Joker B,,,"Breaks the Tension
+(+3 Morale)",0
+Practices Ikebana,,,"Quiet Time
+(-1 Noise)",0
+Prankster,,Often the target when conflicts occur,"Breaks the Tension
+(+3 Morale)",0
+Precise,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Prefers the Sidelines,,-50% Standing Rewards,"Gives People Space
+(+3 Morale)",1
+Preschool Teacher,,,"Lights Out
+(+15 Max Stamina)",75
+Prison Guard,,Keep their morale at 10+ to avoid conflicts,"Lights Out
+(+15 Max Stamina)",75
+Prison Tattoo Artist,,,"Hygiene Standards
+(+100 Infection Resistance)",700
+Private Investigator,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Prize-Winning Chili,,,"Nose to Tail
+(+1 Food Per Day)",0
+Pro Football Player,Morale bonus from Fighting training facilities,,"Intramural Sports
+(+10 Max Stamina)",52
+Pro Gamer,Morale bonus from facilities with a Projector,,"Formal Recognition
+(+50% Standing Rewards)",3
+Pro Poker Player,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Professional Deejay,,,"Good Entertainment
+(+4 Morale)",0
+Professional Hunter,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Professional Singer,+10 Max Stamina,,"Good Entertainment
+(+4 Morale)",50
+Projectionist,,,"Good Entertainment
+(+4 Morale)",0
+Property Manager,Morale bonus from an upgraded Workshop,,"Detailed Checklist
+(+33% Facility Action Speed)",2
+Propmaster,Morale bonus from an upgraded Workshop,,"Stacking System
+(+15 Max Materials Storage)",2
+Psychiatrist,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Public Relations Manager,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Pulled All-Nighters,-30% Fatigue Severity,,"Party Planning
+(+4 Morale)",0
+Pump Tester,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Punched Nazis,,Keep their morale at 10+ to avoid conflicts,"Personal Strength
+(+5 Max Stamina)",25
+Punches Walls,+10 Max Health,Can become frustrated at only -20 morale,"Tough Negotiation
+(+30% Influence Gained)",40
+Purse Snatcher,,,"Pack Maintenance
+(+10 Max Carrying Capacity)",0
+Puts Family First,,,"Hard Choices
+(+3 Morale)",0
+Pyromaniac,,Sometimes wastes fuel,"Taking Risks
+(+5 Max Health)",20
+Pyrotechnician,,Sometimes wastes ammo,,0
+Quartermaster Officer,,,"Pack Maintenance
+(+10 Max Carrying Capacity)",0
+Quick on the Draw,,,"Impressive Moves
+(+25% XP Rate)",0
+Quick Study,+200% Experience Rate,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Quick to Despair,,"Can become frustrated at only -20 morale 
+-5 Morale (Community) 
+-30 Max Health","Overcompensating
+(+1 Labor)",125
+Quilter,,,"Mending
+(+5 Max Health)",20
+Rabble Rouser,+100% Standing Rewards,"Keep their morale at 30+ to avoid conflicts 
+Can become frustrated at only -20 morale","Inspiring Speeches
+(Unlocks Inspiration)",3
+Railroad Engineer,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Raised by Single Mom,,,"Moral Support
+(Unlocks Encouragement)",0
+Ran a Bed & Breakfast,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Ran a Garden Department,,,"Work Schedule
+(+2 Labor)",0
+Ran a Medical Office,,,"Medical Reference
+(+1 Meds Per Day)",2
+Ran a Secret Grow Op,Morale bonus from gardens that grow Meds,,"Silence Policy
+(-2 Noise)",2
+Ran the Neighborhood,+75% Standing Rewards,,"Tough Negotiation
+(+30% Influence Gained)",2
+Ranch Hand,,,"Pest Control
+(+15 Max Food Storage)",0
+Rare Book Collector,Morale bonus from an upgraded Lounge,,"Storytelling
+(+4 Morale)",2
+RC Pilot,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Reads Books,"+100% Wits Experience Rate 
+Morale bonus from an upgraded Lounge",,"Storytelling
+(+4 Morale)",2
+Ready for Action,,,"Ready Access Mags
+(+15 Max Ammo Storage)",0
+Ready for Anything,,,"Breaks the Tension
+(+3 Morale)",0
+Real Estate Agent,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Reality TV Failure,,Keep their morale at 30+ to avoid conflicts,,0
+Reality TV Star,,Keep their morale at 30+ to avoid conflicts,"Social Chameleon
+(+3 Morale)",0
+Rebellious as a Teen,,Keep their morale at 10+ to avoid conflicts,"Taking Risks
+(+5 Max Health)",20
+Receptionist A,,,"Friendly Reminders
+(+1 Labor)",0
+Receptionist B,,,"Friendly Reminders
+(+1 Labor)",0
+Recites TV Shows,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Reckless A,,"Sometimes wastes materials 
+-66% Fighting Experience Rate","Taking Risks
+(+5 Max Health)",20
+Reckless B,,Sometimes wastes materials,,0
+Relied on an Oxygen Tank,,"-75% Cardio Experience Rate 
+-75% Fighting Experience Rate 
+-45 Max Stamina",,225
+Renaissance Fairgoer,,,"Mending
+(+5 Max Health)",20
+Rescued a Puppy,,,"Good Example
+(+33% Facility Action Speed)",0
+Rescues Spiders,,,"Pest Control
+(+15 Max Food Storage)",0
+Research Assistant,,,"Journal Writing
+(+25% XP Rate)",0
+Research Engineer,,,,0
+Reservist,,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Resilient,"-40% Injury Severity 
+Can handle -60 morale without frustration 
++20 Max Health",,"Personal Strength
+(+5 Max Stamina)",105
+Respects Authority,"Can handle -60 morale without frustration 
+Avoids getting into conflicts",-25% Standing Rewards,"Positive Outlook
+(+25% XP Rate)",0
+Restaurant Manager,,,"Formal Recognition
+(+50% Standing Rewards)",1
+Retired Soldier,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Retro Gamer,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Riding Instructor,,,"Friendly Reminders
+(+1 Labor)",0
+Rifle Collector,Morale bonus from the Armory,,"Ammo Wishlist
+(+1 Ammo Per Day)",2
+Risk Averse,Avoids getting into conflicts,-66% Fighting Experience Rate,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Roadkill Cook,,,"Nose to Tail
+(+1 Food Per Day)",0
+Rock Climber,,,"Taking Risks
+(+5 Max Health)",20
+Rocket Scientist,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Rodeo Clown,,,"Breaks the Tension
+(+3 Morale)",0
+Run-Down,,"-66% Cardio Experience Rate 
+-66% Fighting Experience Rate 
+-30 Max Stamina",,150
+Rural Veterinarian,,,"Nose to Tail
+(+1 Food Per Day)",0
+Ruthless,,Keep their morale at 30+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",0
+Safety Engineer,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Sales Associate,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Sales Engineer,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Salsa Dancer,Morale bonus from having a Lounge,,"Siestas
+(-20% Fatigue Severity)",2
+Sang in a Band,+5 Max Stamina,,"Good Entertainment
+(+4 Morale)",25
+Sanitation Engineer,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Sarcastic,+10% Standing Rewards,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Breaks the Tension
+(+3 Morale)",0
+Sawbones,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Saxophonist,+20 Max Stamina,,"Good Entertainment
+(+4 Morale)",100
+Scammed an Employer,,-66% Computer Experience Rate,"Work Schedule
+(+2 Labor)",0
+School Bully,,Keep their morale at 30+ to avoid conflicts,"Helpful Mockery
+(+5 Max Stamina)",25
+Science Editor,,,"Journal Writing
+(+25% XP Rate)",0
+Science Geek A,,,,0
+Science Geek B,,,"Voice of Reason
+(+5 Max Health)",20
+Science Teacher,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Scout,,,"Notices Things
+(+25% Standing Rewards)",0
+Scout Leader,Morale bonus from outdoor bed facilities,,"Formal Recognition
+(+50% Standing Rewards)",3
+Scrapyard Worker A,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Scrapyard Worker B,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Sculptor,,,"Exceptional Taste
+(+3 Morale)",0
+Security Guard,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Security Obsessed,,,,0
+Sees Blood and Faints,,-10 Max Health,"Hygiene Standards
+(+100 Infection Resistance)",740
+Self Defense Teacher,Morale bonus from Fighting training facilities,,,2
+Self-Conscious,,-25% Standing Rewards,"Sincere Praise
+(+25% Standing Rewards)",1
+Self-Destructive,,"Sometimes wastes medicine 
++66% Injury Severity","Target of Sympathy
+(+3 Morale)",0
+Self-Effacing,Can handle -60 morale without frustration,-25% Standing Rewards,"Sincere Praise
+(+25% Standing Rewards)",1
+Self-Hating,,"-30 Max Health 
+-50% Standing Rewards","Overcompensating
+(+1 Labor)",121
+Self-Promoter,,,"Sincere Praise
+(+25% Standing Rewards)",0
+Self-Sabotaging,,"-33% Standing Rewards 
+-20 Max Stamina","Overcompensating
+(+1 Labor)",100
+Separated,,,"Target of Sympathy
+(+3 Morale)",0
+Separated from Unit,,,"Hard Determination
+(+10 Max Health)",40
+Serial Plant Murderer,Morale bonus from having a Garden,-75% Gardening Experience Rate,None,2
+Sewage System Operator,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Sewer Dweller,,-50% Standing Reward,"Gives People Space
+(+3 Morale)",0
+Sewer Worker,,,"Effective Sealants
+(+15 Max Fuel Storage)",0
+Shady Mechanic,,-33% Mechanics Experience Rate,,0
+Shakespearean Actor,,,"Inspiring Speeches
+(Unlocks Inspiration)",0
+Shares Everything,Avoids getting into conflicts,,"Chillness
+(+3 Morale)",0
+Sharp Eyes,,,"Notices Things
+(+25% Standing Rewards)",0
+Sheltered,,-20 Max Health,"Cleaning Chart
+(+50 Infection Resistance)",430
+Sheriff's Deputy,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Shoddy Workmanship,,"-66% Craftsmanship Experience Rate 
+-66% Utilities Experience Rate 
+Often the target when conflicts occur 
+-66% Mechanics Experience Rate",None,0
+Shop Teacher,Morale bonus from an upgraded Workshop,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",2
+Shopped on TV,,-33% Cardio Experience Rate,None,0
+Short as a Kid,,,"Social Chameleon
+(+3 Morale)",0
+Short of Breath,,"-30 Max Stamina 
+-66% Cardio Experience Rate","Target of Sympathy
+(+3 Morale)",150
+Should Not Be Crossed,,Keep their morale at 30+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",0
+Shrewd,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Shy,,-50% Standing Rewards,"Quiet Time
+(-1 Noise)",1
+Sign Painter,,,"Work Schedule
+(+2 Labor)",0
+Sign Twirler,+25% Fighting Experience Rate,,"Impressive Moves
+(+25% XP Rate)",0
+Single Parent,,,"Moral Support
+(Unlocks Encouragement)",0
+Sings Badly in Public,+4 Morale,Often the target when conflicts occur,"Breaks the Tension
+(+3 Morale)",0
+Sings in the Shower,,,"Breaks the Tension
+(+3 Morale)",0
+Sister in the Military,,,,0
+Skater,,,"Impressive Moves
+(+25% XP Rate)",0
+Skeet Shooter,Morale bonus from Shooting training facilities,,"Intramural Sports
+(+10 Max Stamina)",52
+Skittish,,-66% Fighting Experience Rate,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Slaughterhouse Worker,,,"Nose to Tail
+(+1 Food Per Day)",0
+Sleep Researcher,,,"Lights Out
+(+15 Max Stamina)",75
+Sleep Technician,,,None,0
+Sleeps on the Ground,"-1 Beds used 
+Morale bonus from outdoor bed facilities",,"Outdoor Living
+(+2 Beds)",2
+Sleeps with Dakimakura,+20 Max Stamina,-25% Standing Rewards,,100
+Slept in a Tree,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Slightly Stocky,+20 Max Health,-10 Max Stamina,"Personal Strength
+(+5 Max Stamina)",155
+Sloth-Like Metabolism,"Morale bonus from luxury bed facilities 
+-50% Food Consumed Per Day",-30 Max Stamina,"Siestas
+(-20% Fatigue Severity)",152
+Slouchy,,-10 Max Carrying Capacity,"Chillness
+(+3 Morale)",0
+Slovenly,,"Often the target when conflicts occur 
+-25 Infection Resistance","Chillness
+(+3 Morale)",175
+Slumming Mechanic,,-75% Mechanics Experience Rate,None,0
+Slump-Shouldered,,-5 Max Carrying Capacity,"Chillness
+(+3 Morale)",0
+Small Animal Vet,,,"Nose to Tail
+(+1 Food Per Day)",0
+Smoker,,"-20 Max Stamina 
+-66% Cardio Experience Rate",None,100
+Smooth Talker,+50% Standing Rewards,,"Friendly Outreach
+(+15% Influence Gained)",1
+Smuggler,"+10 Max Carrying Capacity 
++10 Light Carrying Capacity",,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Snarky,+10% Standing Rewards,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Helpful Mockery
+(+5 Max Stamina)",25
+Sniper,,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Snores,,"Often the target when conflicts occur 
+-3 Morale (Community) 
+-10 Max Stamina","Gives People Space
+(+3 Morale)",53
+Snowboarder,,,,0
+Social Butterfly,+50% Standing Rewards,,"Social Chameleon
+(+3 Morale)",1
+Social Worker,,,"Moral Support
+(Unlocks Encouragement)",0
+Sociopathic Vibe,,Keep their morale at 10+ to avoid conflicts,"Hard Choices
+(+3 Morale)",0
+Soft,,-30 Max Health,"Chillness
+(+3 Morale)",120
+Soft-Hearted,Avoids getting into conflicts,,"Words of Comfort
+(Unlocks Encouragement)",0
+Software Engineer,,,"Analytical Methods
+(+50% XP Rate)",0
+Sold Cellular Phones,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Sold Crafts Online,,,"Mending
+(+5 Max Health)",20
+Sold Electronics,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Sold Fertilizer,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Sold Supplements,,,"Medical Inventory
+(+15 Max Meds Storage)",0
+Sold Used Cars,,-66% Mechanics Experience Rate,"Tough Negotiation
+(+30% Influence Gained)",0
+Solo Scavenger,-50% Food Consumed Per Day,,"Gives People Space
+(+3 Morale)",0
+Someone's Relative,,,None,0
+Sore Neck,,-5 Max Carrying Capacity,"Medical Inventory
+(+15 Max Meds Storage)",0
+Soup Kitchen Volunteer,,,"Meal Plan
+(-25% Food Consumed Overall)",0
+Special Forces A,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Special Forces B,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Special Forces C,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Special Forces D,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+Speech Therapist,,,"Moral Support
+(Unlocks Encouragement)",0
+Speedwalker,Morale bonus from Fighting training facilities,,"Setting the Pace
+(+33% Facility Action Speed)",2
+Spelunker,,,"Lights Out
+(+15 Max Stamina)",75
+Spent Weekends Antiquing,,,"Exceptional Taste
+(+3 Morale)",0
+Sports Gambler,,,"Intramural Sports
+(+10 Max Stamina)",50
+Sportscar Fanatic,Morale bonus from the Auto Shop,Sometimes wastes fuel,"Vehicle Delivery
+(Unlocks Vehicle Delivery)",2
+Spotter,,,"Veteran Instincts
+(Unlocks Rooftop Recon)",0
+Spry,,,"Breaks the Tension
+(+3 Morale)",0
+Stagehand,,,"Work Schedule
+(+2 Labor)",0
+Stained Glass Artist,Morale bonus from the Forge,,"Exceptional Taste
+(+3 Morale)",2
+Stamp Collector,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Stand-Up Comic,,,"Good Entertainment
+(+4 Morale)",0
+Stargazer,,,"Lights Out
+(+15 Max Stamina)",75
+Started Flash Mobs,,,"Party Planning
+(+4 Morale)",0
+State Senator,,,"Friendly Outreach
+(+15% Influence Gained)",0
+State Trooper,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Stays Fit,+20 Max Stamina,,"Siestas
+(-20% Fatigue Severity)",100
+Steady,,,,0
+Stockroom Worker,,,"Rotation System
+(+15 Max Food Storage)",0
+Stoner,Morale bonus from gardens that grow Meds,"Sometimes wastes medicine 
+-66% Cardio Experience Rate 
+Often the target when conflicts occur 
+-1 Labor 
+-50% Standing Rewards","Chillness
+(+3 Morale)",3
+Stored Tons of Food,,,"Rotation System
+(+15 Max Food Storage)",0
+Straight-A Student,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Street Performer,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Stress Eater,,"Sometimes wastes food 
++100% Food Consumed Per Day","Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Strict Expectations,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","High Expectations
+(+33% Facility Action Speed)",0
+Strong,,,"Personal Strength
+(+5 Max Stamina)",25
+Strong Back,,,"Personal Strength
+(+5 Max Stamina)",25
+Stubborn,,"Keep their morale at 10+ to avoid conflicts 
+Can become frustrated at only -20 morale","Tough Negotiation
+(+30% Influence Gained)",0
+Student Mentor,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Stunt Person,,Sometimes wastes fuel,,0
+Stylist,,,"Backrubs
+(+5 Max Carrying Capacity)",0
+Surgeon,,,,0
+Surgical Assistant,,,,0
+Surly,,"Keep their morale at 10+ to avoid conflicts 
+-3 Morale (Community) 
+Can become frustrated at only -20 morale","Tough Negotiation
+(+30% Influence Gained)",3
+Survivalist,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Survived Indoors,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Survived on a Train,,,"Siphoning System
+(+1 Fuel Per Day)",0
+Survivor's Guilt,,-50% Standing Rewards,"Responsibility
+(+1 Labor)",1
+Sushi Chef,Morale bonus from an upgraded Kitchen,,"Sealed Containers
+(+15 Max Food Storage)",2
+SWAT Breacher,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+SWAT Officer,,,"Firearms Training
+(+50% Shooting XP Rate)",0
+SWAT Trainee,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Sweats a Lot,,-25% Standing Rewards,"Gives People Space
+(+3 Morale)",0
+Tabletop Gamer,Morale bonus from an upgraded Lounge,,"Party Planning
+(+4 Morale)",2
+Takes Power Naps,"-1 Beds Used 
++20 Max Stamina",,"Siestas
+(-20% Fatigue Severity)",100
+Talented Athlete,,,"Good Example
+(+33% Facility Action Speed)",0
+Talk Radio Host,,Can become frustrated at only -20 morale,"Friendly Outreach
+(+15% Influence Gained)",0
+Talks Loudly,+10% Standing Rewards,"+1 Noise 
+Often the target when conflicts occur","Inspiring Speeches
+(Unlocks Inspiration)",0
+Talks to Plants,Morale bonus from having a Garden,,"Friendly Outreach
+(+15% Influence Gained)",2
+Tapped a Water Tower,,,,0
+Tattoo Artist,,,"Hygiene Standards
+(+100 Infection Resistance)",700
+Taught Elementary School,,,"Inspiring Speeches
+(Unlocks Inspiration)",0
+Taught Gymnastics,Morale bonus from Fighting training facilities,,"Moral Support
+(Unlocks Encouragement)",2
+Taxidermist,,,"Nose to Tail
+(+1 Food Per Day)",0
+Tech Director,,,"Work Schedule
+(+2 Labor)",0
+Tech Early Adopter,,,"Positive Outlook
+(+25% XP Rate)",0
+Tech Support,,,"Mediation
+(+6 Morale)",0
+Technically Royalty,,,"Storytelling
+(+4 Morale)",0
+Telemarketer,,,"Mediation
+(+6 Morale)",0
+Tells Bad Jokes A,+3 Morale (Community),Often the target when conflicts occur,"Breaks the Tension
+(+3 Morale)",3
+Tells Bad Jokes B,,"-3 Morale (Community) 
+Often the target when conflicts occur","Breaks the Tension
+(+3 Morale)",3
+Tells Tall Tales,+3 Morale (Community),,"Storytelling
+(+4 Morale)",3
+Test Engineer,,,"Analytical Methods
+(+50% Experience Rate)|",0
+The Muscle,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Theatre Nerd,,,"Exceptional Taste
+(+3 Morale)",0
+Theme Park Enthusiast,,,"Taking Risks
+(+5 Max Health)",20
+Thrillseeker,,Sometimes wastes medicine,"Taking Risks
+(+5 Max Health)",20
+Tinkerer A,Morale bonus from an upgraded Workshop,,"Siphoning System
+(+1 Fuel Per Day)",2
+Tinkerer B,Morale bonus from an upgraded Workshop,"Sometimes wastes materials 
+-66% Utilities Experience Rate","Siphoning System
+(+1 Fuel Per Day)",2
+Tires Quickly,Morale bonus from luxury bed facilities,"+33% Fatigue Severity 
+-20 Max Stamina","Siestas
+(-20% Fatigue Severity)",102
+Toll Booth Operator,,,,0
+Too Many Textbooks,,,"Pack Maintenance
+(+10 Max Carrying Capacity)",0
+Took a Gap Year,,,"Chillness
+(+3 Morale)",0
+Took a Lot of Dares,"-40% Injury Severity 
++30 Max Health",Sometimes wastes medicine,"Taking Risks
+(+5 Max Health)",140
+Took Crazy Road Trips,,,"Storytelling
+(+4 Morale)",0
+Took Decoy Duty,,,"Breaks the Tension
+(+3 Morale)",0
+Took Kickboxing,Morale bonus from Fighting training facilities,,"Combat Exercises
+(+50% Fighting XP Rate)",2
+Took Online Courses,,,"Seminars
+(+50% XP Rate)",0
+Took Self Defense,,,"Fighting Tips
+(+25% Fighting XP Rate)",0
+Total Lightweight,+100% Healing Item Efficacy,,"Dosage Control
+(+25% Healing Item Efficacy)",0
+Tough,"-30% Injury Severity 
++10 Max Health",,"Personal Strength
+(+5 Max Stamina)",65
+Tour Guide,,,"Moral Support
+(Unlocks Encouragement)",0
+Tourist,,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",0
+Track Star,,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Tractor Driver,,,"Driver Training
+(+25% Fuel Efficiency)",0
+Trade School Teacher,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Traffic Cop,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Trail Guide,Morale bonus from outdoor bed facilities,,"Pre-Packed Gear
+(+5 Light Carrying Capacity)",2
+Trained at Fighting,,-66% Fighting Experience Rate,None,0
+Trained at Shooting,,-66% Shooting Experience Rate,None,0
+Trained in CPR,,,"Good Example
+(+33% Facility Action Speed)",0
+Training Electrician,,,,0
+Translator,,,,0
+Trash Collector,,,,0
+Traveled the World,,,"Outdoor Living
+(+2 Beds)",0
+Tree Trimmer,,,"Careful Demolition
+(+1 Materials Per Day)",0
+Trilingual,,,"Mediation
+(+6 Morale)",0
+Trucker,-40% Fatigue Severity,,"Frequent Check-ins
+(-15% Radio Cooldowns)",0
+Trucker for Westen,-40% Fatigue Severity,,"Frequent Check-ins
+(-15% Radio Cooldowns)",0
+Trust Fund Kid,,"-66% Shooting Experience Rate 
+-5 Morale 
+-66% Wits Experience Rate","High Expectations
+(+33% Facility Action Speed)",0
+Trusts No One,,Keep their morale at 10+ to avoid conflicts,"Tough Negotiation
+(+30% Influence Gained)",0
+TSA Agent,,,"Detailed Checklist
+(+33% Facility Action Speed)",0
+Turned a Corner,,Keep their morale at 30+ to avoid conflicts,,0
+Turned Life Around,,,"Back from the Edge
+(+15 Max Health)",60
+Typeface Designer,,,"Exceptional Taste
+(+3 Morale)",0
+Unathletic,,-66% Cardio Experience Rate,"Overcompensating
+(+1 Labor)",0
+Unbreakable,"+45 Max Health 
+-100% Injury Chance",,"Hard Determination
+(+10 Max Health)",214
+Uncomfortable at Parties,,-10% Standing Rewards,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Undertaker,,,"Quiet Time
+(-1 Noise)",0
+Unmotivated,Morale bonus from luxury bed facilities,"Often the target when conflicts occur 
+-1 Labor 
+-50% Standing Rewards","Chillness
+(+3 Morale)",3
+Unnervingly Quiet,Avoids getting into conflicts,,"Quiet Time
+(-1 Noise)",0
+Unobservant,,"Sometimes wastes materials 
+-33% Wits Experience Rate",None,0
+Unusually Mature,"+50% Wits Experience Rate 
++25% Standing Rewards",,"Voice of Reason
+(+5 Max Health)",20
+Urban Climber,,,"Taking Risks
+(+5 Max Health)",20
+Urban Farmer,,,,0
+Urologist,,,"Medical Reference
+(+1 Meds Per Day)",2
+US Marshal,,,"Shooting Advice
+(+25% Shooting XP Rate)",0
+Used to be Reckless,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Used to be Vain,,,,0
+Used to Hate Guns,,,"Sufficient Caution
+(Unlocks Rooftop Recon)",0
+Used to Hide Money,,,"Emergency Stashes
+(Unlocks Emergency Supplies)",0
+Used to Humidity,+10 Max Stamina,,"Outdoor Living
+(+2 Beds)",50
+Used to Hunt,,,"Storytelling
+(+4 Morale)",0
+Used to Paint,,,,0
+Used to the Cold,+20 Max Stamina,,"Outdoor Living
+(+2 Beds)",100
+Useless,Morale bonus from luxury bed facilities,"Often the target when conflicts occur 
+-1 Labor 
+-50% Standing Rewards","Siestas
+(-20% Fatigue Severity)",3
+User Experience Designer,,,"Sounding Board
+(+50% Wits XP Rate)",0
+Utilities Worker,,,"Work Schedule
+(+2 Labor)",0
+Vacationed in Spain,,,"Siestas
+(-20% Fatigue Severity)",0
+Vain,,"Keep their morale at 10+ to avoid conflicts 
+Often the target when conflicts occur 
+-10% Standing Rewards","High Expectations
+(+33% Facility Action Speed)",0
+Valedictorian,,,"Inspiring Speeches
+(Unlocks Inspiration)",0
+VCR Repair,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Vegan,"Morale bonus from an upgraded Kitchen 
+-25% Food Consumed Per Day",,"Hygiene Standards
+(+100 Infection Resistance)",702
+Very Trusting,Avoids getting into conflicts,,"Moral Support
+(Unlocks Encouragement)",0
+Veteran Gambler,,,"Taking Risks
+(+5 Max Health)",20
+Veterinarian,,,"Nose to Tail
+(+1 Food Per Day)",0
+Veterinary Pathologist,,,"Medical Reference
+(+1 Meds Per Day)",2
+Video Game Producer,,,"Work Schedule
+(+2 Labor)",0
+Video Game Streamer,Morale bonus from facilities with a Projector,,"Friendly Outreach
+(+15% Influence Gained)",2
+Video Rental Clerk,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Visited Yard Sales,,,"Tough Negotiation
+(+30% Influence Gained)",0
+Vlogger A,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Vlogger B,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Voice Actor,,,"Storytelling
+(+4 Morale)",0
+Volunteer Coordinator,+4 Morale (Community),,"Friendly Reminders
+(+1 Labor)",4
+Volunteer Firefighter,,,"Siestas
+(-20% Fatigue Severity)",0
+Voyeur,,,"Sincere Praise
+(+25% Standing Rewards)",0
+Waited Them Out,,,"Silence Policy
+(-2 Noise)",0
+Waiter,,,"Notices Things
+(+25% Standing Rewards)",0
+Wallflower,Avoids getting into conflicts,-50% Standing Rewards,"Quiet Time
+(-1 Noise)",1
+Wandering Guitarist,,,"Good Entertainment
+(+4 Morale)",0
+War Reenactor,Morale bonus from the Armory,,"Inspiring Speeches
+(Unlocks Inspiration)",2
+Warehouse Manager,,,"Work Schedule
+(+2 Labor)",0
+Warehouse Stocker,,,"Rotation System
+(+15 Max Food Storage)",0
+Was Always Sick A,Morale bonus from an upgraded Infirmary,,,2
+Was Always Sick B,Morale bonus from an upgraded Infirmary,-50 Infection Resistance,"Target of Sympathy
+(+3 Morale)",352
+Was Homeless,,,"Back from the Edge
+(+15 Max Health)",60
+Was in ROTC,,,"Consistent Routine
+(+1 Labor)",0
+Was Unemployed,,,"Overcompensating
+(+1 Labor)",0
+Waste Disposal Engineer,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Waste Sorter A,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Waste Sorter B,,,"Recycling Program
+(+25% Parts Salvaged from Weapons)",0
+Watched Cooking Shows,Morale bonus from an upgraded Kitchen,,"Consistent Routine
+(+1 Labor)",2
+Watched Sports A,Morale bonus from facilities with a Projector,,"Intramural Sports
+(+10 Max Stamina)",52
+Watched Sports B,,,"Intramural Sports
+(+10 Max Stamina)",50
+Watched Westerns,Morale bonus from facilities with a Projector,,"Exceptional Taste
+(+3 Morale)",2
+Weak Stomach,,"-66% Fighting Experience Rate 
+-66% Shooting Experience Rate",None,0
+Weak Swing,,-66% Fighting Experience Rate,None,0
+Web Developer,,,,0
+Weekend Warrior,Morale bonus from Shooting training facilities,,"Ready Access Mags
+(+15 Max Ammo Storage)",2
+Weightlifter,Morale bonus from Fighting training facilities,,,2
+Weird Nickname,,,None,0
+Weirdo,,"Often the target when conflicts occur 
+-33% Standing Rewards","Backrubs
+(+5 Max Carrying Capacity)",0
+Well-Built,,,,0
+Went on Camping Trips,Morale bonus from outdoor bed facilities,,"Outdoor Living
+(+2 Beds)",2
+Went to Grad School,,,"Seminars
+(+50% XP Rate)",0
+Went to Night School,-30% Fatigue Severity,,"Siestas
+(-20% Fatigue Severity)",0
+Whistleblower,,Keep their morale at 10+ to avoid conflicts,"Inspiring Speeches
+(Unlocks Inspiration)",0
+Whittler,Morale bonus from an upgraded Workshop,,"Sharpening Regimen
+(-10% Durability Loss Per Hit (Melee))",2
+Will Drink Anything,Morale bonus from Stills and Bars,Sometimes wastes medicine,"Nose to Tail
+(+1 Food Per Day)",2
+Will Eat Anything,-50% Food Consumed Per Day,,"Nose to Tail
+(+1 Food Per Day)",0
+Willowy,+20 Max Stamina,-10 Max Health,"Setting the Pace
+(+33% Facility Action Speed)",140
+Window Cleaner,,,"Cleaning Chart
+(+50 Infection Resistance)",350
+Wingsuit Flyer,,,"Taking Risks
+(+5 Max Health)",20
+Wise,+100% Wits Experience Rate,,"Voice of Reason
+(+5 Max Health)",20
+Woodcutter,,,"Stacking System
+(+15 Max Materials Storage)",0
+Workaholic,+1 Labor,,"Setting the Pace
+(+33% Facility Action Speed)",0
+Worked at a Chop Shop,,,"Reads Instructions
+(+25% Parts Salvaged from Weapons)",0
+Worked at an Office,,,"Work Schedule
+(+2 Labor)",0
+Worked at an Orchard,Morale bonus from large-slot Farms,,"Work Schedule
+(+2 Labor)",2
+Worked at Power Station,,,"Lights Out
+(+15 Max Stamina)",75
+Worked at Tartan Mart,,,"Friendly Outreach
+(+15% Influence Gained)",0
+Worked Construction,Morale bonus from an upgraded Workshop,,"Careful Demolition
+(+1 Materials Per Day)",2
+Worked on a Farm,Morale bonus from large-slot Farms,,"Work Schedule
+(+2 Labor)",2
+World War II Buff,,,"Storytelling
+(+4 Morale)",0
+Worst Fighter Ever,,-75% Fighting Experience Rate,None,0
+Wrote a Viral Tweet,+25% Standing Rewards,,"Good Entertainment
+(+4 Morale)",0
+Yoga Instructor,,,"Morning Yoga
+(-25% Injury Severity)",0
+Young,+20 Max Stamina,,"Good Example
+(+33% Facility Action Speed)",100
+Youth Baseball Coach,,,"Intramural Sports
+(+10 Max Stamina)",50
+Youth Counselor,,,"Words of Comfort
+(Unlocks Encouragement)",0
+Zine Author,,,"Journal Writing
+(+25% XP Rate)",0
+Zombie Hunter A,,,,0
+Zombie Hunter B,,,,0
+Zoologist,,,"Nose to Tail
+(+1 Food Per Day)",0
