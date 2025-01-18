@@ -26,7 +26,7 @@ VSVersionInfo(
                 StringStruct('LegalCopyright', 'Distributed for free on NexusMods under the MIT License. Use at your own risk. No warranty or liability.'),
                 StringStruct('OriginalFilename', 'so2_autoroll.exe'),
                 StringStruct('ProductName', 'State of Decay 2 Auto-Reroll Mod'),
-                StringStruct('ProductVersion', '1.0.2')])
+                StringStruct('ProductVersion', '1.1.0')])
             ]), 
         VarFileInfo([VarStruct('Translation', [1033, 1200])])
     ]

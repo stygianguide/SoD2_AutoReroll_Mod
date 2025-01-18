@@ -1,3 +1,6 @@
+# =======================================
+# Section 1: Imports
+# Organized all imports here for clarity
 import pyautogui
 import pytesseract
 from PIL import ImageDraw
@@ -12,7 +15,11 @@ import keyboard
 import tkinter as tk
 from tkinter import ttk
 import ctypes
+# =======================================
 
+# =======================================
+# Section 2: Global Variables & Setup
+# (Constants, config files, list definitions, etc.)
 # Set the path to the local tesseract executable
 pytesseract.pytesseract.tesseract_cmd = os.path.join(os.path.dirname(__file__), 'tesseract', 'tesseract.exe')
 
@@ -43,6 +50,19 @@ SKILLS_LIST = [
     "sports trivia", "soundproofing", "tattoos", "tv trivia"
 ]
 
+# Game window title
+GAME_WINDOW_TITLE = "StateOfDecay2 "
+
+# Window selected global flag
+window_selected = False
+
+# Variable de control global para cancelar el proceso
+cancel_process_flag = False
+# =======================================
+
+# =======================================
+# Section 3: Configuration Class & Loading
+# The Config class + the load_config() function
 class Config:
     def __init__(self):
         self.RUN_DURATION = 2
@@ -53,11 +73,13 @@ class Config:
         self.DEBUG = False
         self.DEBUG_OCR = False
         self.PREFERRED_SKILLS = []
+        self.BLOCKED_POSITIONS = []
 
     def __str__(self):
         return str(self.__dict__)
 
 def load_config():
+    """Load and return the configuration from config.txt."""
     config = Config()
     
     if os.path.isfile("config.txt"):
@@ -83,6 +105,9 @@ def load_config():
                             setattr(config, key, int(value))
                         elif key == "REROLL_WAIT_TIME" or key == "SIMILARITY_THRESHOLD":
                             setattr(config, key, float(value))
+                        elif key == "BLOCKED_POSITIONS":
+                            positions = [int(pos) for pos in value.split(",") if pos.strip()]
+                            setattr(config, key, positions)
                 except ValueError:
                     continue
 
@@ -94,33 +119,34 @@ def load_config():
 
 # Load configuration at the start
 config = load_config()
+# =======================================
 
-# Game window title
-GAME_WINDOW_TITLE = "StateOfDecay2 "
-
-# Window selected global flag
-window_selected = False
-
-# Variable de control global para cancelar el proceso
-cancel_process_flag = False
-
-def cancel_process():
+# =======================================
+# Section 4: Main Reroll Logic & Utilities
+# (Functions for window management, OCR, skill/trait analysis, etc.)
+def cancel_process(event=None):
+    """Set the global flag to cancel the process."""
     global cancel_process_flag
     cancel_process_flag = True
-    print("[INFO] Process cancel has been requested.")
-    status_label.config(text="Process cancel has been requested.")
+    append_status_message("Process cancel has been requested.", True)
+
+# Register the hotkey for cancelling the process
+keyboard.add_hotkey('0', cancel_process)
 
 def debug_message(msg):
+    """Print debug messages if DEBUG is enabled."""
     if config.DEBUG:
         print(msg)
 
 def debug_image(image, msg):
+    """Save debug images if DEBUG_OCR is enabled."""
     if config.DEBUG_OCR:
         # Save the image with a timestamp
         unix_time = int(time.time())
         image.save(f"{msg}_{unix_time}.png")
 
 def debug_image_with_boxes(image, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, msg):
+    """Draw boxes on the image for debugging and save it."""
     draw = ImageDraw.Draw(image)
     for pos in skill_positions:
         x, y = pos
@@ -133,20 +159,19 @@ def debug_image_with_boxes(image, skill_positions, skill_width, skill_height, tr
     print(f"[DEBUG] Image with boxes saved as {msg}_{unix_time}.png")
 
 def get_game_window_position(title):
+    """Return game window and geometry by title."""
     try:
         # Find the game window by title
         window = gw.getWindowsWithTitle(title)[0]  # Take the first window if there are multiple
         if config.DEBUG_OCR:
             screenshot = pyautogui.screenshot(region=(window.left, window.top, window.width, window.height))
             debug_image(screenshot, f"debug_game_window_capture_{window.width}x{window.height}")
-
-        left, top, width, height = window.left, window.top, window.width, window.height
         return window, window.left, window.top, window.width, window.height
     except IndexError:
-        print(f"Could not find window '{title}'.")
-        status_label.config(text="Could not find the game window. Prepare the game window and click 'Run' again.")
+        append_status_message("[ERROR] Game window not found.", True)
     
 def get_aspect_ratio_category(width, height):
+    """Determine the aspect ratio category based on width and height."""
     aspect_ratio = width / height
     debug_message(f"width:{width} height:{height}")
     if 1.5 <= aspect_ratio <= 1.85:  # Expand the range for 16:9 and similar wide ratios
@@ -157,6 +182,7 @@ def get_aspect_ratio_category(width, height):
         return "unknown"
 
 def calculate_dynamic_positions(width, height):
+    """Calculate dynamic positions for skills and traits based on window size."""
     # Define reference resolutions
     ref_width = 1298
     ref_height_16_9 = 767
@@ -196,8 +222,8 @@ def calculate_dynamic_positions(width, height):
 
     return skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height
 
-
 def capture_region(left, top, position, width, height):
+    """Capture a region of the screen and return it as an image."""
     x, y = position
     region_x = left + x
     region_y = top + y
@@ -206,6 +232,7 @@ def capture_region(left, top, position, width, height):
     return image
 
 def extract_text(processed_image):
+    """Extract text from an image using Tesseract OCR."""
     text = pytesseract.image_to_string(processed_image, config="--psm 6 -l eng -c tessedit_char_blacklist=.!@#$%^&*()[]{};:<>")
     text = text.strip()
     # Guardar la imagen si el texto extraído está vacío
@@ -216,9 +243,11 @@ def extract_text(processed_image):
     return text.lower()
 
 def calculate_similarity(a, b):
+    """Calculate the similarity ratio between two strings."""
     return SequenceMatcher(None, a, b).ratio()
 
 def get_character_power(ocr_traits):
+    """Calculate the power of a character based on OCR traits."""
     detected_traits = []
     power = 0
 
@@ -242,6 +271,7 @@ def get_character_power(ocr_traits):
     return detected_traits, power
 
 def reroll():
+    """Send a keypress for rerolling the character."""
     pyautogui.press("t")
     time.sleep(config.REROLL_WAIT_TIME)  # Additional wait time for character to update after reroll
     debug_message("Rerolling...")
@@ -260,7 +290,6 @@ def clean_ocr_text(text):
     text = remove_non_letters(text)
     text = remove_single_letters(text)
     return text.strip().lower()
-
 
 def clean_skill_text(text, config):
     """Clean and process the skill text, trying exact match first, then similarity."""
@@ -291,7 +320,6 @@ def clean_skill_text(text, config):
     # Return the closest match if it meets the similarity threshold; otherwise, return an empty string
     return best_match if highest_similarity >= config.SIMILARITY_THRESHOLD else ""
 
-
 def analyze_skills(skill_image, config):
     """Analyze skills from the skill image."""
     skill_text = extract_text(skill_image)
@@ -313,6 +341,7 @@ def analyze_traits(trait_image, config):
     return traits, power
 
 def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config):
+    """Analyze skills/traits/power for a single character."""
     futures = []
     with ThreadPoolExecutor() as executor:
         # Capture image for traits
@@ -359,16 +388,22 @@ def move_cursor_below_traits_square(left, top, trait_position, trait_width, trai
     pyautogui.moveTo(center_x, center_y)
 
 def start_roll():
+    """Main loop for rolling characters until threshold or timeout."""
     global window_selected, cancel_process_flag
-    if not window_selected:
-        status_label.config(text="Starting... Select the game window.")
-        print("Starting... Select the game window.")
-        time.sleep(2)
-        window_selected = True
-    print("Rolling the characters...")
-
     # Get game window and its initial position
     game_window, left, top, width, height = get_game_window_position(GAME_WINDOW_TITLE)
+    
+    # Check if the game window is active
+    if not game_window.isActive:
+        append_status_message("Activating game window.", True)
+        game_window.activate()
+        time.sleep(1)  # Give some time for the window to activate
+        if not game_window.isActive:
+            append_status_message("[ERROR] The game window could not be activated.", True)
+            return
+            
+    append_status_message("Rolling the characters. Press '0' to cancel", True)
+
     skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height = calculate_dynamic_positions(width, height)
 
     if config.DEBUG_OCR:
@@ -377,7 +412,6 @@ def start_roll():
         print(f"skill_positions: {skill_positions}")
         print(f"trait_positions: {trait_positions}")
         debug_image_with_boxes(screenshot, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, f"debug_game_window_capture_{width}x{height}")
-
 
     # Start initially at the first survivor by moving the cursor to the traits square
     current_position = 0
@@ -389,15 +423,10 @@ def start_roll():
 
     start_time = time.time()
     while time.time() - start_time < (config.RUN_DURATION * 60):
-    # Check if the process has been cancelled
+        # Check if the process has been cancelled
         if cancel_process_flag:
-            print("[INFO] Process cancelled by user.")
+            cancel_process_flag = False
             break
-    
-    # Check if the game window is still active
-        if not game_window.isActive:
-            print("[ERROR] The game window is no longer active. Exiting script.")
-            sys.exit(1)
 
         # Determine the weakest character
         temp_powers = []
@@ -405,10 +434,17 @@ def start_roll():
             power = survivor['power']
             temp_powers.append(power)
 
-        # Add SKILL_POWER to the strongest character with a preferred skill
+        # Filter out blocked positions
+        available_positions = [i for i in range(3) if i not in config.BLOCKED_POSITIONS]
+
+        # Add SKILL_POWER to the strongest character with a preferred skill if character position is available    
         if config.PREFERRED_SKILLS:
             for skill in config.PREFERRED_SKILLS:
-                characters_with_skill = [s for s in survivors if s.get('skill') == skill]
+                characters_with_skill = [
+                    survivors[i]
+                    for i in available_positions
+                    if survivors[i].get('skill') == skill
+                ]
                 if characters_with_skill:
                     strongest_with_skill = max(characters_with_skill, key=lambda s: s['power'])
                     index_of_strongest = survivors.index(strongest_with_skill)
@@ -417,14 +453,34 @@ def start_roll():
                         f"Adding SKILL_POWER to the strongest survivor with preferred skill '{skill}': "
                         f"Survivor {index_of_strongest + 1}, new temp power: {temp_powers[index_of_strongest]}."
                     )
-        weakest_index = min(range(3), key=lambda x: temp_powers[x])
+
+        # Determine the weakest character
+        if available_positions:
+            weakest_index = min(available_positions, key=lambda x: temp_powers[x])
+        else:
+            weakest_index = None  # No available positions
+            print(f"Stop. All characters are blocked.")
+            break # Stop if all positions are blocked
+
         weakest_power = temp_powers[weakest_index]
 
         # Stop if the lowest power character exceeds the threshold
         if weakest_power > config.POWER_THRESHOLD:
-            print(f"Stopping early as all characters have power above {config.POWER_THRESHOLD}.")
+            append_status_message(f"Stop. All characters have power above {config.POWER_THRESHOLD}.", True)
             break
 
+        #Create the UI summary for the current character before moving to the next    
+        if current_position != weakest_index:
+            create_survivor_summary(
+                survivors_frame, 
+                SURVIVOR_FRAME_ROW, 
+                current_position, 
+                survivors[current_position]['power'], 
+                survivors[current_position]['traits'], 
+                survivors[current_position].get('skill', '')
+            )
+            root.update_idletasks() # Update the UI to display the summary
+                
         # Move to the position of the weakest character by moving the cursor to the traits square
         move_cursor_below_traits_square(left, top, trait_positions[weakest_index], trait_width, trait_height)
         current_position = weakest_index
@@ -457,17 +513,63 @@ def start_roll():
 
         survivors[weakest_index] = rerolled_character
 
-    # Display characters in the same order as in the game
-    print("Final survivors:")
+    # Update the UI with the final survivors
+    append_status_message("Updating survivors summary.", True)
     for idx, survivor in enumerate(survivors):
         print(f"S{idx + 1}: {survivor}")
-        create_survivor_summary(survivors_frame, 8, idx, survivor['power'], survivor['traits'], survivor.get('skill', ''))
+        create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, idx, survivor['power'], survivor['traits'], survivor.get('skill', ''))   
 
-def run():
-    start_roll()
+# =======================================
 
+# =======================================
+# Section 5: UI Classes & Functions
+# (ToolTip, SelectableListbox, UI creation, etc.)
+
+# Create the main window
+root = tk.Tk()
+root.title("SO2 Auto-Reroll Mod")
+# Disable resizing and maximize button
+root.resizable(False, False)
+
+# Set the icon for the window
+ico_path = os.path.join(base_path, 'app_icon.ico')
+root.iconbitmap(ico_path)
+
+# Enable debug console if the argument is passed
+if "--enable-debug-console" in sys.argv:
+    config.DEBUG = True
+    ctypes.windll.kernel32.AllocConsole()
+    sys.stdout = open("CONOUT$", "w")
+    sys.stderr = open("CONOUT$", "w")
+
+# Create the main frame
+frame = ttk.Frame(root, padding="10")
+frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+
+SURVIVOR_FRAME_ROW = 8
+# Create the frame for the survivor summaries
+survivors_frame = ttk.Frame(frame, padding=0, relief=tk.FLAT)
+survivors_frame.grid(row=SURVIVOR_FRAME_ROW, column=0, columnspan=2, sticky=(tk.W, tk.E))
+survivors_frame.grid_columnconfigure(0, weight=1)
+survivors_frame.grid_columnconfigure(1, weight=1)
+survivors_frame.grid_columnconfigure(2, weight=1)
+
+# Create the status text widget
+status_text = None
+
+def append_status_message(message, also_print=False):
+    """Append a message to the status text widget."""
+    global status_text
+    status_text.config(state=tk.NORMAL)
+    status_text.insert(tk.END, message + "\n")
+    status_text.config(state=tk.DISABLED)
+    status_text.see(tk.END)
+    root.update_idletasks() # Update the UI to show the message
+    if also_print:
+        print(message)
 
 class ToolTip:
+    """Display a tooltip for a given Tkinter widget."""
     def __init__(self, widget, text):
         self.widget = widget
         self.text = text
@@ -493,6 +595,7 @@ class ToolTip:
             self.tooltip = None
 
 class SelectableListbox:
+    """Custom listbox that tracks selected items separately."""
     def __init__(self, parent, row, label_text, tooltip_text, options_list, selected_list):
         self.parent = parent
         self.label_text = label_text
@@ -546,6 +649,7 @@ class SelectableListbox:
         self.listbox.see(0)
     
     def on_select(self, event):
+
         selected_indices = self.listbox.curselection()
         new_selected_items = [self.listbox.get(i) for i in selected_indices]
         
@@ -568,8 +672,12 @@ class SelectableListbox:
             self.listbox.delete(self.listbox.get(0, tk.END).index(item))
             self.listbox.insert(0, item)
             self.listbox.selection_set(0)
+        
         # Move the scroll to the top
         self.listbox.see(0)
+        
+        # Ensure the selected items are updated in the selected_list
+        self.selected_list = self.selected_items.copy()
 
     def get_selected_items(self):
         return self.selected_items
@@ -581,60 +689,45 @@ class SelectableListbox:
         self.selected_list = self.default_selected_list.copy()
         self.populate_listbox()
 
-# Crear the main window
-root = tk.Tk()
-root.title("SO2 Auto-Reroll Mod")
-
-
-# Create the main frame
-frame = ttk.Frame(root, padding="10")
-frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
-
-# Create the frame for the survivor summaries
-survivors_frame = ttk.Frame(frame, padding=0, relief=tk.FLAT)
-survivors_frame.grid(row=8, column=0, columnspan=2, sticky=(tk.W, tk.E))
-survivors_frame.grid_columnconfigure(0, weight=1)
-survivors_frame.grid_columnconfigure(1, weight=1)
-survivors_frame.grid_columnconfigure(2, weight=1)
-
 def create_survivor_summary(frame, row, index, power, traits, skill):
+    """Add a summary of survivor info to the UI."""
     global root
-    row_number = 0
     summary_frame = ttk.LabelFrame(frame, text=f"Survivor {index +1}")
-    summary_frame.grid(row=row_number, column=index, padx=3, pady=5, sticky=(tk.W, tk.E))
+    # Use the passed-in row instead of 0
+    summary_frame.grid(row=row, column=index, padx=3, pady=5, sticky=(tk.W, tk.E))
 
+    # Use a local row counter within the summary frame
+    local_row = 0
     power_label = ttk.Label(summary_frame, text=f"Power: {power}")
-    power_label.grid(row=row_number, column=0, sticky=tk.W)
+    power_label.grid(row=local_row, column=0, sticky=tk.W)
 
     if len(config.PREFERRED_SKILLS) > 0:
-        row_number += 1
-        skills_label = ttk.Label(summary_frame, text=f"Skill:")
-        skills_label.grid(row=row_number, column=0, sticky=tk.W)
-        row_number += 1
+        local_row += 1
+        skills_label = ttk.Label(summary_frame, text="Skill:")
+        skills_label.grid(row=local_row, column=0, sticky=tk.W)
+        local_row += 1
         skills_text = ttk.Label(summary_frame, text=f"{skill}", font=("default", 8))
-        skills_text.grid(row=row_number, column=0, sticky=tk.W)    
+        skills_text.grid(row=local_row, column=0, sticky=tk.W)
 
     root = frame.winfo_toplevel()
     bg_color = root.cget("background")
     bg_color_rgb = root.winfo_rgb(bg_color)
     bg_color_hex = f"#{bg_color_rgb[0]//256:02x}{bg_color_rgb[1]//256:02x}{bg_color_rgb[2]//256:02x}"
-    row_number += 1
-    traits_label = ttk.Label(summary_frame, text=f"Traits:")
-    traits_label.grid(row=row_number, column=0, sticky=tk.W)
-    row_number += 1
-    traits_text = tk.Text(summary_frame, height=4, width=15, font=("default", 8), borderwidth=0, highlightthickness=0,  bg=bg_color_hex)
-    traits_text.grid(row=row_number, column=0, sticky=tk.W)
+
+    local_row += 1
+    traits_label = ttk.Label(summary_frame, text="Traits:")
+    traits_label.grid(row=local_row, column=0, sticky=tk.W)
+    local_row += 1
+    traits_text = tk.Text(summary_frame, height=4, width=15, font=("default", 8), borderwidth=0, highlightthickness=0, bg=bg_color_hex)
+    traits_text.grid(row=local_row, column=0, sticky=tk.W)
+
     for trait in traits:
-        if len(trait) > 15:
-            trait_text = trait[:15]
-        else:
-            trait_text = trait
-        traits_text.insert(tk.END, trait_text + "\n")
+        traits_text.insert(tk.END, (trait[:15] + "\n") if len(trait) > 15 else (trait + "\n"))
     traits_text.config(state=tk.DISABLED)
 
-
 def ui():
-    global root, status_label, frame
+    """Initialize the main Tkinter UI."""
+    global root, status_text, frame
     default_config = config
 
     def validate_integer(P, minval, maxval):
@@ -677,6 +770,22 @@ def ui():
     ToolTip(power_threshold_label, "Power threshold to stop rerolling (1-100)")
 
     row_number += 1
+    blocked_positions_label = ttk.Label(frame, text="Blocked Positions:")
+    blocked_positions_label.grid(row=row_number, column=0, sticky=tk.W)
+    ToolTip(blocked_positions_label, "Select the positions to block from rerolling")
+
+    checkbox_frame = ttk.Frame(frame)
+    checkbox_frame.grid(row=row_number, column=1, sticky=tk.W)
+
+    blocked_positions_vars = [tk.IntVar(value=1 if i in config.BLOCKED_POSITIONS else 0) for i in range(3)]
+    blocked_positions_checkboxes = [
+        ttk.Checkbutton(checkbox_frame, text=f"{i+1}", variable=blocked_positions_vars[i])
+        for i in range(3)
+    ]
+    for i, checkbox in enumerate(blocked_positions_checkboxes):
+        checkbox.grid(row=row_number, column=i, sticky=tk.W)
+
+    row_number += 1
     preferred_skills_selectable = SelectableListbox (frame, row_number, "Preferred Skills:", "Select preferred skills", SKILLS_LIST, default_config.PREFERRED_SKILLS)
 
     row_number += 1
@@ -688,14 +797,6 @@ def ui():
     ToolTip(skill_power_label, "Power added for preferred skills (1-100)")
 
     row_number += 1
-    debug_label = ttk.Label(frame, text="Debug:")
-    debug_label.grid(row=row_number, column=0, sticky=tk.W)
-    debug_ocr_var = tk.BooleanVar(value=config.DEBUG)
-    debug_ocr_check = ttk.Checkbutton(frame, variable=debug_ocr_var)
-    debug_ocr_check.grid(row=row_number, column=1, sticky=tk.W)
-    ToolTip(debug_label, "Enable or disable debug mode")
-
-    row_number += 1
     reroll_wait_time_label = ttk.Label(frame, text="Reroll Wait Time:")
     reroll_wait_time_label.grid(row=row_number, column=0, sticky=tk.W)
     reroll_wait_time_entry = ttk.Entry(frame, width=entry_width, validate="key", validatecommand=vcmd_reroll_wait)
@@ -703,28 +804,25 @@ def ui():
     reroll_wait_time_entry.grid(row=row_number, column=1, sticky=tk.W)
     ToolTip(reroll_wait_time_label, "Wait time between rerolls in seconds (0.01-3.0)") 
 
-    def show_console():
-        ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 1)
-
-    def hide_console():
-        ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
-
-    def on_run():
+    def update_blocked_positions():
+        config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1]
+    
+    # Update blocked positions when any of the checkboxes are changed    
+    for var in blocked_positions_vars:
+        var.trace_add('write', lambda *args: update_blocked_positions())
         
+    def on_run():
+        """Update config and start the reroll process."""
         config.RUN_DURATION = int(run_duration_entry.get())
         config.REROLL_WAIT_TIME = float(reroll_wait_time_entry.get())
         config.POWER_THRESHOLD = int(power_threshold_entry.get())
         config.SKILL_POWER = int(skill_power_entry.get())
-        config.DEBUG = debug_ocr_var.get()
         config.PREFERRED_SKILLS = preferred_skills_selectable.get_selected_items()
-        if config.DEBUG:
-            show_console()
-        else:
-            hide_console()
-        run()
+        update_blocked_positions()  
+        start_roll()
 
-    
     def reset_to_defaults():
+        """Reset all UI fields to their default values."""
         run_duration_entry.delete(0, tk.END)
         run_duration_entry.insert(0, str(default_config.RUN_DURATION))
         
@@ -737,7 +835,8 @@ def ui():
         skill_power_entry.delete(0, tk.END)
         skill_power_entry.insert(0, str(default_config.SKILL_POWER))
 
-        debug_ocr_var.set(default_config.DEBUG)
+        for i, var in enumerate(blocked_positions_vars):
+            var.set(1 if i in default_config.BLOCKED_POSITIONS else 0)
 
         preferred_skills_selectable.reset_selection()
 
@@ -748,27 +847,37 @@ def ui():
     run_button = ttk.Button(frame, text="Run", command=on_run)
     run_button.grid(row=row_number, column=1, sticky=tk.E, padx=(10, 0), pady=(10, 0))
 
-    # Label to display the status
+    # Create the status text widget with a scrollbar
     row_number += 1
-    status_label = ttk.Label(frame, text="Ready, click 'Run' to start.")
-    status_label.grid(row=row_number, column=0, columnspan=2, pady=10)
+    status_frame = ttk.Frame(frame)
+    status_frame.grid(row=row_number, column=0, columnspan=2, pady=10, sticky=(tk.W, tk.E))
 
-    # Create the survivor summary labels
-    row_number += 1
-    create_survivor_summary(survivors_frame, row_number, 0, 0, [''], "")
-    create_survivor_summary(survivors_frame, row_number, 1, 0, [''], "")
-    create_survivor_summary(survivors_frame, row_number, 2, 0,  [''], "")
+    status_text = tk.Text(status_frame, height=5, width=46, wrap=tk.WORD, state=tk.DISABLED, font=("default", 8))
+    status_text.grid(row=0, column=0, sticky=(tk.W, tk.E))
 
+    status_scrollbar = ttk.Scrollbar(status_frame, orient=tk.VERTICAL, command=status_text.yview)
+    status_scrollbar.grid(row=0, column=1, sticky=(tk.N, tk.S))
 
+    status_text.config(yscrollcommand=status_scrollbar.set)
+
+    append_status_message("Ready to run. Click 'Run' to start.", True)
+    #row_number += 1 must be equal to SURVIVOR_FRAME_ROW
     
-    # Bind the Escape key to cancel the process
-    root.bind('<Escape>', cancel_process)
-    
+    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 0, 0, [''], "")
+    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 1, 0, [''], "")
+    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 2, 0, [''], "")
+
     # Initialize the loop
     root.mainloop()
+# =======================================
 
+# =======================================
+# Section 6: Main Entry Point
+# (Program startup / main execution)
 def main():
+    """Start the UI when run as the main module."""
     ui()
 
 if __name__ == "__main__":
     main()
+# =======================================
