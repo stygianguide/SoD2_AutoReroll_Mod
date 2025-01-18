@@ -50,7 +50,6 @@ Adjust settings in the UI to customize the mod:
 - **SKILL_POWER**: A character with a preferred skill is considered more powerful before deciding the re-roll. This value is how much power is temporarily added to the character with one of the PREFERRED_SKILLS. Only non-blocked characters are considered. If there are two or more non-blocked characters with the same preferred skill, only the most powerful receives the bonus. This value is not present in the final results; it is just temporarily added to consider re-rolling a character or not.
 - **BLOCKED_POSITIONS**: Prevent re-rolling the character in these positions.
 - **REROLL_WAIT_TIME**: Increase this number if you are using an old computer. This will reduce the speed of each re-roll.
-- **DEBUG**: Set to **true** to keep the console open after the program completes and display detailed logs.
 
 #### Note about config.txt
 The config.txt file is optional since the release of the UI and removed from the build. Use it if you want to store default values. Setting up all the properties is not needed; you only need to set values you want to keep. Lines starting with # or empty lines are ignored.
