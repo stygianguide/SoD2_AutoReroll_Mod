@@ -15,6 +15,7 @@ import keyboard
 import tkinter as tk
 from tkinter import ttk
 import ctypes
+import copy
 # =======================================
 
 # =======================================
@@ -728,7 +729,7 @@ def create_survivor_summary(frame, row, index, power, traits, skill):
 def ui():
     """Initialize the main Tkinter UI."""
     global root, status_text, frame
-    default_config = config
+    default_config = copy.deepcopy(config)
 
     def validate_integer(P, minval, maxval):
         if P == "":
@@ -803,13 +804,6 @@ def ui():
     reroll_wait_time_entry.insert(0, str(config.REROLL_WAIT_TIME))
     reroll_wait_time_entry.grid(row=row_number, column=1, sticky=tk.W)
     ToolTip(reroll_wait_time_label, "Wait time between rerolls in seconds (0.01-3.0)") 
-
-    def update_blocked_positions():
-        config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1]
-    
-    # Update blocked positions when any of the checkboxes are changed    
-    for var in blocked_positions_vars:
-        var.trace_add('write', lambda *args: update_blocked_positions())
         
     def on_run():
         """Update config and start the reroll process."""
@@ -818,7 +812,7 @@ def ui():
         config.POWER_THRESHOLD = int(power_threshold_entry.get())
         config.SKILL_POWER = int(skill_power_entry.get())
         config.PREFERRED_SKILLS = preferred_skills_selectable.get_selected_items()
-        update_blocked_positions()  
+        config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1] 
         start_roll()
 
     def reset_to_defaults():
