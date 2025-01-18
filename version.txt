@@ -21,7 +21,7 @@ VSVersionInfo(
                 '040904B0',
                 [StringStruct('CompanyName', 'stygianguide'),
                 StringStruct('FileDescription', 'State of Decay 2 Auto-Reroll Mod'),
-                StringStruct('FileVersion', '1.0.2'),
+                StringStruct('FileVersion', '1.1.0'),
                 StringStruct('InternalName', 'so2_autoroll'),
                 StringStruct('LegalCopyright', 'Distributed for free on NexusMods under the MIT License. Use at your own risk. No warranty or liability.'),
                 StringStruct('OriginalFilename', 'so2_autoroll.exe'),
