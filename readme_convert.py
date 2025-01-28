@@ -40,6 +40,10 @@ def convert_md_to_bbcode(md_content):
     bbcode_content = re.sub(r'## (.*?)\n', r'\n[size=5][b]\1[/b][/size]\n', bbcode_content)
     bbcode_content = re.sub(r'# (.*?)\n', r'\n[size=6][b]\1[/b][/size]\n', bbcode_content)
 
+    # Convert Markdown bold to BBCode bold
+    bbcode_content = re.sub(r'\*\*(.*?)\*\*', r'[b]\1[/b]', bbcode_content)
+
+
     # Restore plaintext blocks (unchanged)
     for i, block in enumerate(plaintext_blocks):
         bbcode_content = bbcode_content.replace(placeholders[i], block, 1)

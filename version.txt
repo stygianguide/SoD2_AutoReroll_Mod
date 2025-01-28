@@ -5,8 +5,8 @@
 #
 VSVersionInfo(
     ffi=FixedFileInfo(
-        filevers=(1, 1, 0, 0),
-        prodvers=(1, 1, 0, 0),
+        filevers=(1, 1, 1, 0),
+        prodvers=(1, 1, 1, 0),
         mask=0x3f,
         flags=0x0,
         OS=0x4,
@@ -21,12 +21,12 @@ VSVersionInfo(
                 '040904B0',
                 [StringStruct('CompanyName', 'stygianguide'),
                 StringStruct('FileDescription', 'State of Decay 2 Auto-Reroll Mod'),
-                StringStruct('FileVersion', '1.1.0'),
+                StringStruct('FileVersion', '1.1.1'),
                 StringStruct('InternalName', 'so2_autoroll'),
                 StringStruct('LegalCopyright', 'Distributed for free on NexusMods under the MIT License. Use at your own risk. No warranty or liability.'),
                 StringStruct('OriginalFilename', 'so2_autoroll.exe'),
                 StringStruct('ProductName', 'State of Decay 2 Auto-Reroll Mod'),
-                StringStruct('ProductVersion', '1.1.0')])
+                StringStruct('ProductVersion', '1.1.1')])
             ]), 
         VarFileInfo([VarStruct('Translation', [1033, 1200])])
     ]

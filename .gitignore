@@ -3,6 +3,12 @@ build/
 dist/
 *.spec
 
+# Ignore optional configuration file
+config.txt
+
+#Ignoe the output of the profile
+profile_output.txt
+
 # Ignore executables and binary files
 *.exe
 

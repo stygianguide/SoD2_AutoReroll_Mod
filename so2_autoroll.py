@@ -1,21 +1,23 @@
 # =======================================
 # Section 1: Imports
 # Organized all imports here for clarity
-import pyautogui
-import pytesseract
-from PIL import ImageDraw
+# Standard library imports
+import os
+import sys
 import time
 import csv
+import ctypes
+import copy
+
+# Third-party imports
+import pyautogui
+import pytesseract
 import pygetwindow as gw
 from difflib import SequenceMatcher
 from concurrent.futures import ThreadPoolExecutor
-import os
-import sys
 import keyboard
 import tkinter as tk
 from tkinter import ttk
-import ctypes
-import copy
 # =======================================
 
 # =======================================
@@ -75,6 +77,7 @@ class Config:
         self.DEBUG_OCR = False
         self.PREFERRED_SKILLS = []
         self.BLOCKED_POSITIONS = []
+        self.BLOCKED_TRAITS = []
 
     def __str__(self):
         return str(self.__dict__)
@@ -109,6 +112,9 @@ def load_config():
                         elif key == "BLOCKED_POSITIONS":
                             positions = [int(pos) for pos in value.split(",") if pos.strip()]
                             setattr(config, key, positions)
+                        elif key == "BLOCKED_TRAITS":
+                            traits = [trait.strip().lower() for trait in value.split(",") if trait.strip()]
+                            setattr(config, key, traits)
                 except ValueError:
                     continue
 
@@ -120,6 +126,11 @@ def load_config():
 
 # Load configuration at the start
 config = load_config()
+
+# Dynamic imports based on configuration
+if config.DEBUG_OCR:
+    from PIL import ImageDraw
+
 # =======================================
 
 # =======================================
@@ -371,10 +382,6 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
 
     if config.PREFERRED_SKILLS:
         result["skill"] = skill_text
-            # Add SKILL_POWER if the skill is in PREFERRED_SKILLS
-        if  skill_text in config.PREFERRED_SKILLS:
-            result["skill_power"] = config.SKILL_POWER
-            debug_message(f"Skill '{skill_text}' is in target skills, adding SKILL_POWER: {config.SKILL_POWER}.")
 
     # Debug log for the analyzed character
     debug_message(f"S{index + 1}: {result}")
@@ -427,6 +434,7 @@ def start_roll():
         # Check if the process has been cancelled
         if cancel_process_flag:
             cancel_process_flag = False
+            debug_message("Process cancelled.")
             break
 
         # Determine the weakest character
@@ -437,6 +445,19 @@ def start_roll():
 
         # Filter out blocked positions
         available_positions = [i for i in range(3) if i not in config.BLOCKED_POSITIONS]
+
+        # Filter available positions in a loop to ensure no character has a blocked trait
+        if config.BLOCKED_TRAITS:
+            new_available_positions = []
+            for pos in available_positions:
+                blocked_traits = [trait for trait in survivors[pos]['traits'] if trait in config.BLOCKED_TRAITS]
+                if blocked_traits:
+                    config.BLOCKED_POSITIONS.append(pos)  # Block the position if any trait is blocked
+                    blocked_positions_vars[pos].set(1) # Update the UI checkbox
+                    append_status_message(f"Pos #{pos + 1} blocked by traits: {', '.join(blocked_traits)}", True)
+                else:
+                    new_available_positions.append(pos)
+            available_positions = new_available_positions
 
         # Add SKILL_POWER to the strongest character with a preferred skill if character position is available    
         if config.PREFERRED_SKILLS:
@@ -460,7 +481,7 @@ def start_roll():
             weakest_index = min(available_positions, key=lambda x: temp_powers[x])
         else:
             weakest_index = None  # No available positions
-            print(f"Stop. All characters are blocked.")
+            append_status_message(f"Stop. All characters are blocked.", True)
             break # Stop if all positions are blocked
 
         weakest_power = temp_powers[weakest_index]
@@ -547,7 +568,7 @@ if "--enable-debug-console" in sys.argv:
 frame = ttk.Frame(root, padding="10")
 frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-SURVIVOR_FRAME_ROW = 8
+SURVIVOR_FRAME_ROW = 9
 # Create the frame for the survivor summaries
 survivors_frame = ttk.Frame(frame, padding=0, relief=tk.FLAT)
 survivors_frame.grid(row=SURVIVOR_FRAME_ROW, column=0, columnspan=2, sticky=(tk.W, tk.E))
@@ -557,6 +578,9 @@ survivors_frame.grid_columnconfigure(2, weight=1)
 
 # Create the status text widget
 status_text = None
+
+# Create the blocked positions variables
+blocked_positions_vars = [tk.IntVar(value=1 if i in config.BLOCKED_POSITIONS else 0) for i in range(3)]
 
 def append_status_message(message, also_print=False):
     """Append a message to the status text widget."""
@@ -619,7 +643,7 @@ class SelectableListbox:
         self.listbox_frame = ttk.Frame(self.parent)
         self.listbox_frame.grid(row=row, column=1, sticky="ew")
         
-        self.listbox = tk.Listbox(self.listbox_frame, selectmode=tk.MULTIPLE, height=6, width=20)   
+        self.listbox = tk.Listbox(self.listbox_frame, selectmode=tk.MULTIPLE, height=6, width=20, exportselection=False)   
         self.listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         
         self.scrollbar = ttk.Scrollbar(self.listbox_frame, orient=tk.VERTICAL, command=self.listbox.yview)
@@ -690,9 +714,11 @@ class SelectableListbox:
         self.selected_list = self.default_selected_list.copy()
         self.populate_listbox()
 
+
 def create_survivor_summary(frame, row, index, power, traits, skill):
     """Add a summary of survivor info to the UI."""
     global root
+
     summary_frame = ttk.LabelFrame(frame, text=f"Survivor {index +1}")
     # Use the passed-in row instead of 0
     summary_frame.grid(row=row, column=index, padx=3, pady=5, sticky=(tk.W, tk.E))
@@ -702,13 +728,14 @@ def create_survivor_summary(frame, row, index, power, traits, skill):
     power_label = ttk.Label(summary_frame, text=f"Power: {power}")
     power_label.grid(row=local_row, column=0, sticky=tk.W)
 
-    if len(config.PREFERRED_SKILLS) > 0:
-        local_row += 1
-        skills_label = ttk.Label(summary_frame, text="Skill:")
-        skills_label.grid(row=local_row, column=0, sticky=tk.W)
-        local_row += 1
-        skills_text = ttk.Label(summary_frame, text=f"{skill}", font=("default", 8))
-        skills_text.grid(row=local_row, column=0, sticky=tk.W)
+    local_row += 1
+    if not config.PREFERRED_SKILLS:
+        skill = "N/A"
+    skills_label = ttk.Label(summary_frame, text="Skill:")
+    skills_label.grid(row=local_row, column=0, sticky=tk.W)
+    local_row += 1
+    skills_text = ttk.Label(summary_frame, text=f"{skill}", font=("default", 8))
+    skills_text.grid(row=local_row, column=0, sticky=tk.W)
 
     root = frame.winfo_toplevel()
     bg_color = root.cget("background")
@@ -773,12 +800,11 @@ def ui():
     row_number += 1
     blocked_positions_label = ttk.Label(frame, text="Blocked Positions:")
     blocked_positions_label.grid(row=row_number, column=0, sticky=tk.W)
-    ToolTip(blocked_positions_label, "Select the positions to block from rerolling")
+    ToolTip(blocked_positions_label, "Select the positions to block from re-rolling.")
 
     checkbox_frame = ttk.Frame(frame)
     checkbox_frame.grid(row=row_number, column=1, sticky=tk.W)
 
-    blocked_positions_vars = [tk.IntVar(value=1 if i in config.BLOCKED_POSITIONS else 0) for i in range(3)]
     blocked_positions_checkboxes = [
         ttk.Checkbutton(checkbox_frame, text=f"{i+1}", variable=blocked_positions_vars[i])
         for i in range(3)
@@ -786,8 +812,14 @@ def ui():
     for i, checkbox in enumerate(blocked_positions_checkboxes):
         checkbox.grid(row=row_number, column=i, sticky=tk.W)
 
+    traits_list = [trait for trait in traits_power_scores.keys()]
     row_number += 1
-    preferred_skills_selectable = SelectableListbox (frame, row_number, "Preferred Skills:", "Select preferred skills", SKILLS_LIST, default_config.PREFERRED_SKILLS)
+    traits_tooltip = "If a blocked trait is found, the character will not be re-rolled. Leave empty to disable."
+    blocked_traits_selectable = SelectableListbox (frame, row_number, "Blocked Traits:", traits_tooltip, traits_list, default_config.BLOCKED_TRAITS)            
+
+    row_number += 1
+    skills_tooltip = "If a preferred skill is found, it will add SKILL_POWER to the character's power. Leave empty to disable." 
+    preferred_skills_selectable = SelectableListbox (frame, row_number, "Preferred Skills:", skills_tooltip, SKILLS_LIST, default_config.PREFERRED_SKILLS)
 
     row_number += 1
     skill_power_label = ttk.Label(frame, text="Skill Power:")
@@ -807,11 +839,14 @@ def ui():
         
     def on_run():
         """Update config and start the reroll process."""
+        global cancel_process_flag
+        cancel_process_flag = False # Reset the cancel flag
         config.RUN_DURATION = int(run_duration_entry.get())
         config.REROLL_WAIT_TIME = float(reroll_wait_time_entry.get())
         config.POWER_THRESHOLD = int(power_threshold_entry.get())
         config.SKILL_POWER = int(skill_power_entry.get())
         config.PREFERRED_SKILLS = preferred_skills_selectable.get_selected_items()
+        config.BLOCKED_TRAITS = blocked_traits_selectable.get_selected_items()
         config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1] 
         start_roll()
 
@@ -857,9 +892,9 @@ def ui():
     append_status_message("Ready to run. Click 'Run' to start.", True)
     #row_number += 1 must be equal to SURVIVOR_FRAME_ROW
     
-    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 0, 0, [''], "")
-    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 1, 0, [''], "")
-    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 2, 0, [''], "")
+    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 0, 0, [''], "N/A")
+    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 1, 0, [''], "N/A")
+    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 2, 0, [''], "N/A")
 
     # Initialize the loop
     root.mainloop()

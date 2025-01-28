@@ -22,12 +22,6 @@ This mod automates the reroll process in **State of Decay 2** to help you find p
 
 ---
 
-## Known Issues
-
-There is a minor issue: when you select text in the input fields, such as skill power, the selected skills are deselected. This is related to the feature that moves the selected skills to the top when you click on them. I am still working on a solution for this.
-
----
-
 ## Details and Advanced Configuration
 
 The mod prioritizes survivors based on the **relative power of their traits**, calculated from each trait's base benefits and hero bonuses. If you set **preferred skills** in **config.txt**, the mod will try to prioritize those skills, though it cannot guarantee specific skills will appear. You can configure the preference for the skill by configuring the SKILL_POWER in config.txt. For rare skills like **lichenology**, it may need to run up to 15 minutes to find them due to their rarity.
@@ -49,6 +43,7 @@ Adjust settings in the UI to customize the mod:
 - **PREFERRED_SKILLS**: List of preferred skills (e.g., **lichenology, hygiene, empty**). Note: adding skills may reduce overall trait power as the mod prioritizes those skills.
 - **SKILL_POWER**: A character with a preferred skill is considered more powerful before deciding the re-roll. This value is how much power is temporarily added to the character with one of the PREFERRED_SKILLS. Only non-blocked characters are considered. If there are two or more non-blocked characters with the same preferred skill, only the most powerful receives the bonus. This value is not present in the final results; it is just temporarily added to consider re-rolling a character or not.
 - **BLOCKED_POSITIONS**: Prevent re-rolling the character in these positions.
+- **BLOCKED_TRAITS**: Prevents re-rolling the character if they have any of these traits.
 - **REROLL_WAIT_TIME**: Increase this number if you are using an old computer. This will reduce the speed of each re-roll.
 
 #### Note about config.txt
@@ -65,6 +60,7 @@ PREFERRED_SKILLS = lichenology, hygiene, computers, empty
 SKILL_POWER = 10
 # Blocked positions start at 0 and end at 2 (0, 1, 2)
 BLOCKED_POSITIONS = 0, 2
+BLOCKED_TRAITS = blood plague survivor, incredible immune system, germophobe
 REROLL_WAIT_TIME = 0.01
 ```
 
