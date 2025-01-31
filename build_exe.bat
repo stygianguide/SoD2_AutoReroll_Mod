@@ -22,6 +22,9 @@ if "%1"=="zip" (
     for %%f in (*) do (
         if not "%%f" == "SoD2_AutoReroll_Mod.zip" del "%%f"
     )
+) else (
+    REM Move the executable to the desktop
+    move /y so2_autoroll.exe "%USERPROFILE%\Desktop\so2_autoroll.exe"
 )
 
 REM Change back to the original directory

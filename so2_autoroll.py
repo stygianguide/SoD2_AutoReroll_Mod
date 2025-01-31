@@ -247,7 +247,7 @@ def extract_text(processed_image):
     """Extract text from an image using Tesseract OCR."""
     text = pytesseract.image_to_string(processed_image, config="--psm 6 -l eng -c tessedit_char_blacklist=.!@#$%^&*()[]{};:<>")
     text = text.strip()
-    # Guardar la imagen si el texto extraído está vacío
+    # Save the image if the text is empty
     if config.DEBUG_OCR and  not text:
         debug_image(processed_image, "empty_processed_image")
         debug_message("[DEBUG] Processed image text is empty, saved image as 'empty_processed_image'")
@@ -352,6 +352,43 @@ def analyze_traits(trait_image, config):
     traits, power = get_character_power(cleaned_lines)
     return traits, power
 
+# Survivor class for storing character data
+class Survivor:
+    """Class to store survivor data."""
+    def __init__(self, position, power, traits, skill="N/A"):
+        self.power = power
+        self.traits = traits
+        self.skill = skill
+        self.position = position
+
+    #Compatible with the dictionary interface
+    def __getitem__(self, key):
+        """Get the value of a key."""
+        print(f"Deprecates message: Survivor[{key}] is deprecated. Use Survivor.{key} instead.")
+        if key == "power":
+            return self.power
+        elif key == "traits":
+            return self.traits
+        elif key == "skill":
+            return self.skill
+        else:
+            raise KeyError(f"Invalid key: {key}")
+    
+    def preferred_skill(self):
+        """Return if the skill if is a preferred skill."""
+        if self.skill in config.PREFERRED_SKILLS:
+            return self.skill
+        else:
+            return None
+    
+    def blocked_traits(self):
+        """Get a list of blocked traits present on the character."""
+        return [trait for trait in self.traits if trait in config.BLOCKED_TRAITS]
+
+    def __str__(self):
+        return f"Power: {self.power}, Traits: {self.traits}, Skill: {self.skill}"
+
+
 def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config):
     """Analyze skills/traits/power for a single character."""
     futures = []
@@ -374,14 +411,7 @@ def analyze_character(left, top, index, skill_positions, skill_width, skill_heig
         skill_text = ""
         traits, power = results[0]
 
-    # Create the result dictionary
-    result = {
-        "power": power,
-        "traits": traits
-    }
-
-    if config.PREFERRED_SKILLS:
-        result["skill"] = skill_text
+    result = Survivor(index, power, traits, skill_text)
 
     # Debug log for the analyzed character
     debug_message(f"S{index + 1}: {result}")
@@ -405,7 +435,7 @@ def start_roll():
     if not game_window.isActive:
         append_status_message("Activating game window.", True)
         game_window.activate()
-        time.sleep(1)  # Give some time for the window to activate
+        time.sleep(.5)  # Give some time for the window to activate
         if not game_window.isActive:
             append_status_message("[ERROR] The game window could not be activated.", True)
             return
@@ -426,31 +456,43 @@ def start_roll():
     move_cursor_below_traits_square(left, top, trait_positions[current_position], trait_width, trait_height)
     
     # Initialize data for all three characters
-    survivors = [analyze_character(left, top, i, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config) for i in range(3)]
-    reroll_history = []  # Store the last characters generated in the active slot
+    survivors = [
+        analyze_character(
+            left, top, i, 
+            skill_positions, skill_width, skill_height, 
+            trait_positions, trait_width, trait_height, 
+            config
+        ) 
+        for i in range(3)
+    ]
 
+    # Create the UI summary for the initial characters
+    for idx, survivor in enumerate(survivors):
+        update_survivor_summary(idx, survivor.power, survivor.traits, survivor.skill)
+    root.update_idletasks() # Update the UI to display the summary
+
+    # Initialize reroll history
+    reroll_history = []
+
+    # Initialize the start time for the run
     start_time = time.time()
+
+    # Main loop for rolling survivors
     while time.time() - start_time < (config.RUN_DURATION * 60):
         # Check if the process has been cancelled
         if cancel_process_flag:
             cancel_process_flag = False
             debug_message("Process cancelled.")
-            break
-
-        # Determine the weakest character
-        temp_powers = []
-        for i, survivor in enumerate(survivors):
-            power = survivor['power']
-            temp_powers.append(power)
+            break # Break the loop to stop rerolling
 
         # Filter out blocked positions
         available_positions = [i for i in range(3) if i not in config.BLOCKED_POSITIONS]
 
         # Filter available positions in a loop to ensure no character has a blocked trait
-        if config.BLOCKED_TRAITS:
+        if available_positions and config.BLOCKED_TRAITS:
             new_available_positions = []
             for pos in available_positions:
-                blocked_traits = [trait for trait in survivors[pos]['traits'] if trait in config.BLOCKED_TRAITS]
+                blocked_traits = [trait for trait in survivors[pos].blocked_traits()]
                 if blocked_traits:
                     config.BLOCKED_POSITIONS.append(pos)  # Block the position if any trait is blocked
                     blocked_positions_vars[pos].set(1) # Update the UI checkbox
@@ -459,17 +501,20 @@ def start_roll():
                     new_available_positions.append(pos)
             available_positions = new_available_positions
 
+        # Initialize temporary powers for each survivor
+        temp_powers = [survivor.power for survivor in survivors]
+
         # Add SKILL_POWER to the strongest character with a preferred skill if character position is available    
-        if config.PREFERRED_SKILLS:
+        if available_positions and config.PREFERRED_SKILLS:
             for skill in config.PREFERRED_SKILLS:
                 characters_with_skill = [
                     survivors[i]
                     for i in available_positions
-                    if survivors[i].get('skill') == skill
+                    if survivors[i].skill == skill
                 ]
                 if characters_with_skill:
-                    strongest_with_skill = max(characters_with_skill, key=lambda s: s['power'])
-                    index_of_strongest = survivors.index(strongest_with_skill)
+                    strongest_with_skill = max(characters_with_skill, key=lambda s: s.power)
+                    index_of_strongest = strongest_with_skill.position
                     temp_powers[index_of_strongest] += config.SKILL_POWER
                     debug_message(
                         f"Adding SKILL_POWER to the strongest survivor with preferred skill '{skill}': "
@@ -482,24 +527,22 @@ def start_roll():
         else:
             weakest_index = None  # No available positions
             append_status_message(f"Stop. All characters are blocked.", True)
-            break # Stop if all positions are blocked
+            break # Break the loop to stop rerolling 
 
         weakest_power = temp_powers[weakest_index]
 
         # Stop if the lowest power character exceeds the threshold
         if weakest_power > config.POWER_THRESHOLD:
             append_status_message(f"Stop. All characters have power above {config.POWER_THRESHOLD}.", True)
-            break
+            break # Break the loop to stop rerolling  
 
         #Create the UI summary for the current character before moving to the next    
         if current_position != weakest_index:
-            create_survivor_summary(
-                survivors_frame, 
-                SURVIVOR_FRAME_ROW, 
+            update_survivor_summary(
                 current_position, 
-                survivors[current_position]['power'], 
-                survivors[current_position]['traits'], 
-                survivors[current_position].get('skill', '')
+                survivors[current_position].power, 
+                survivors[current_position].traits, 
+                survivors[current_position].skill
             )
             root.update_idletasks() # Update the UI to display the summary
                 
@@ -509,27 +552,34 @@ def start_roll():
 
         # Perform reroll and save character to history for final evaluation
         reroll()
-        rerolled_character = analyze_character(left, top, weakest_index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config)
-        
+        rerolled_character = analyze_character(
+            left, top, weakest_index, 
+            skill_positions, skill_width, skill_height, 
+            trait_positions, trait_width, trait_height, 
+            config
+        )        
         # Add character to reroll history
         reroll_history.append(rerolled_character)
 
-        # Explicitly block rerolls in the last second
+        # Explicitly block rerolls in the last seconds of the run
         time_elapsed = time.time() - start_time
-        if time_elapsed >= (config.RUN_DURATION * 60) - 1:
-            debug_message(f"-- Near End Explicit Lock: Evaluating Best Character from Last 2 Rerolls in Slot {weakest_index + 1}. No more rerolls will be done. --")
+        if time_elapsed >= (config.RUN_DURATION * 60) - 2:
+            debug_message(
+                f"-- Near End Explicit Lock: Evaluating Best Survivor from Last 2 Rerolls in Slot {weakest_index + 1}. "
+                "No more rerolls will be done. --"
+            )
             # Use "r" up to two times to go back to the best character in reroll history (limit to 2 characters)
             if reroll_history:
-                best_character = max(reroll_history, key=lambda x: x['power'])
+                best_character = max(reroll_history, key=lambda x: x.power)
                 best_index = reroll_history.index(best_character)
                 # Press "r" once if best character is the second in history, twice if it's the first
                 for _ in range(2 - best_index):
                     pyautogui.press("r")
                     time.sleep(config.REROLL_WAIT_TIME)
-                survivors[weakest_index] = best_character
-            break
+                survivors[weakest_index] = best_character 
+            break # Break the loop to stop rerolling 
 
-        # Keep only the last 2
+        # Keep only the last 2 survivors in the history
         if len(reroll_history) > 2:
             reroll_history.pop(0)
 
@@ -539,7 +589,7 @@ def start_roll():
     append_status_message("Updating survivors summary.", True)
     for idx, survivor in enumerate(survivors):
         print(f"S{idx + 1}: {survivor}")
-        create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, idx, survivor['power'], survivor['traits'], survivor.get('skill', ''))   
+        update_survivor_summary(idx, survivor.power, survivor.traits, survivor.skill)   
 
 # =======================================
 
@@ -575,6 +625,9 @@ survivors_frame.grid(row=SURVIVOR_FRAME_ROW, column=0, columnspan=2, sticky=(tk.
 survivors_frame.grid_columnconfigure(0, weight=1)
 survivors_frame.grid_columnconfigure(1, weight=1)
 survivors_frame.grid_columnconfigure(2, weight=1)
+
+# Create the survivor widgets dictionary
+survivor_widgets = {}
 
 # Create the status text widget
 status_text = None
@@ -714,16 +767,13 @@ class SelectableListbox:
         self.selected_list = self.default_selected_list.copy()
         self.populate_listbox()
 
-
 def create_survivor_summary(frame, row, index, power, traits, skill):
     """Add a summary of survivor info to the UI."""
-    global root
+    global root, survivor_widgets
 
-    summary_frame = ttk.LabelFrame(frame, text=f"Survivor {index +1}")
-    # Use the passed-in row instead of 0
+    summary_frame = ttk.LabelFrame(frame, text=f"Survivor {index + 1}")
     summary_frame.grid(row=row, column=index, padx=3, pady=5, sticky=(tk.W, tk.E))
 
-    # Use a local row counter within the summary frame
     local_row = 0
     power_label = ttk.Label(summary_frame, text=f"Power: {power}")
     power_label.grid(row=local_row, column=0, sticky=tk.W)
@@ -749,6 +799,40 @@ def create_survivor_summary(frame, row, index, power, traits, skill):
     traits_text = tk.Text(summary_frame, height=4, width=15, font=("default", 8), borderwidth=0, highlightthickness=0, bg=bg_color_hex)
     traits_text.grid(row=local_row, column=0, sticky=tk.W)
 
+    for trait in traits:
+        traits_text.insert(tk.END, (trait[:15] + "\n") if len(trait) > 15 else (trait + "\n"))
+    traits_text.config(state=tk.DISABLED)
+
+    # Store widgets in a dictionary for updating later
+    survivor_widgets[index] = {
+        'summary_frame': summary_frame,
+        'power_label': power_label,
+        'skills_text': skills_text,
+        'traits_text': traits_text
+    }
+
+def update_survivor_summary(index, power, traits, skill):
+    """Update the summary of survivor info in the UI."""
+    global survivor_widgets
+
+    if index not in survivor_widgets:
+        return
+
+    # Update power label
+    power_label = survivor_widgets[index]['power_label']
+    power_label.config(text=f"Power: {power}")
+
+    # Update skill label
+    if not config.PREFERRED_SKILLS:
+        skill = "N/A"
+    skills_text = survivor_widgets[index]['skills_text']
+    skills_text.config(text="-" * 20)  # Clear the previous text with 20 dashes
+    skills_text.config(text=f"{skill}")
+
+    # Update traits text
+    traits_text = survivor_widgets[index]['traits_text']
+    traits_text.config(state=tk.NORMAL)
+    traits_text.delete('1.0', tk.END)
     for trait in traits:
         traits_text.insert(tk.END, (trait[:15] + "\n") if len(trait) > 15 else (trait + "\n"))
     traits_text.config(state=tk.DISABLED)
@@ -892,9 +976,8 @@ def ui():
     append_status_message("Ready to run. Click 'Run' to start.", True)
     #row_number += 1 must be equal to SURVIVOR_FRAME_ROW
     
-    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 0, 0, [''], "N/A")
-    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 1, 0, [''], "N/A")
-    create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, 2, 0, [''], "N/A")
+    for i in range(3):
+        create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, i, 0, [''], "N/A") # Initialize the UI with empty survivors
 
     # Initialize the loop
     root.mainloop()
