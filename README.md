@@ -35,17 +35,17 @@ The mod works best without any preferred skills, as it then focuses solely on tr
 
 ### Configuring
 
-The mod is already optimized to find powerful characters in a certain amount of time. Most changes in the configuration will have diminishing returns, but feel free to experiment. If you find a configuration particularly useful, you can save it in the config.txt file to use as default for future re-rolls.
+Based on your chosen play style, the mod scores each trait, and rolling stops when either the reroll wait time is reached or all survivors exceed the power threshold.
 
 Adjust settings in the UI to customize the mod:
 - **POWER_THRESHOLD**: Each trait adds some value to the total power of the character (some traits are negative). When all the characters have this level and the RUN_DURATION is not reached, the process is interrupted.
 - **RUN_DURATION**: Total run time in minutes (default: 2). Increase this if you're looking for rare skills or have a high POWER_THRESHOLD.
-- **PREFERRED_SKILLS**: List of preferred skills (e.g., **lichenology, hygiene, empty**). Note: adding skills may reduce overall trait power as the mod prioritizes those skills.
+- **PREFERRED_SKILLS**: List of preferred skills (e.g., **lichenology, munitions, computers**). Note: adding skills may reduce overall trait power as the mod prioritizes those skills.
 - **SKILL_POWER**: A character with a preferred skill is considered more powerful before deciding the re-roll. This value is how much power is temporarily added to the character with one of the PREFERRED_SKILLS. Only non-blocked characters are considered. If there are two or more non-blocked characters with the same preferred skill, only the most powerful receives the bonus. This value is not present in the final results; it is just temporarily added to consider re-rolling a character or not.
 - **BLOCKED_POSITIONS**: Prevent re-rolling the character in these positions.
 - **BLOCKED_TRAITS**: Prevents re-rolling the character if they have any of these traits.
 - **REROLL_WAIT_TIME**: Increase this number if you are using an old computer. This will reduce the speed of each re-roll.
-
+- **PLAY_STYLE**: Select the play style to use for power calculation based on your play style (e.g., **strategist, beginner, diplomat**).
 #### Note about config.txt
 The config.txt file is optional since the release of the UI and removed from the build. Use it if you want to store default values. Setting up all the properties is not needed; you only need to set values you want to keep. Lines starting with # or empty lines are ignored.
 
@@ -62,6 +62,7 @@ SKILL_POWER = 10
 BLOCKED_POSITIONS = 0, 2
 BLOCKED_TRAITS = blood plague survivor, incredible immune system, germophobe
 REROLL_WAIT_TIME = 0.01
+PLAY_STYLE = resourceful
 ```
 
 ### Debug Console Mode

@@ -5,7 +5,7 @@ rmdir /s /q dist
 del /q *.spec
 
 REM Run PyInstaller to create the executable
-pyinstaller --onefile --icon=app_icon.ico --add-data "tesseract;./tesseract" --add-data "Traits_Power_Scores.csv;." --add-data "app_icon.ico;."  --version-file=version.txt --noconsole so2_autoroll.py
+pyinstaller --onefile --icon=app_icon.ico --add-data "tesseract;./tesseract" --add-data "app_icon.ico;."  --version-file=version.txt --noconsole so2_autoroll.py
 
 REM Copy README.txt to dist folder
 copy README.txt dist\README.txt

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Traits Visualization</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      height: 100%;
+    }
+    /* General container with scroll */
+    #chart-container {
+      padding: 10px;
+    }
+    /* List of bars */
+    ul.traits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    ul.traits-list li {
+      margin-bottom: 3px;
+    }
+    /* Bar container */
+    .bar-container {
+      background: #ddd;
+      width: 100%;
+      position: relative;
+      height: 25px;
+    }
+    /* Bar background */
+    .bar {
+      height: 100%;
+      line-height: 25px;
+      /* The background is defined with color; the text is shown on an overlay layer */
+      overflow: hidden;
+    }
+    /* Overlay label to always display readable text */
+    .bar-label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 25px;
+      text-align: center;
+      font-size: 15px;
+      color: #000;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+  </style>
+  <!-- compiled_traits.js file is included -->
+  <script src="./compiled_traits.js"></script>
+</head>
+<body>
+  <!-- Selector to choose the style -->
+  <div style="padding:10px;">
+    <label for="styleSelect">Seleccionar Style:</label>
+    <select id="styleSelect"></select>
+  </div>
+  
+  <!-- Scrollable container for the traits list -->
+  <div id="chart-container">
+    <div id="list-container">
+      <ul class="traits-list" id="traitsList"></ul>
+    </div>
+  </div>
+  
+  <script>
+    // Expected format of window.compiled_traits:
+    // const compiled_traits = {
+    //   "traitName1": { styles: { "style1": value, "style2": value, ... }, categories: { cat1: value, cat2: value, ... } },
+    //   "traitName2": { styles: { ... }, categories: { ... } },
+    //   ...
+    // };
+    const allTraits = window.compiled_traits || {};
+    const traitNames = Object.keys(allTraits);
+    
+    if (traitNames.length === 0) {
+      console.error("No data found in compiled_traits.js. Make sure window.compiled_traits is defined.");
+    } else {
+      const defaultTrait = allTraits[traitNames[0]];
+      const styleOptions = (defaultTrait && defaultTrait.styles) ? Object.keys(defaultTrait.styles) : [];
+      
+      if (styleOptions.length === 0) {
+        console.error("No styles found in compiled_traits.js data.");
+      }
+      
+      const styleSelect = document.getElementById('styleSelect');
+      // Populate the select element with available styles.
+      styleOptions.forEach(style => {
+        const option = document.createElement('option');
+        option.value = style;
+        option.textContent = style;
+        styleSelect.appendChild(option);
+      });
+      
+      // Use only two colors for alternating
+      const colors = ["#36A2EB", "#FF6384"];
+      
+      // Define a fixed scale in points: 50 points is the maximum (style value)
+      const MAX_SCALE = 50;
+      
+      // Function to obtain and sort data based on the selected style.
+      const getChartData = (selectedStyle) => {
+        const traitsAndValues = traitNames.map(trait => {
+          const styleValue = allTraits[trait].styles[selectedStyle];
+          return { trait, value: (styleValue !== undefined ? styleValue : 0) };
+        });
+        traitsAndValues.sort((a, b) => b.value - a.value);
+        return traitsAndValues;
+      };
+      
+      // Function to render the list of traits as horizontal bars.
+      // Ensures that the text (overlay) is always displayed even if the bar is very small.
+      // Additionally, hovering over the bar will display a tooltip (title) with the categories.
+      const renderList = (selectedStyle) => {
+        const data = getChartData(selectedStyle);
+        const listEl = document.getElementById('traitsList');
+        listEl.innerHTML = "";
+        
+        data.forEach((item, index) => {
+          const li = document.createElement('li');
+          const barContainer = document.createElement('div');
+          barContainer.className = 'bar-container';
+          
+          // Use the absolute value for bar dimensioning
+          const effectiveValue = Math.abs(item.value);
+          // Calculate the width in percentage, based on a maximum of 50 points.
+          const widthPercent = (Math.min(effectiveValue, MAX_SCALE) / MAX_SCALE) * 100;
+          
+          const bar = document.createElement('div');
+          bar.className = 'bar';
+          bar.style.width = widthPercent + "%";
+          bar.style.backgroundColor = colors[index % colors.length];
+          
+          // If categories exist for the trait, build the tooltip.
+          const traitData = allTraits[item.trait];
+          if (traitData.categories) {
+            let catText = "";
+            Object.entries(traitData.categories).forEach(([cat, val]) => {
+              catText += `${cat}: ${val}\n`;
+            });
+            // Assign the title to the container so it covers the entire bar area.
+            barContainer.title = catText;
+          }
+          
+          // Create an overlay label that always displays the text.
+          const label = document.createElement('span');
+          label.className = 'bar-label';
+          label.textContent = `${item.trait}: ${item.value}`;
+          
+          barContainer.appendChild(bar);
+          barContainer.appendChild(label);
+          li.appendChild(barContainer);
+          listEl.appendChild(li);
+        });
+      };
+      
+      // Check localStorage for previously selected style.
+      let selectedStyle = localStorage.getItem('selectedStyle');
+      if (!selectedStyle || !styleOptions.includes(selectedStyle)) {
+        selectedStyle = styleOptions[0];
+      }
+      // Set the select element to the persisted value.
+      styleSelect.value = selectedStyle;
+      
+      // Initially render using the selected style.
+      renderList(selectedStyle);
+      
+      // Update the list and localStorage when the style is changed.
+      styleSelect.addEventListener('change', (e) => {
+        selectedStyle = e.target.value;
+        localStorage.setItem('selectedStyle', selectedStyle);
+        renderList(selectedStyle);
+      });
+    }
+  </script>
+</body>
+</html>

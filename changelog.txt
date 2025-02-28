@@ -1,0 +1,12 @@
+Version 1.1.2
+Traits now match your playstyle! Smarter character selection. Legacy powers stay, all skills unlocked. See every skill on-screen.
+Version 1.1.1
+Added a configurable variable to prevent re-rolling the survivor if they have specific traits. Fixes and optimizations on the UI
+Version 1.1.0
+The mod now includes a UI, eliminating the need to configure a text file, though the old file format remains fully compatible and can be used to alter default values at startup. Selecting the game window is no longer necessary. The console is optional for exhaustive debugging. Added the ability to lock certain character positions to prevent the mod from rerolling them.
+Version 1.0.2
+Fixed the skill selection issue. Thanks to Nick131081 for reporting. Added a configuration variable to control skill preference strength, removed some internal configuration variables used during development, and added version number to the executable.
+Version 1.0.1
+Fixed issue with reroll input not being correctly recognized when pressing 1-9 and updated README to clarify English-only support. Thanks to foqsfihqosfgh for reporting the bug.
+Version 1.0.0
+Automates rerolling in State of Decay 2 to optimize survivor traits and skills.

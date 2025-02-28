@@ -5,7 +5,6 @@
 import os
 import sys
 import time
-import csv
 import ctypes
 import copy
 
@@ -18,6 +17,8 @@ from concurrent.futures import ThreadPoolExecutor
 import keyboard
 import tkinter as tk
 from tkinter import ttk
+from play_style_configs import play_style_configs
+from compiled_traits import compiled_traits
 # =======================================
 
 # =======================================
@@ -26,23 +27,11 @@ from tkinter import ttk
 # Set the path to the local tesseract executable
 pytesseract.pytesseract.tesseract_cmd = os.path.join(os.path.dirname(__file__), 'tesseract', 'tesseract.exe')
 
-# Load trait power scores from CSV file
-traits_power_scores = {}
-try:
-    # Adjust the path to work with PyInstaller
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
-    csv_path = os.path.join(base_path, 'Traits_Power_Scores.csv')
-    with open(csv_path, mode='r', encoding='utf-8') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            trait_name = row['Name'].strip().lower()
-            trait_power = int(row['Power'])
-            traits_power_scores[trait_name] = trait_power
-except FileNotFoundError:
-    print("[ERROR] Traits_Power_Scores.csv file not found. Ensure it's in the same directory as the script.")
+# Adjust the path to work with PyInstaller
+base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
 
-# List of all possible skills (ensuring lowercase for case-insensitive matching)
-SKILLS_LIST = [
+# List of all the fifth skills in the game
+FIFTH_SKILLS_LIST = [
     "empty", "chemistry", "computers", "cooking", "craftsmanship", "gardening", "mechanics", 
     "medicine", "utilities", "acting", "animal facts", "bartending", "business", 
     "comedy", "design", "driving", "excuses", "farting around", "fishing", "geek trivia", 
@@ -52,6 +41,20 @@ SKILLS_LIST = [
     "self-promotion", "sewing", "sexting", "shopping", "sleep psychology", 
     "sports trivia", "soundproofing", "tattoos", "tv trivia"
 ]
+
+# List of all the skills provided by traits
+trait_skills = set()
+for trait, info in compiled_traits.items():
+    if "categories" in info and "provided_skills" in info["categories"]:
+        for skill in info["categories"]["provided_skills"]:
+            trait_skills.add(skill.lower())
+
+# Merge the two lists to create the full list of skills without duplicates
+ALL_SKILLS = FIFTH_SKILLS_LIST + [s for s in trait_skills if s not in FIFTH_SKILLS_LIST]
+
+
+# Obtain the styles from the play_style_configs
+STYLES = list(play_style_configs.keys())
 
 # Game window title
 GAME_WINDOW_TITLE = "StateOfDecay2 "
@@ -71,13 +74,14 @@ class Config:
         self.RUN_DURATION = 2
         self.REROLL_WAIT_TIME = 0.01
         self.SIMILARITY_THRESHOLD = 0.8
-        self.POWER_THRESHOLD = 25
-        self.SKILL_POWER = 10
+        self.POWER_THRESHOLD = 50
+        self.SKILL_POWER = 25
         self.DEBUG = False
         self.DEBUG_OCR = False
         self.PREFERRED_SKILLS = []
         self.BLOCKED_POSITIONS = []
         self.BLOCKED_TRAITS = []
+        self.PLAY_STYLE = "strategist"
 
     def __str__(self):
         return str(self.__dict__)
@@ -102,8 +106,8 @@ def load_config():
                             setattr(config, key, value.lower() == "true")
                         elif key == "PREFERRED_SKILLS":
                             skills = [skill.strip().lower() for skill in value.split(",") if skill.strip() and skill.strip().lower() != ""]
-                            # Filter based on SKILLS_LIST
-                            filtered_skills = [skill for skill in skills if skill in SKILLS_LIST]
+                            # Filter based on ALL_SKILLS
+                            filtered_skills = [skill for skill in skills if skill in ALL_SKILLS]
                             setattr(config, key, filtered_skills)
                         elif key in ["POWER_THRESHOLD", "SKILL_POWER", "RUN_DURATION"]:
                             setattr(config, key, int(value))
@@ -115,13 +119,14 @@ def load_config():
                         elif key == "BLOCKED_TRAITS":
                             traits = [trait.strip().lower() for trait in value.split(",") if trait.strip()]
                             setattr(config, key, traits)
+                        elif key == "PLAY_STYLE":
+                            if value.lower() in STYLES:
+                                setattr(config, key, value.lower())
                 except ValueError:
                     continue
 
     if config.DEBUG:
         print(f"Loaded configuration: {config}")
-        if not config.PREFERRED_SKILLS:
-            print(f"Skipping skill analysis as there are no preferred skills")
     return config
 
 # Load configuration at the start
@@ -139,8 +144,9 @@ if config.DEBUG_OCR:
 def cancel_process(event=None):
     """Set the global flag to cancel the process."""
     global cancel_process_flag
-    cancel_process_flag = True
-    append_status_message("Process cancel has been requested.", True)
+    if not cancel_process_flag:
+        cancel_process_flag = True
+        append_status_message("Process cancel has been requested.", True)
 
 # Register the hotkey for cancelling the process
 keyboard.add_hotkey('0', cancel_process)
@@ -237,22 +243,25 @@ def calculate_dynamic_positions(width, height):
 def capture_region(left, top, position, width, height):
     """Capture a region of the screen and return it as an image."""
     x, y = position
-    region_x = left + x
-    region_y = top + y
-    screenshot = pyautogui.screenshot(region=(region_x, region_y, width, height))
-    image = screenshot.convert('RGB')  # Convert to RGB for Pillow
-    return image
+    # Combine operations into a single call with direct calculation
+    return pyautogui.screenshot(
+        region=(left + x, top + y, width, height)
+    ).convert('RGB')  # Convert to RGB for Pillow
 
 def extract_text(processed_image):
     """Extract text from an image using Tesseract OCR."""
-    text = pytesseract.image_to_string(processed_image, config="--psm 6 -l eng -c tessedit_char_blacklist=.!@#$%^&*()[]{};:<>")
-    text = text.strip()
-    # Save the image if the text is empty
-    if config.DEBUG_OCR and  not text:
+    # Strip and convert to lowercase in one chain
+    text = pytesseract.image_to_string(
+        processed_image, 
+        config="--psm 6 -l eng -c tessedit_char_blacklist=.!@#$%^&*()[]{};:<>"
+    ).strip().lower()
+    
+    # Check DEBUG_OCR first to avoid unnecessary empty check when debugging is disabled
+    if config.DEBUG_OCR and not text:
         debug_image(processed_image, "empty_processed_image")
         debug_message("[DEBUG] Processed image text is empty, saved image as 'empty_processed_image'")
     
-    return text.lower()
+    return text
 
 def calculate_similarity(a, b):
     """Calculate the similarity ratio between two strings."""
@@ -262,25 +271,54 @@ def get_character_power(ocr_traits):
     """Calculate the power of a character based on OCR traits."""
     detected_traits = []
     power = 0
-
-    # First, try an exact match
+    
+    # Process each trait from OCR
     for ocr_trait in ocr_traits:
-        if ocr_trait in traits_power_scores:
+        # Skip empty traits
+        if not ocr_trait.strip():
+            continue
+            
+        # Try exact match first (faster)
+        if ocr_trait in compiled_traits:
             detected_traits.append(ocr_trait)
-            power += traits_power_scores[ocr_trait]
-        else:
-            # If no exact match, look for an approximate match
-            similar_trait = max(traits_power_scores.keys(), key=lambda trait: calculate_similarity(ocr_trait, trait))
-            similarity = calculate_similarity(ocr_trait, similar_trait)
-            if similarity >= config.SIMILARITY_THRESHOLD:
-                detected_traits.append(similar_trait)
-                power += traits_power_scores[similar_trait]
-                debug_message(f"Approximate match: '{ocr_trait}' -> '{similar_trait}' (Similarity: {similarity:.2f})")
+            power += compiled_traits[ocr_trait]['styles'][config.PLAY_STYLE]
+            continue
+        
+        # If no exact match, find the most similar trait and check threshold in one pass
+        best_match = None
+        highest_similarity = 0
+        
+        for trait in compiled_traits:
+            similarity = calculate_similarity(ocr_trait, trait)
+            if similarity > highest_similarity:
+                highest_similarity = similarity
+                best_match = trait
+                # Early exit on perfect match
+                if similarity == 1.0:
+                    break
+        
+        # Only add if it meets the similarity threshold
+        if highest_similarity >= config.SIMILARITY_THRESHOLD:
+            detected_traits.append(best_match)
+            power += compiled_traits[best_match]['styles'][config.PLAY_STYLE]
+            if config.DEBUG:
+                debug_message(f"Approximate match: '{ocr_trait}' -> '{best_match}' (Similarity: {highest_similarity:.2f})")
+        elif config.DEBUG:
+            debug_message(f"No match found for '{ocr_trait}' (Similarity: {highest_similarity:.2f})")
+
+    # Special case for minmaxer play style
+    if config.PLAY_STYLE == "minmaxer" and detected_traits:
+        negative_power = sum(compiled_traits[trait]['categories']['negative'] for trait in detected_traits)
+        positive_power = sum(compiled_traits[trait]['categories']['positive'] for trait in detected_traits)
+        power = min(positive_power, negative_power)
+
+    # Debug logging
     if config.DEBUG_OCR:
         debug_message(f"Traits from OCR: {ocr_traits}")
-    debug_message(f"Detected Traits: {detected_traits}")
+    if config.DEBUG:
+        debug_message(f"Detected Traits: {detected_traits}")
         
-    return detected_traits, power
+    return detected_traits, round(power, 2)
 
 def reroll():
     """Send a keypress for rerolling the character."""
@@ -312,18 +350,18 @@ def clean_skill_text(text, config):
         return "empty"
 
     # Attempt an exact match
-    if text in SKILLS_LIST:
+    if text in FIFTH_SKILLS_LIST:
         return text
     
     # Debug log when exact match fails
     if config.DEBUG:
         debug_message(f"[DEBUG] Exact match failed for skill: '{text}'")
     
-    # If no exact match, look for the closest skill in SKILLS_LIST
+    # If no exact match, look for the closest skill in FIFTH_SKILLS_LIST
     best_match = ""
     highest_similarity = 0
     
-    for skill in SKILLS_LIST:
+    for skill in FIFTH_SKILLS_LIST:
         similarity = SequenceMatcher(None, text, skill).ratio()
         if similarity > highest_similarity:
             highest_similarity = similarity
@@ -355,10 +393,10 @@ def analyze_traits(trait_image, config):
 # Survivor class for storing character data
 class Survivor:
     """Class to store survivor data."""
-    def __init__(self, position, power, traits, skill="N/A"):
+    def __init__(self, position, power, traits, skills=[]):
         self.power = power
         self.traits = traits
-        self.skill = skill
+        self.skills = skills
         self.position = position
 
     #Compatible with the dictionary interface
@@ -369,51 +407,60 @@ class Survivor:
             return self.power
         elif key == "traits":
             return self.traits
-        elif key == "skill":
-            return self.skill
+        elif key == "skills":
+            return self.skills
         else:
             raise KeyError(f"Invalid key: {key}")
-    
-    def preferred_skill(self):
-        """Return if the skill if is a preferred skill."""
-        if self.skill in config.PREFERRED_SKILLS:
-            return self.skill
-        else:
-            return None
     
     def blocked_traits(self):
         """Get a list of blocked traits present on the character."""
         return [trait for trait in self.traits if trait in config.BLOCKED_TRAITS]
 
     def __str__(self):
-        return f"Power: {self.power}, Traits: {self.traits}, Skill: {self.skill}"
+        return f"Power: {self.power}, Traits: {self.traits}, Skills: {self.skills}"
 
 
 def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config):
     """Analyze skills/traits/power for a single character."""
+    # Check if skill OCR is needed: only perform skill OCR if there are preferred skills configured 
+    # AND at least one of those skills is not a fifth skill
+    check_skills_ocr = bool(config.PREFERRED_SKILLS) and any(skill in FIFTH_SKILLS_LIST for skill in config.PREFERRED_SKILLS)
+    
+    # Capture image for traits - always needed
+    trait_image = capture_region(left, top, trait_positions[index], trait_width, trait_height)
+    
+    # Only capture skill image if needed
+    skill_image = None
+    if check_skills_ocr:
+        skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
+
+    # Process images in parallel if both are needed, otherwise just process traits
     futures = []
     with ThreadPoolExecutor() as executor:
-        # Capture image for traits
-        trait_image = capture_region(left, top, trait_positions[index], trait_width, trait_height)
         futures.append(executor.submit(analyze_traits, trait_image, config))
-
-        # Capture image for skills only if there are preferred skills
-        if config.PREFERRED_SKILLS:
-            skill_image = capture_region(left, top, skill_positions[index], skill_width, skill_height)
+        
+        if check_skills_ocr:
             futures.append(executor.submit(analyze_skills, skill_image, config))
-
+        
         results = [future.result() for future in futures]
 
-    if config.PREFERRED_SKILLS:
-        skill_text = results[1]
-        traits, power = results[0]
-    else:
-        skill_text = ""
-        traits, power = results[0]
+    # Extract results
+    traits, power = results[0]
+    skill_text = results[1] if check_skills_ocr else ""
+    
+    # Build skills list
+    skills = []
+    if skill_text:
+        skills.append(skill_text)
 
-    result = Survivor(index, power, traits, skill_text)
+    # Add skills from traits
+    for trait in traits:
+        provided_skills = compiled_traits[trait]["categories"].get('provided_skills', [])
+        for skill in provided_skills:
+            if skill not in skills:
+                skills.append(skill)
 
-    # Debug log for the analyzed character
+    result = Survivor(index, power, traits, skills)
     debug_message(f"S{index + 1}: {result}")
 
     return result
@@ -468,7 +515,7 @@ def start_roll():
 
     # Create the UI summary for the initial characters
     for idx, survivor in enumerate(survivors):
-        update_survivor_summary(idx, survivor.power, survivor.traits, survivor.skill)
+        update_survivor_summary(idx, survivor.power, survivor.traits, survivor.skills)
     root.update_idletasks() # Update the UI to display the summary
 
     # Initialize reroll history
@@ -481,7 +528,6 @@ def start_roll():
     while time.time() - start_time < (config.RUN_DURATION * 60):
         # Check if the process has been cancelled
         if cancel_process_flag:
-            cancel_process_flag = False
             debug_message("Process cancelled.")
             break # Break the loop to stop rerolling
 
@@ -510,7 +556,7 @@ def start_roll():
                 characters_with_skill = [
                     survivors[i]
                     for i in available_positions
-                    if survivors[i].skill == skill
+                    if skill in survivors[i].skills
                 ]
                 if characters_with_skill:
                     strongest_with_skill = max(characters_with_skill, key=lambda s: s.power)
@@ -542,7 +588,7 @@ def start_roll():
                 current_position, 
                 survivors[current_position].power, 
                 survivors[current_position].traits, 
-                survivors[current_position].skill
+                survivors[current_position].skills
             )
             root.update_idletasks() # Update the UI to display the summary
                 
@@ -589,7 +635,7 @@ def start_roll():
     append_status_message("Updating survivors summary.", True)
     for idx, survivor in enumerate(survivors):
         print(f"S{idx + 1}: {survivor}")
-        update_survivor_summary(idx, survivor.power, survivor.traits, survivor.skill)   
+        update_survivor_summary(idx, survivor.power, survivor.traits, survivor.skills)   
 
 # =======================================
 
@@ -618,7 +664,7 @@ if "--enable-debug-console" in sys.argv:
 frame = ttk.Frame(root, padding="10")
 frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-SURVIVOR_FRAME_ROW = 9
+SURVIVOR_FRAME_ROW = 10
 # Create the frame for the survivor summaries
 survivors_frame = ttk.Frame(frame, padding=0, relief=tk.FLAT)
 survivors_frame.grid(row=SURVIVOR_FRAME_ROW, column=0, columnspan=2, sticky=(tk.W, tk.E))
@@ -671,6 +717,14 @@ class ToolTip:
         if self.tooltip:
             self.tooltip.destroy()
             self.tooltip = None
+
+    def set_text(self, text):
+        """Actualizar el texto del tooltip."""
+        self.text = text
+        if self.tooltip:
+            for widget in self.tooltip.winfo_children():
+                if isinstance(widget, tk.Label):
+                    widget.config(text=text)
 
 class SelectableListbox:
     """Custom listbox that tracks selected items separately."""
@@ -766,8 +820,18 @@ class SelectableListbox:
         self.original_positions.clear()
         self.selected_list = self.default_selected_list.copy()
         self.populate_listbox()
+    
+    def update_selection(self, new_selected_items):
+        """Actualiza la selección en el listbox sin redibujarlo."""
+        self.selected_list = new_selected_items
+        self.listbox.selection_clear(0, tk.END)
+        for idx in range(self.listbox.size()):
+            item = self.listbox.get(idx)
+            if item in new_selected_items:
+                self.listbox.selection_set(idx)
+        self.on_select(self)
 
-def create_survivor_summary(frame, row, index, power, traits, skill):
+def create_survivor_summary(frame, row, index, power, traits, skills):
     """Add a summary of survivor info to the UI."""
     global root, survivor_widgets
 
@@ -777,15 +841,6 @@ def create_survivor_summary(frame, row, index, power, traits, skill):
     local_row = 0
     power_label = ttk.Label(summary_frame, text=f"Power: {power}")
     power_label.grid(row=local_row, column=0, sticky=tk.W)
-
-    local_row += 1
-    if not config.PREFERRED_SKILLS:
-        skill = "N/A"
-    skills_label = ttk.Label(summary_frame, text="Skill:")
-    skills_label.grid(row=local_row, column=0, sticky=tk.W)
-    local_row += 1
-    skills_text = ttk.Label(summary_frame, text=f"{skill}", font=("default", 8))
-    skills_text.grid(row=local_row, column=0, sticky=tk.W)
 
     root = frame.winfo_toplevel()
     bg_color = root.cget("background")
@@ -803,6 +858,17 @@ def create_survivor_summary(frame, row, index, power, traits, skill):
         traits_text.insert(tk.END, (trait[:15] + "\n") if len(trait) > 15 else (trait + "\n"))
     traits_text.config(state=tk.DISABLED)
 
+    local_row += 1
+    skills_label = ttk.Label(summary_frame, text="Skills:")
+    skills_label.grid(row=local_row, column=0, sticky=tk.W)
+    local_row += 1
+    skills_text = tk.Text(summary_frame, height=3, width=15, font=("default", 8), borderwidth=0, highlightthickness=0, bg=bg_color_hex)
+    skills_text.grid(row=local_row, column=0, sticky=tk.W)
+
+    for skill in skills:
+        skills_text.insert(tk.END, (skill[:15] + "\n") if len(skill) > 15 else (skill + "\n"))
+    skills_text.config(state=tk.DISABLED)
+
     # Store widgets in a dictionary for updating later
     survivor_widgets[index] = {
         'summary_frame': summary_frame,
@@ -811,7 +877,7 @@ def create_survivor_summary(frame, row, index, power, traits, skill):
         'traits_text': traits_text
     }
 
-def update_survivor_summary(index, power, traits, skill):
+def update_survivor_summary(index, power, traits, skills):
     """Update the summary of survivor info in the UI."""
     global survivor_widgets
 
@@ -820,14 +886,15 @@ def update_survivor_summary(index, power, traits, skill):
 
     # Update power label
     power_label = survivor_widgets[index]['power_label']
-    power_label.config(text=f"Power: {power}")
+    power_str = str(power)
+    power_label.config(text=f"Power: {power_str.rjust(6)}")
 
-    # Update skill label
-    if not config.PREFERRED_SKILLS:
-        skill = "N/A"
     skills_text = survivor_widgets[index]['skills_text']
-    skills_text.config(text="-" * 20)  # Clear the previous text with 20 dashes
-    skills_text.config(text=f"{skill}")
+    skills_text.config(state=tk.NORMAL)
+    skills_text.delete('1.0', tk.END)
+    for skill in skills:
+        skills_text.insert(tk.END, (skill[:15] + "\n") if len(skill) > 15 else (skill + "\n")) 
+    skills_text.config(state=tk.DISABLED)
 
     # Update traits text
     traits_text = survivor_widgets[index]['traits_text']
@@ -862,7 +929,7 @@ def ui():
 
     vcmd_duration = (root.register(lambda P: validate_integer(P, 1, 60)), '%P')
     vcmd_reroll_wait = (root.register(lambda P: validate_float(P, 0.01, 10.0)), '%P')
-    vcmd_power = (root.register(lambda P: validate_integer(P, 1, 100)), '%P')
+    vcmd_power = (root.register(lambda P: validate_integer(P, 1, 150)), '%P')
 
     entry_width = 22
     row_number = 0 
@@ -879,7 +946,7 @@ def ui():
     power_threshold_entry = ttk.Entry(frame, width=entry_width, validate="key", validatecommand=vcmd_power)
     power_threshold_entry.insert(0, str(config.POWER_THRESHOLD))
     power_threshold_entry.grid(row=row_number, column=1, sticky=tk.W)
-    ToolTip(power_threshold_label, "Power threshold to stop rerolling (1-100)")
+    ToolTip(power_threshold_label, "Power threshold to stop rerolling (1-150)")
 
     row_number += 1
     blocked_positions_label = ttk.Label(frame, text="Blocked Positions:")
@@ -896,14 +963,14 @@ def ui():
     for i, checkbox in enumerate(blocked_positions_checkboxes):
         checkbox.grid(row=row_number, column=i, sticky=tk.W)
 
-    traits_list = [trait for trait in traits_power_scores.keys()]
+    traits_list = [trait for trait in compiled_traits.keys()]
     row_number += 1
     traits_tooltip = "If a blocked trait is found, the character will not be re-rolled. Leave empty to disable."
     blocked_traits_selectable = SelectableListbox (frame, row_number, "Blocked Traits:", traits_tooltip, traits_list, default_config.BLOCKED_TRAITS)            
 
     row_number += 1
     skills_tooltip = "If a preferred skill is found, it will add SKILL_POWER to the character's power. Leave empty to disable." 
-    preferred_skills_selectable = SelectableListbox (frame, row_number, "Preferred Skills:", skills_tooltip, SKILLS_LIST, default_config.PREFERRED_SKILLS)
+    preferred_skills_selectable = SelectableListbox (frame, row_number, "Preferred Skills:", skills_tooltip, ALL_SKILLS, default_config.PREFERRED_SKILLS)
 
     row_number += 1
     skill_power_label = ttk.Label(frame, text="Skill Power:")
@@ -911,7 +978,7 @@ def ui():
     skill_power_entry = ttk.Entry(frame, width=entry_width, validate="key", validatecommand=vcmd_power)
     skill_power_entry.insert(0, str(config.SKILL_POWER))
     skill_power_entry.grid(row=row_number, column=1, sticky=tk.W)
-    ToolTip(skill_power_label, "Power added for preferred skills (1-100)")
+    ToolTip(skill_power_label, "Power added for preferred skills (1-150)")
 
     row_number += 1
     reroll_wait_time_label = ttk.Label(frame, text="Reroll Wait Time:")
@@ -920,18 +987,36 @@ def ui():
     reroll_wait_time_entry.insert(0, str(config.REROLL_WAIT_TIME))
     reroll_wait_time_entry.grid(row=row_number, column=1, sticky=tk.W)
     ToolTip(reroll_wait_time_label, "Wait time between rerolls in seconds (0.01-3.0)") 
-        
+
+    row_number += 1
+    play_style_label = ttk.Label(frame, text="Play Style:")
+    play_style_label.grid(row=row_number, column=0, sticky=tk.W)
+    play_style_combobox = ttk.Combobox(frame, values=STYLES, state="readonly", width=entry_width)
+    default_play_style = default_config.PLAY_STYLE
+    play_style_combobox.set(default_play_style)
+    play_style_combobox.grid(row=row_number, column=1, sticky=tk.W)
+    ToolTip(play_style_label, "Select the play style to use for power calculation.") 
+    play_style_tooltip = ToolTip(play_style_combobox, play_style_configs[default_play_style]['description'])
+
+    def update_play_style_tooltip(event):
+        selected_style = play_style_combobox.get()
+        description = play_style_configs[selected_style]['description']
+        play_style_tooltip.set_text(description)
+
+    play_style_combobox.bind("<<ComboboxSelected>>", update_play_style_tooltip)
+
     def on_run():
         """Update config and start the reroll process."""
         global cancel_process_flag
-        cancel_process_flag = False # Reset the cancel flag
+        cancel_process_flag = False  # Reset the cancel flag
         config.RUN_DURATION = int(run_duration_entry.get())
         config.REROLL_WAIT_TIME = float(reroll_wait_time_entry.get())
         config.POWER_THRESHOLD = int(power_threshold_entry.get())
         config.SKILL_POWER = int(skill_power_entry.get())
         config.PREFERRED_SKILLS = preferred_skills_selectable.get_selected_items()
         config.BLOCKED_TRAITS = blocked_traits_selectable.get_selected_items()
-        config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1] 
+        config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1]
+        config.PLAY_STYLE = play_style_combobox.get()  # Capture the selected game mode
         start_roll()
 
     def reset_to_defaults():
@@ -952,6 +1037,7 @@ def ui():
             var.set(1 if i in default_config.BLOCKED_POSITIONS else 0)
 
         preferred_skills_selectable.reset_selection()
+        play_style_combobox.set(default_play_style)  # Reset to the default game mode
 
     row_number += 1
     reset_button = ttk.Button(frame, text="Reset to Defaults", command=reset_to_defaults)
@@ -977,7 +1063,7 @@ def ui():
     #row_number += 1 must be equal to SURVIVOR_FRAME_ROW
     
     for i in range(3):
-        create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, i, 0, [''], "N/A") # Initialize the UI with empty survivors
+        create_survivor_summary(survivors_frame, SURVIVOR_FRAME_ROW, i, 0, [''], ['']) # Initialize the UI with empty survivors
 
     # Initialize the loop
     root.mainloop()

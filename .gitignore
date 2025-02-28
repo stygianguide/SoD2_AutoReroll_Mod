@@ -15,6 +15,10 @@ profile_output.txt
 # Ignore dll for tesseract
 tesseract/
 
+# Ignore trait debug files
+output/
+cached_page.html
+
 # Ignore system-specific and temporary files
 .DS_Store
 Thumbs.db
