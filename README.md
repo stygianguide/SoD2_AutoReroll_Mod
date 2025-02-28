@@ -22,6 +22,9 @@ This mod automates the reroll process in **State of Decay 2** to find powerful s
 
 ---
 
+## Known Issues
+When no skills are selected, the mod relies solely on traits for detection. Since trait variants exist with and without skills, detection may fail in some cases. This is intentional to optimize survivor rolling when no skills are chosen.
+
 ## Details and Advanced Configuration
 
 The mod prioritizes survivors based on the **relative power of their traits**, derived from base benefits and hero bonuses. Setting **preferred skills** in **config.txt** shifts focus to those skills, though they’re not guaranteed. Adjust **SKILL_POWER** in config.txt to tweak skill preference. Rare skills like **lichenology** may take up to 15 minutes to find due to their scarcity.
@@ -48,7 +51,7 @@ Adjust settings in the UI:
 - **PLAY_STYLE**: Power calculation mode (e.g., **strategist, beginner**).
 
 #### Note about config.txt
-Since the UI release, **config.txt** is optional and not included in the build. Use it for default values. Only set what you need; lines starting with # or blank are ignored.
+Since the UI release, **config.txt** is optional and not included in the build. Use it for default values. Only set what you need; lines starting with \# or blank are ignored.
 
 Example **config.txt**:
 

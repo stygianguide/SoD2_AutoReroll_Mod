@@ -25,6 +25,10 @@ This mod automates the reroll process in [b]State of Decay 2[/b] to find powerfu
 ---
 
 
+[size=5][b]Known Issues[/b][/size]
+When no skills are selected, the mod relies solely on traits for detection. Since trait variants exist with and without skills, detection may fail in some cases. This is intentional to optimize survivor rolling when no skills are chosen.
+
+
 [size=5][b]Details and Advanced Configuration[/b][/size]
 
 The mod prioritizes survivors based on the [b]relative power of their traits[/b], derived from base benefits and hero bonuses. Setting [b]preferred skills[/b] in [b]config.txt[/b] shifts focus to those skills, though they’re not guaranteed. Adjust [b]SKILL_POWER[/b] in config.txt to tweak skill preference. Rare skills like [b]lichenology[/b] may take up to 15 minutes to find due to their scarcity.
@@ -54,8 +58,7 @@ Adjust settings in the UI:
 
 
 [size=3][b]Note about config.txt[/b][/size]
-Since the UI release, [b]config.txt[/b] is optional and not included in the build. Use it for default values. Only set what you need; lines starting with 
-[size=6][b]or blank are ignored.[/b][/size]
+Since the UI release, [b]config.txt[/b] is optional and not included in the build. Use it for default values. Only set what you need; lines starting with # or blank are ignored.
 
 Example [b]config.txt[/b]:
 
