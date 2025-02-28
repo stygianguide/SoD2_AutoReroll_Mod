@@ -118,7 +118,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -698,7 +698,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 2.0,
+            "strategist": 17.0,
             "beginner": 17.0,
             "mechanic": 10.0,
             "shadow": 10.0,
@@ -948,9 +948,6 @@ compiled_traits = {
     "antiques buyer": {
         "categories": {
             "influence": 6.0,
-            "provided_skills": [
-                "shopping"
-            ],
             "positive": 6.0,
             "negative": 0
         },
@@ -1073,8 +1070,8 @@ compiled_traits = {
             "stamina": 0.3,
             "stealth": 7.0,
             "provided_skills": [
-                "discipline",
-                "construction"
+                "construction",
+                "discipline"
             ],
             "positive": 15.6,
             "negative": 0
@@ -1104,8 +1101,8 @@ compiled_traits = {
             "stealth": 7.0,
             "guns": 10.0,
             "provided_skills": [
-                "discipline",
-                "assault"
+                "assault",
+                "discipline"
             ],
             "positive": 31.3,
             "negative": 0
@@ -1165,8 +1162,8 @@ compiled_traits = {
             "stamina": 0.3,
             "guns": 10.0,
             "provided_skills": [
-                "discipline",
-                "assault"
+                "assault",
+                "discipline"
             ],
             "positive": 23.3,
             "negative": 0
@@ -1366,7 +1363,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 0.6,
+            "strategist": 8.1,
             "beginner": 8.1,
             "mechanic": 7.9,
             "shadow": 27.9,
@@ -1406,9 +1403,6 @@ compiled_traits = {
     "attended trade school": {
         "categories": {
             "fuel": 1.5,
-            "provided_skills": [
-                "utilities"
-            ],
             "morale": 0.4,
             "positive": 1.9,
             "negative": 0
@@ -1514,7 +1508,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -1538,7 +1532,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -21.2,
+            "strategist": -13.7,
             "beginner": -1.7,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -2083,7 +2077,7 @@ compiled_traits = {
             "negative": 10.0
         },
         "styles": {
-            "strategist": -31.5,
+            "strategist": -16.5,
             "beginner": 2.5,
             "mechanic": 4.7,
             "shadow": 7.7,
@@ -2188,14 +2182,14 @@ compiled_traits = {
             "standing_rewards": 10.0,
             "influence": 2.5,
             "provided_skills": [
-                "discipline",
-                "music"
+                "music",
+                "discipline"
             ],
             "positive": 29.8,
             "negative": 0
         },
         "styles": {
-            "strategist": 4.8,
+            "strategist": 19.8,
             "beginner": 19.1,
             "mechanic": 14.7,
             "shadow": 37.0,
@@ -2313,9 +2307,6 @@ compiled_traits = {
         "categories": {
             "stamina": 4.0,
             "training": -20.0,
-            "provided_skills": [
-                "sports trivia"
-            ],
             "morale": 0.4,
             "positive": 4.4,
             "negative": 20.0
@@ -2344,7 +2335,7 @@ compiled_traits = {
             "negative": 3.3
         },
         "styles": {
-            "strategist": 4.2,
+            "strategist": -0.8,
             "beginner": 5.8,
             "mechanic": 1.5,
             "shadow": 1.5,
@@ -2388,9 +2379,6 @@ compiled_traits = {
         "categories": {
             "stamina": 4.0,
             "training": -20.0,
-            "provided_skills": [
-                "sports trivia"
-            ],
             "positive": 4.0,
             "negative": 20.0
         },
@@ -2475,7 +2463,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 6.3,
+            "strategist": 21.2,
             "beginner": 21.2,
             "mechanic": 12.3,
             "shadow": 12.9,
@@ -2501,7 +2489,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": 3.0,
             "beginner": 3.0,
             "mechanic": 3.0,
             "shadow": 3.0,
@@ -2568,7 +2556,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -10.0,
+            "strategist": 5.0,
             "beginner": 5.0,
             "mechanic": 5.0,
             "shadow": 5.0,
@@ -2590,7 +2578,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -2756,8 +2744,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 11.5,
             "provided_skills": [
-                "metalwork",
-                "striking"
+                "striking",
+                "metalwork"
             ],
             "morale": 0.4,
             "positive": 15.7,
@@ -2922,10 +2910,6 @@ compiled_traits = {
             "health": 2.8,
             "melee": 10.0,
             "guns": 10.0,
-            "provided_skills": [
-                "close combat",
-                "gunslinging"
-            ],
             "positive": 24.3,
             "negative": 0
         },
@@ -2935,7 +2919,7 @@ compiled_traits = {
             "mechanic": 12.1,
             "shadow": 22.1,
             "resourceful": 4.4,
-            "prodigy": 26.1,
+            "prodigy": 12.1,
             "farmer": 12.1,
             "diplomat": 12.1,
             "berserker": 21.8,
@@ -3124,7 +3108,7 @@ compiled_traits = {
             "negative": 8.0
         },
         "styles": {
-            "strategist": -27.6,
+            "strategist": -20.1,
             "beginner": -4.1,
             "mechanic": 1.5,
             "shadow": 1.5,
@@ -3849,7 +3833,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.8,
+            "strategist": 9.2,
             "beginner": 9.2,
             "mechanic": 9.2,
             "shadow": 9.2,
@@ -4019,7 +4003,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -7.3,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 7.7,
@@ -4198,7 +4182,7 @@ compiled_traits = {
             "negative": 1.0
         },
         "styles": {
-            "strategist": 0.9,
+            "strategist": -0.7,
             "beginner": 1.4,
             "mechanic": 1.2,
             "shadow": 1.2,
@@ -4219,8 +4203,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 10.0,
             "provided_skills": [
-                "striking",
-                "craftsmanship"
+                "craftsmanship",
+                "striking"
             ],
             "positive": 14.3,
             "negative": 0
@@ -4342,8 +4326,8 @@ compiled_traits = {
             "stamina": 5.1,
             "stealth": 7.0,
             "provided_skills": [
-                "stealth",
-                "acrobatics"
+                "acrobatics",
+                "stealth"
             ],
             "positive": 12.1,
             "negative": 0
@@ -4441,7 +4425,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 0.2,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 7.7,
@@ -4467,7 +4451,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": 2.7,
+            "strategist": -1.1,
             "beginner": 3.9,
             "mechanic": 3.9,
             "shadow": 3.9,
@@ -4710,7 +4694,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": -1.0,
+            "strategist": -4.8,
             "beginner": 0.1,
             "mechanic": 0.1,
             "shadow": 0.1,
@@ -4782,7 +4766,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -8.5,
+            "strategist": 14.0,
             "beginner": 14.0,
             "mechanic": 11.8,
             "shadow": 11.2,
@@ -4858,7 +4842,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -7.3,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 7.7,
@@ -4921,9 +4905,6 @@ compiled_traits = {
         "categories": {
             "health": 1.0,
             "stamina": 2.1,
-            "provided_skills": [
-                "acrobatics"
-            ],
             "positive": 3.1,
             "negative": 0
         },
@@ -4933,7 +4914,7 @@ compiled_traits = {
             "mechanic": 1.5,
             "shadow": 3.6,
             "resourceful": 0.3,
-            "prodigy": 8.5,
+            "prodigy": 1.5,
             "farmer": 1.5,
             "diplomat": 1.5,
             "berserker": 4.0,
@@ -5121,8 +5102,8 @@ compiled_traits = {
             "stealth": 7.0,
             "ammo": 1.0,
             "provided_skills": [
-                "discipline",
-                "munitions"
+                "munitions",
+                "discipline"
             ],
             "positive": 13.3,
             "negative": 0
@@ -5236,7 +5217,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -19.5,
+            "strategist": 10.5,
             "beginner": 10.5,
             "mechanic": 10.5,
             "shadow": 10.5,
@@ -5279,9 +5260,6 @@ compiled_traits = {
         "categories": {
             "training": 5.0,
             "guns": 10.0,
-            "provided_skills": [
-                "sharpshooting"
-            ],
             "morale": 0.4,
             "positive": 15.4,
             "negative": 0
@@ -5292,7 +5270,7 @@ compiled_traits = {
             "mechanic": 7.7,
             "shadow": 7.7,
             "resourceful": 1.5,
-            "prodigy": 22.6,
+            "prodigy": 15.6,
             "farmer": 7.7,
             "diplomat": 7.9,
             "berserker": 6.8,
@@ -5484,7 +5462,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 2.4,
+            "strategist": 9.9,
             "beginner": 10.5,
             "mechanic": 8.5,
             "shadow": 8.5,
@@ -5586,7 +5564,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.5,
+            "strategist": 20.5,
             "beginner": 10.5,
             "mechanic": 10.5,
             "shadow": 15.5,
@@ -5663,7 +5641,7 @@ compiled_traits = {
             "negative": 25.6
         },
         "styles": {
-            "strategist": -63.9,
+            "strategist": -71.4,
             "beginner": -21.4,
             "mechanic": -11.3,
             "shadow": -6.6,
@@ -5759,7 +5737,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -23.7,
+            "strategist": -12.5,
             "beginner": -0.5,
             "mechanic": 3.7,
             "shadow": 3.7,
@@ -5862,8 +5840,8 @@ compiled_traits = {
             "stealth": 7.0,
             "health": 2.0,
             "provided_skills": [
-                "discipline",
-                "nutrition"
+                "nutrition",
+                "discipline"
             ],
             "positive": 15.3,
             "negative": 0
@@ -5947,7 +5925,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 4.9,
+            "strategist": 19.9,
             "beginner": 19.9,
             "mechanic": 11.5,
             "shadow": 11.5,
@@ -6232,9 +6210,6 @@ compiled_traits = {
         "categories": {
             "materials": 1.0,
             "ammo": 1.0,
-            "provided_skills": [
-                "munitions"
-            ],
             "positive": 2.0,
             "negative": 0
         },
@@ -6244,7 +6219,7 @@ compiled_traits = {
             "mechanic": 1.7,
             "shadow": 1.0,
             "resourceful": 6.5,
-            "prodigy": 8.0,
+            "prodigy": 1.0,
             "farmer": 1.0,
             "diplomat": 1.0,
             "berserker": 1.0,
@@ -6341,7 +6316,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 21.4,
+            "strategist": 28.9,
             "beginner": 28.9,
             "mechanic": 13.5,
             "shadow": 13.5,
@@ -7004,14 +6979,14 @@ compiled_traits = {
             "standing_rewards": 10.0,
             "influence": 2.5,
             "provided_skills": [
-                "music",
-                "striking"
+                "striking",
+                "music"
             ],
             "positive": 37.3,
             "negative": 0
         },
         "styles": {
-            "strategist": 13.9,
+            "strategist": 28.9,
             "beginner": 29.7,
             "mechanic": 18.5,
             "shadow": 28.6,
@@ -7375,7 +7350,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 0.2,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 7.7,
@@ -7448,7 +7423,7 @@ compiled_traits = {
             "negative": 5.3
         },
         "styles": {
-            "strategist": -8.5,
+            "strategist": -13.5,
             "beginner": -2.6,
             "mechanic": -2.2,
             "shadow": -2.2,
@@ -7524,7 +7499,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 8.0,
+            "strategist": 23.0,
             "beginner": 23.0,
             "mechanic": 13.2,
             "shadow": 13.2,
@@ -7577,7 +7552,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": -4.2,
+            "strategist": 3.3,
             "beginner": 13.3,
             "mechanic": 7.0,
             "shadow": 7.0,
@@ -7600,7 +7575,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": 16.5,
+            "strategist": 9.0,
             "beginner": 19.0,
             "mechanic": 6.5,
             "shadow": 6.5,
@@ -7820,7 +7795,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -3.9,
+            "strategist": 3.6,
             "beginner": 3.6,
             "mechanic": 4.5,
             "shadow": 3.4,
@@ -8184,7 +8159,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 4.5,
+            "strategist": 15.7,
             "beginner": 15.7,
             "mechanic": 8.7,
             "shadow": 8.7,
@@ -8208,7 +8183,7 @@ compiled_traits = {
             "negative": 7.8
         },
         "styles": {
-            "strategist": -11.3,
+            "strategist": -16.3,
             "beginner": 1.8,
             "mechanic": -1.0,
             "shadow": -2.2,
@@ -8422,7 +8397,7 @@ compiled_traits = {
             "negative": 5.3
         },
         "styles": {
-            "strategist": -2.5,
+            "strategist": -7.5,
             "beginner": 3.0,
             "mechanic": 0.3,
             "shadow": 0.3,
@@ -8474,7 +8449,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -9.0,
+            "strategist": 6.0,
             "beginner": 6.0,
             "mechanic": 6.7,
             "shadow": 6.0,
@@ -8853,9 +8828,6 @@ compiled_traits = {
         "categories": {
             "stamina": 4.0,
             "training": -20.0,
-            "provided_skills": [
-                "sports trivia"
-            ],
             "positive": 4.0,
             "negative": 20.0
         },
@@ -9056,7 +9028,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": 11.7,
+            "strategist": 7.8,
             "beginner": 12.9,
             "mechanic": 5.9,
             "shadow": 5.9,
@@ -9249,7 +9221,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -9366,7 +9338,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.6,
+            "strategist": 20.5,
             "beginner": 20.5,
             "mechanic": 12.2,
             "shadow": 12.2,
@@ -9440,7 +9412,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 4.9,
+            "strategist": 19.9,
             "beginner": 19.9,
             "mechanic": 11.5,
             "shadow": 11.5,
@@ -9506,15 +9478,12 @@ compiled_traits = {
     "freelance consultant": {
         "categories": {
             "training": 10.0,
-            "provided_skills": [
-                "computers"
-            ],
             "standing_rewards": 5.0,
             "positive": 15.0,
             "negative": 0
         },
         "styles": {
-            "strategist": 7.0,
+            "strategist": 14.5,
             "beginner": 14.5,
             "mechanic": 7.5,
             "shadow": 7.5,
@@ -9609,7 +9578,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 10.9,
+            "strategist": 18.4,
             "beginner": 18.4,
             "mechanic": 10.0,
             "shadow": 10.0,
@@ -9761,7 +9730,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -8.0,
+            "strategist": 7.0,
             "beginner": 7.0,
             "mechanic": 7.0,
             "shadow": 7.0,
@@ -9994,7 +9963,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": 10.5,
             "beginner": 10.5,
             "mechanic": 10.5,
             "shadow": 10.5,
@@ -10289,7 +10258,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -0.9,
+            "strategist": 2.8,
             "beginner": 2.8,
             "mechanic": 5.1,
             "shadow": 2.8,
@@ -10432,8 +10401,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "stealth",
-                "driving"
+                "driving",
+                "stealth"
             ],
             "positive": 27.0,
             "negative": 0
@@ -10720,7 +10689,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 9.5,
+            "strategist": 13.2,
             "beginner": 13.2,
             "mechanic": 6.2,
             "shadow": 6.2,
@@ -10868,7 +10837,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 2.2,
+            "strategist": 9.7,
             "beginner": 9.7,
             "mechanic": 5.5,
             "shadow": 5.5,
@@ -10917,7 +10886,7 @@ compiled_traits = {
             "negative": 1.0
         },
         "styles": {
-            "strategist": -1.0,
+            "strategist": -2.5,
             "beginner": -0.5,
             "mechanic": -0.5,
             "shadow": -0.5,
@@ -11192,7 +11161,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.6,
+            "strategist": 20.5,
             "beginner": 20.5,
             "mechanic": 12.2,
             "shadow": 12.2,
@@ -11215,7 +11184,7 @@ compiled_traits = {
             "negative": 11.3
         },
         "styles": {
-            "strategist": -41.2,
+            "strategist": -33.7,
             "beginner": -11.1,
             "mechanic": -3.2,
             "shadow": -3.2,
@@ -11510,7 +11479,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.6,
+            "strategist": 20.5,
             "beginner": 20.5,
             "mechanic": 12.2,
             "shadow": 12.2,
@@ -11880,7 +11849,7 @@ compiled_traits = {
             "negative": 5.3
         },
         "styles": {
-            "strategist": -2.5,
+            "strategist": -7.5,
             "beginner": 3.0,
             "mechanic": 0.3,
             "shadow": 0.3,
@@ -11924,7 +11893,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -10.0,
+            "strategist": 5.0,
             "beginner": 5.0,
             "mechanic": 5.0,
             "shadow": 5.0,
@@ -12083,9 +12052,6 @@ compiled_traits = {
     },
     "hardcore prepper": {
         "categories": {
-            "provided_skills": [
-                "gardening"
-            ],
             "morale": 0.4,
             "positive": 0.4,
             "negative": 0
@@ -13073,7 +13039,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -1.5,
+            "strategist": 2.2,
             "beginner": 2.2,
             "mechanic": 3.6,
             "shadow": 2.2,
@@ -13559,7 +13525,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.5,
+            "strategist": 20.5,
             "beginner": 10.5,
             "mechanic": 10.5,
             "shadow": 15.5,
@@ -13630,7 +13596,7 @@ compiled_traits = {
             "negative": 30.6
         },
         "styles": {
-            "strategist": -76.2,
+            "strategist": -86.2,
             "beginner": -25.0,
             "mechanic": -12.3,
             "shadow": -12.3,
@@ -13698,7 +13664,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": 11.8,
+            "strategist": 4.3,
             "beginner": 14.3,
             "mechanic": 4.5,
             "shadow": 4.5,
@@ -13871,8 +13837,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "discipline",
-                "driving"
+                "driving",
+                "discipline"
             ],
             "positive": 38.3,
             "negative": 0
@@ -13947,7 +13913,7 @@ compiled_traits = {
             "negative": 9.8
         },
         "styles": {
-            "strategist": -17.1,
+            "strategist": -22.1,
             "beginner": -2.5,
             "mechanic": -2.0,
             "shadow": -2.0,
@@ -13992,7 +13958,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": -12.0,
             "beginner": -2.0,
             "mechanic": -1.3,
             "shadow": -2.0,
@@ -14102,8 +14068,8 @@ compiled_traits = {
             "stamina": 2.1,
             "melee": 10.0,
             "provided_skills": [
-                "medicine",
-                "powerhouse"
+                "powerhouse",
+                "medicine"
             ],
             "positive": 22.1,
             "negative": 0
@@ -14156,7 +14122,7 @@ compiled_traits = {
             "negative": 8.0
         },
         "styles": {
-            "strategist": -13.4,
+            "strategist": -20.9,
             "beginner": -4.9,
             "mechanic": -3.5,
             "shadow": -3.5,
@@ -14377,7 +14343,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -27.2,
+            "strategist": -12.2,
             "beginner": -0.5,
             "mechanic": 3.0,
             "shadow": 4.0,
@@ -14614,7 +14580,7 @@ compiled_traits = {
             "negative": 5.3
         },
         "styles": {
-            "strategist": 9.5,
+            "strategist": 4.5,
             "beginner": 15.1,
             "mechanic": 5.3,
             "shadow": 5.3,
@@ -15135,7 +15101,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 9.5,
+            "strategist": 13.2,
             "beginner": 13.2,
             "mechanic": 6.2,
             "shadow": 6.2,
@@ -15299,7 +15265,7 @@ compiled_traits = {
             "negative": 15.3
         },
         "styles": {
-            "strategist": -41.2,
+            "strategist": -46.2,
             "beginner": -15.6,
             "mechanic": -7.2,
             "shadow": -7.2,
@@ -15397,7 +15363,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 0.0,
+            "strategist": 15.1,
             "beginner": 15.1,
             "mechanic": 9.5,
             "shadow": 9.5,
@@ -15471,7 +15437,7 @@ compiled_traits = {
             "negative": 23.6
         },
         "styles": {
-            "strategist": -57.5,
+            "strategist": -65.0,
             "beginner": -19.0,
             "mechanic": -10.3,
             "shadow": -5.6,
@@ -15494,7 +15460,7 @@ compiled_traits = {
             "negative": 3.3
         },
         "styles": {
-            "strategist": 3.9,
+            "strategist": -1.1,
             "beginner": 5.5,
             "mechanic": 1.3,
             "shadow": 1.3,
@@ -16117,7 +16083,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -1.0,
+            "strategist": 2.7,
             "beginner": 2.7,
             "mechanic": 2.7,
             "shadow": 2.7,
@@ -16255,7 +16221,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -7.5,
+            "strategist": 3.7,
             "beginner": 3.7,
             "mechanic": 3.7,
             "shadow": 3.7,
@@ -16792,7 +16758,7 @@ compiled_traits = {
             "negative": 4.5
         },
         "styles": {
-            "strategist": -8.5,
+            "strategist": -12.3,
             "beginner": -2.7,
             "mechanic": -1.3,
             "shadow": 1.7,
@@ -16943,9 +16909,6 @@ compiled_traits = {
         "categories": {
             "morale": 12.4,
             "training": -5.0,
-            "provided_skills": [
-                "movie trivia"
-            ],
             "positive": 12.4,
             "negative": 5.0
         },
@@ -17298,7 +17261,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 6.3,
+            "strategist": 21.2,
             "beginner": 21.2,
             "mechanic": 12.3,
             "shadow": 12.9,
@@ -17514,8 +17477,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 11.5,
             "provided_skills": [
-                "swordplay",
-                "metalwork"
+                "metalwork",
+                "swordplay"
             ],
             "positive": 20.7,
             "negative": 0
@@ -17589,7 +17552,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -10.0,
+            "strategist": 5.0,
             "beginner": 5.0,
             "mechanic": 5.0,
             "shadow": 5.0,
@@ -17834,9 +17797,6 @@ compiled_traits = {
     "materials engineer": {
         "categories": {
             "fuel": 1.5,
-            "provided_skills": [
-                "chemistry"
-            ],
             "positive": 1.5,
             "negative": 0
         },
@@ -18071,7 +18031,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": -0.5,
+            "strategist": -8.0,
             "beginner": 2.0,
             "mechanic": 2.0,
             "shadow": 19.5,
@@ -18215,7 +18175,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 0.2,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 7.7,
@@ -18647,8 +18607,8 @@ compiled_traits = {
             "health": 6.0,
             "melee": 5.0,
             "provided_skills": [
-                "endurance",
                 "resourcefulness",
+                "endurance",
                 "backpacking"
             ],
             "positive": 23.1,
@@ -18882,8 +18842,8 @@ compiled_traits = {
             "stealth": 7.0,
             "guns": 10.0,
             "provided_skills": [
-                "discipline",
-                "assault"
+                "assault",
+                "discipline"
             ],
             "positive": 31.3,
             "negative": 0
@@ -19003,7 +18963,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -19049,7 +19009,7 @@ compiled_traits = {
             "negative": 13.0
         },
         "styles": {
-            "strategist": -38.2,
+            "strategist": -39.7,
             "beginner": -13.4,
             "mechanic": -6.0,
             "shadow": -6.0,
@@ -19419,7 +19379,7 @@ compiled_traits = {
             "negative": 9.3
         },
         "styles": {
-            "strategist": -21.0,
+            "strategist": -26.0,
             "beginner": -7.7,
             "mechanic": -4.2,
             "shadow": -3.2,
@@ -19444,7 +19404,7 @@ compiled_traits = {
             "negative": 3.0
         },
         "styles": {
-            "strategist": -8.7,
+            "strategist": -7.2,
             "beginner": -1.2,
             "mechanic": 0.1,
             "shadow": 0.1,
@@ -19633,7 +19593,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 2.2,
+            "strategist": 9.7,
             "beginner": 9.7,
             "mechanic": 5.5,
             "shadow": 5.5,
@@ -19827,15 +19787,15 @@ compiled_traits = {
             "stamina": 0.3,
             "guns": 10.0,
             "provided_skills": [
-                "discipline",
-                "assault"
+                "assault",
+                "discipline"
             ],
             "standing_rewards": 2.5,
             "positive": 25.8,
             "negative": 0
         },
         "styles": {
-            "strategist": 9.3,
+            "strategist": 13.0,
             "beginner": 12.9,
             "mechanic": 12.7,
             "shadow": 38.0,
@@ -19961,7 +19921,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 8.6,
+            "strategist": 23.5,
             "beginner": 22.9,
             "mechanic": 13.2,
             "shadow": 15.2,
@@ -20015,7 +19975,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -8.1,
+            "strategist": 6.9,
             "beginner": 6.9,
             "mechanic": 8.1,
             "shadow": 6.7,
@@ -20291,14 +20251,11 @@ compiled_traits = {
             "morale": 8.0,
             "standing_rewards": 10.0,
             "influence": 1.0,
-            "provided_skills": [
-                "acting"
-            ],
             "positive": 19.0,
             "negative": 0
         },
         "styles": {
-            "strategist": 0.0,
+            "strategist": 15.1,
             "beginner": 15.1,
             "mechanic": 9.5,
             "shadow": 9.5,
@@ -20371,7 +20328,7 @@ compiled_traits = {
             "negative": 12.3
         },
         "styles": {
-            "strategist": -31.6,
+            "strategist": -36.6,
             "beginner": -12.0,
             "mechanic": -5.0,
             "shadow": -5.7,
@@ -20565,7 +20522,7 @@ compiled_traits = {
             "negative": 3.0
         },
         "styles": {
-            "strategist": -6.9,
+            "strategist": -8.4,
             "beginner": -2.4,
             "mechanic": -0.4,
             "shadow": -1.0,
@@ -20641,7 +20598,7 @@ compiled_traits = {
             "negative": 9.5
         },
         "styles": {
-            "strategist": -18.9,
+            "strategist": -26.4,
             "beginner": -8.8,
             "mechanic": -3.6,
             "shadow": -4.3,
@@ -20735,7 +20692,7 @@ compiled_traits = {
             "negative": 3.0
         },
         "styles": {
-            "strategist": -5.8,
+            "strategist": -7.3,
             "beginner": -1.3,
             "mechanic": 2.4,
             "shadow": 0.1,
@@ -21077,7 +21034,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.6,
+            "strategist": 20.5,
             "beginner": 20.5,
             "mechanic": 12.2,
             "shadow": 12.2,
@@ -21338,9 +21295,6 @@ compiled_traits = {
     "played in a band": {
         "categories": {
             "morale": 8.0,
-            "provided_skills": [
-                "soundproofing"
-            ],
             "positive": 8.0,
             "negative": 0
         },
@@ -21675,7 +21629,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.8,
+            "strategist": 9.2,
             "beginner": 9.2,
             "mechanic": 9.2,
             "shadow": 9.2,
@@ -21893,7 +21847,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": 2.1,
+            "strategist": -5.3,
             "beginner": 4.7,
             "mechanic": 0.5,
             "shadow": 0.5,
@@ -22066,7 +22020,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -9.6,
+            "strategist": 5.4,
             "beginner": 5.4,
             "mechanic": 5.2,
             "shadow": 5.2,
@@ -22119,7 +22073,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.6,
+            "strategist": 20.5,
             "beginner": 20.5,
             "mechanic": 12.2,
             "shadow": 12.2,
@@ -22175,7 +22129,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 7.1,
+            "strategist": 22.0,
             "beginner": 21.7,
             "mechanic": 12.7,
             "shadow": 13.7,
@@ -22307,7 +22261,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -8.0,
+            "strategist": 7.0,
             "beginner": 7.0,
             "mechanic": 7.0,
             "shadow": 7.0,
@@ -22522,8 +22476,8 @@ compiled_traits = {
             "stealth": 7.0,
             "parts": 2.5,
             "provided_skills": [
-                "discipline",
-                "engineering"
+                "engineering",
+                "discipline"
             ],
             "positive": 15.8,
             "negative": 0
@@ -22651,7 +22605,7 @@ compiled_traits = {
             "negative": 10.0
         },
         "styles": {
-            "strategist": -37.0,
+            "strategist": -22.0,
             "beginner": -2.0,
             "mechanic": 5.0,
             "shadow": 5.0,
@@ -22825,7 +22779,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": 6.7,
             "beginner": 6.7,
             "mechanic": 6.7,
             "shadow": 6.7,
@@ -22991,7 +22945,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -7.0,
+            "strategist": 8.0,
             "beginner": 8.0,
             "mechanic": 8.0,
             "shadow": 8.0,
@@ -23017,7 +22971,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -29.2,
+            "strategist": -14.2,
             "beginner": -2.2,
             "mechanic": 2.0,
             "shadow": 2.0,
@@ -23043,7 +22997,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -22.0,
+            "strategist": -7.0,
             "beginner": 5.0,
             "mechanic": 5.0,
             "shadow": 5.0,
@@ -23344,7 +23298,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": 20.3,
+            "strategist": 16.5,
             "beginner": 21.5,
             "mechanic": 8.2,
             "shadow": 8.2,
@@ -23371,7 +23325,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.1,
+            "strategist": 20.0,
             "beginner": 20.0,
             "mechanic": 11.7,
             "shadow": 11.7,
@@ -23782,7 +23736,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 6.3,
+            "strategist": 21.2,
             "beginner": 21.2,
             "mechanic": 12.3,
             "shadow": 12.9,
@@ -23832,7 +23786,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -13.0,
+            "strategist": -11.5,
             "beginner": 0.5,
             "mechanic": 0.5,
             "shadow": 0.5,
@@ -23885,7 +23839,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 8.6,
+            "strategist": 23.5,
             "beginner": 22.9,
             "mechanic": 13.2,
             "shadow": 15.2,
@@ -24024,7 +23978,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -24047,7 +24001,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -9.6,
+            "strategist": 5.4,
             "beginner": 5.4,
             "mechanic": 5.2,
             "shadow": 5.2,
@@ -24065,9 +24019,6 @@ compiled_traits = {
     "scrapyard worker": {
         "categories": {
             "parts": 2.5,
-            "provided_skills": [
-                "mechanics"
-            ],
             "positive": 2.5,
             "negative": 0
         },
@@ -24212,7 +24163,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": -7.5,
+            "strategist": -3.8,
             "beginner": 1.2,
             "mechanic": 1.2,
             "shadow": 1.2,
@@ -24259,7 +24210,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": 6.9,
+            "strategist": 10.6,
             "beginner": 15.6,
             "mechanic": 7.2,
             "shadow": 7.2,
@@ -24283,7 +24234,7 @@ compiled_traits = {
             "negative": 8.0
         },
         "styles": {
-            "strategist": -14.1,
+            "strategist": -21.6,
             "beginner": -6.5,
             "mechanic": -2.8,
             "shadow": -3.5,
@@ -24308,7 +24259,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -15.0,
+            "strategist": 7.5,
             "beginner": 7.5,
             "mechanic": 7.5,
             "shadow": 7.5,
@@ -24332,7 +24283,7 @@ compiled_traits = {
             "negative": 5.3
         },
         "styles": {
-            "strategist": -9.8,
+            "strategist": -14.8,
             "beginner": -3.6,
             "mechanic": -1.5,
             "shadow": -4.2,
@@ -24454,7 +24405,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": 2.1,
+            "strategist": -5.3,
             "beginner": 4.7,
             "mechanic": 0.5,
             "shadow": 0.5,
@@ -24529,7 +24480,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": 10.5,
             "beginner": 10.5,
             "mechanic": 10.5,
             "shadow": 10.5,
@@ -24578,7 +24529,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 0.2,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 27.7,
@@ -24815,7 +24766,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": -0.5,
+            "strategist": -8.0,
             "beginner": 2.0,
             "mechanic": 2.0,
             "shadow": 19.5,
@@ -24935,7 +24886,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 3.2,
+            "strategist": 18.2,
             "beginner": 18.2,
             "mechanic": 11.2,
             "shadow": 11.2,
@@ -25140,7 +25091,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": 0.5,
+            "strategist": -3.3,
             "beginner": 1.0,
             "mechanic": -0.4,
             "shadow": 1.7,
@@ -25371,7 +25322,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -3.5,
+            "strategist": 4.0,
             "beginner": 4.0,
             "mechanic": 4.0,
             "shadow": 4.0,
@@ -25417,7 +25368,7 @@ compiled_traits = {
             "negative": 6.0
         },
         "styles": {
-            "strategist": -18.7,
+            "strategist": -17.2,
             "beginner": -5.5,
             "mechanic": -2.0,
             "shadow": -1.0,
@@ -25510,7 +25461,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 2.2,
+            "strategist": 9.7,
             "beginner": 9.7,
             "mechanic": 5.5,
             "shadow": 5.5,
@@ -25537,7 +25488,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": 10.5,
             "beginner": 10.5,
             "mechanic": 10.5,
             "shadow": 10.5,
@@ -25891,11 +25842,6 @@ compiled_traits = {
             "health": 2.8,
             "melee": 10.0,
             "guns": 6.0,
-            "provided_skills": [
-                "resourcefulness",
-                "striking",
-                "weapon handling"
-            ],
             "positive": 35.8,
             "negative": 0
         },
@@ -25905,7 +25851,7 @@ compiled_traits = {
             "mechanic": 17.9,
             "shadow": 40.4,
             "resourceful": 9.2,
-            "prodigy": 53.9,
+            "prodigy": 32.9,
             "farmer": 17.9,
             "diplomat": 17.9,
             "berserker": 27.6,
@@ -26198,7 +26144,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 4.4,
+            "strategist": 19.4,
             "beginner": 19.4,
             "mechanic": 11.0,
             "shadow": 11.0,
@@ -26277,7 +26223,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -7.3,
+            "strategist": 7.7,
             "beginner": 7.7,
             "mechanic": 7.7,
             "shadow": 7.7,
@@ -26397,7 +26343,7 @@ compiled_traits = {
             "negative": 24.6
         },
         "styles": {
-            "strategist": -58.8,
+            "strategist": -66.4,
             "beginner": -17.1,
             "mechanic": -9.8,
             "shadow": -9.1,
@@ -26465,15 +26411,15 @@ compiled_traits = {
             "morale": 4.0,
             "standing_rewards": 10.0,
             "provided_skills": [
-                "music",
                 "resourcefulness",
-                "acrobatics"
+                "acrobatics",
+                "music"
             ],
             "positive": 28.6,
             "negative": 0
         },
         "styles": {
-            "strategist": 4.1,
+            "strategist": 19.1,
             "beginner": 18.5,
             "mechanic": 14.2,
             "shadow": 28.8,
@@ -26633,8 +26579,8 @@ compiled_traits = {
             "fuel": 9.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "driving",
-                "acrobatics"
+                "acrobatics",
+                "driving"
             ],
             "positive": 22.1,
             "negative": 1.0
@@ -26762,8 +26708,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 10.0,
             "provided_skills": [
-                "close combat",
-                "resourcefulness"
+                "resourcefulness",
+                "close combat"
             ],
             "positive": 29.8,
             "negative": 0
@@ -26842,7 +26788,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": -4.5,
+            "strategist": -12.0,
             "beginner": -2.0,
             "mechanic": -1.3,
             "shadow": -2.0,
@@ -26966,7 +26912,7 @@ compiled_traits = {
             "negative": 2.5
         },
         "styles": {
-            "strategist": 4.6,
+            "strategist": 0.9,
             "beginner": 5.9,
             "mechanic": 1.7,
             "shadow": 1.7,
@@ -27060,7 +27006,7 @@ compiled_traits = {
             "negative": 4.0
         },
         "styles": {
-            "strategist": -20.1,
+            "strategist": -5.1,
             "beginner": 2.9,
             "mechanic": 5.7,
             "shadow": 5.7,
@@ -27085,7 +27031,7 @@ compiled_traits = {
             "negative": 3.0
         },
         "styles": {
-            "strategist": -4.9,
+            "strategist": -3.4,
             "beginner": 2.6,
             "mechanic": 4.0,
             "shadow": 4.0,
@@ -28221,8 +28167,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "discipline",
-                "driving"
+                "driving",
+                "discipline"
             ],
             "positive": 38.3,
             "negative": 0
@@ -28253,8 +28199,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "discipline",
-                "driving"
+                "driving",
+                "discipline"
             ],
             "positive": 38.3,
             "negative": 0
@@ -28474,7 +28420,7 @@ compiled_traits = {
             "negative": 1.0
         },
         "styles": {
-            "strategist": 0.0,
+            "strategist": -1.5,
             "beginner": 0.5,
             "mechanic": 0.5,
             "shadow": 5.5,
@@ -28520,7 +28466,7 @@ compiled_traits = {
             "negative": 8.0
         },
         "styles": {
-            "strategist": -6.4,
+            "strategist": -13.8,
             "beginner": 2.2,
             "mechanic": -1.5,
             "shadow": -0.8,
@@ -28594,7 +28540,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 4.7,
+            "strategist": 8.4,
             "beginner": 8.7,
             "mechanic": 4.2,
             "shadow": 4.2,
@@ -28904,7 +28850,7 @@ compiled_traits = {
             "negative": 8.0
         },
         "styles": {
-            "strategist": 4.5,
+            "strategist": -3.0,
             "beginner": 11.8,
             "mechanic": 2.5,
             "shadow": 7.2,
@@ -29001,7 +28947,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": -12.2,
+            "strategist": -13.7,
             "beginner": -3.7,
             "mechanic": 1.4,
             "shadow": -0.9,
@@ -29297,7 +29243,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -8.5,
+            "strategist": 6.5,
             "beginner": 6.5,
             "mechanic": 6.5,
             "shadow": 6.5,
@@ -29392,7 +29338,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -29440,7 +29386,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -5.0,
+            "strategist": 2.5,
             "beginner": 2.5,
             "mechanic": 2.5,
             "shadow": 2.5,
@@ -29468,7 +29414,7 @@ compiled_traits = {
             "negative": 5.0
         },
         "styles": {
-            "strategist": 1.9,
+            "strategist": -5.6,
             "beginner": 4.4,
             "mechanic": 3.0,
             "shadow": 20.5,
@@ -29495,7 +29441,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 5.6,
+            "strategist": 20.5,
             "beginner": 20.5,
             "mechanic": 12.2,
             "shadow": 12.2,
@@ -29525,7 +29471,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": -1.1,
+            "strategist": 13.9,
             "beginner": 13.9,
             "mechanic": 13.7,
             "shadow": 13.7,
@@ -29754,9 +29700,6 @@ compiled_traits = {
         "categories": {
             "stamina": 4.0,
             "training": -20.0,
-            "provided_skills": [
-                "sports trivia"
-            ],
             "positive": 4.0,
             "negative": 20.0
         },
@@ -29947,7 +29890,7 @@ compiled_traits = {
             "negative": 5.3
         },
         "styles": {
-            "strategist": -9.2,
+            "strategist": -14.2,
             "beginner": -3.6,
             "mechanic": -2.2,
             "shadow": -2.2,
@@ -30525,7 +30468,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 7.1,
+            "strategist": 10.7,
             "beginner": 10.7,
             "mechanic": 5.2,
             "shadow": 5.2,
@@ -30651,7 +30594,7 @@ compiled_traits = {
             "negative": 0
         },
         "styles": {
-            "strategist": 2.0,
+            "strategist": 17.0,
             "beginner": 17.0,
             "mechanic": 10.7,
             "shadow": 10.7,

@@ -505,17 +505,30 @@ def main():
             if DEBUG:
                 print(f"[DEBUG] Merged variants for '{base_name}': selected variant '{selected_name}' with total score {worst_total}")
         
-        # Compute intersection of provided skills among all variants
-        common_skills = None
-        for _, comp_data in variants:
-            skills = set(comp_data.get("provided_skills", []))
-            if common_skills is None:
-                common_skills = skills
-            else:
-                common_skills &= skills
-        if common_skills:
-            selected_data["provided_skills"] = list(common_skills)
+        # Compute intersection of provided skills among all variants with skills
+        all_have_skills = all("provided_skills" in data and data["provided_skills"] for _, data in variants)
         
+        common_skills = None
+        if all_have_skills:
+            # Only compute intersection if all variants have skills
+            for _, comp_data in variants:
+                skills = set(comp_data["provided_skills"])
+                if common_skills is None:
+                    common_skills = skills
+                else:
+                    common_skills &= skills
+
+            # Update when all variants have the same skills
+            if common_skills and len(common_skills) > 0:
+                selected_data["provided_skills"] = list(common_skills)
+            else:
+                selected_data["provided_skills"] = []
+        else:
+            selected_data["provided_skills"] = []
+        
+        if selected_data["provided_skills"] == []:
+            selected_data.pop("provided_skills")
+
         styles = {}
         for mode, priorities in play_style_configs.items():
             if mode == "legacy":

@@ -1,13 +1,12 @@
 play_style_configs = {
     "strategist": {
-        "description": "Default: +Infection, +Stamina, +Health, +Training, +Morale, -Standing.",
+        "description": "Default: +Infection, +Stamina, +Health, +Training, +Morale",
         "infection": 1.5,
         "stamina": 1.5,
         "health": 1.2,
         "training": 1.2,
         "morale": 1.2,
         "default": 0.5,
-        "standing_rewards": -1,
         "negative": -2,
         "positive": 0,
     },

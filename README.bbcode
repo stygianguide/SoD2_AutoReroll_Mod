@@ -1,7 +1,7 @@
 
 [size=6][b]State of Decay 2 Auto-Reroll Mod for Optimal Character Selection[/b][/size]
 
-This mod automates the reroll process in [b]State of Decay 2[/b] to help you find powerful survivors based on specific traits and skills preferences.
+This mod automates the reroll process in [b]State of Decay 2[/b] to find powerful survivors based on specific traits and skills preferences.
 
 ---
 
@@ -9,68 +9,68 @@ This mod automates the reroll process in [b]State of Decay 2[/b] to help you fin
 [size=5][b]Quick Start Instructions[/b][/size]
 
 1. [b]Extract the Files[/b]:
-   - Unzip all files from the mod ZIP package and place them together in one folder.
+   - Unzip all files from the mod package into a single folder.
 
 2. [b]Set Up the Game[/b]:
-   - Make sure that the game is set to English.
-   - Switch to [b]windowed mode[/b] and set the resolution to a 4:3 or 16:9 aspect ratio.
+   - Ensure the game is in English.
+   - Switch to [b]windowed mode[/b] with a 4:3 or 16:9 resolution.
 
 3. [b]Run the Mod[/b]:
-   - Start a new community, skip the tutorial, and [b]run so2_autoroll.exe[/b].
-   - Press the "Run" button when you are ready. If the game is open, the window will be automatically selected.
-   
-4. [b]Wait for Completion[/b]:
-   - Start playing with your selected survivors, or click on "Run" to re-roll again if you want different results.
+   - Start a new community, skip the tutorial, and launch [b]so2_autoroll.exe[/b].
+   - Click "Run" when ready. The game window will be auto-selected if open.
+
+4. [b]Wait for Results[/b]:
+   - Play with your selected survivors, or click "Run" again to reroll for different outcomes.
 
 ---
 
 
 [size=5][b]Details and Advanced Configuration[/b][/size]
 
-The mod prioritizes survivors based on the [b]relative power of their traits[/b], calculated from each trait's base benefits and hero bonuses. If you set [b]preferred skills[/b] in [b]config.txt[/b], the mod will try to prioritize those skills, though it cannot guarantee specific skills will appear. You can configure the preference for the skill by configuring the SKILL_POWER in config.txt. For rare skills like [b]lichenology[/b], it may need to run up to 15 minutes to find them due to their rarity.
+The mod prioritizes survivors based on the [b]relative power of their traits[/b], derived from base benefits and hero bonuses. Setting [b]preferred skills[/b] in [b]config.txt[/b] shifts focus to those skills, though they’re not guaranteed. Adjust [b]SKILL_POWER[/b] in config.txt to tweak skill preference. Rare skills like [b]lichenology[/b] may take up to 15 minutes to find due to their scarcity.
 
-The mod works best without any preferred skills, as it then focuses solely on traits, maximizing the overall power of selected survivors. In about 10 minutes, the mod can often find characters with highly favorable traits.
+Without preferred skills, the mod maximizes trait power alone, often finding strong survivors in about 10 minutes.
 
 
 [size=4][b]Files in the ZIP[/b][/size]
 
-- [b]so2_autoroll.exe[/b] - Main executable.
-- [b]README.txt[/b] - This instruction file.
+- [b]so2_autoroll.exe[/b]: Main executable.
+- [b]README.txt[/b]: This instruction file.
 
 
 [size=4][b]Configuring[/b][/size]
 
-The mod is already optimized to find powerful characters in a certain amount of time. Most changes in the configuration will have diminishing returns, but feel free to experiment. If you find a configuration particularly useful, you can save it in the config.txt file to use as default for future re-rolls.
+The mod scores traits based on your play style, stopping when the time limit is hit or all survivors exceed the power threshold.
 
-Adjust settings in the UI to customize the mod:
-- [b]POWER_THRESHOLD[/b]: Each trait adds some value to the total power of the character (some traits are negative). When all the characters have this level and the RUN_DURATION is not reached, the process is interrupted.
-- [b]RUN_DURATION[/b]: Total run time in minutes (default: 2). Increase this if you're looking for rare skills or have a high POWER_THRESHOLD.
-- [b]PREFERRED_SKILLS[/b]: List of preferred skills (e.g., [b]lichenology, hygiene, empty[/b]). Note: adding skills may reduce overall trait power as the mod prioritizes those skills.
-- [b]SKILL_POWER[/b]: A character with a preferred skill is considered more powerful before deciding the re-roll. This value is how much power is temporarily added to the character with one of the PREFERRED_SKILLS. Only non-blocked characters are considered. If there are two or more non-blocked characters with the same preferred skill, only the most powerful receives the bonus. This value is not present in the final results; it is just temporarily added to consider re-rolling a character or not.
-- [b]BLOCKED_POSITIONS[/b]: Prevent re-rolling the character in these positions.
-- [b]BLOCKED_TRAITS[/b]: Prevents re-rolling the character if they have any of these traits.
-- [b]REROLL_WAIT_TIME[/b]: Increase this number if you are using an old computer. This will reduce the speed of each re-roll.
+Adjust settings in the UI:
+- [b]POWER_THRESHOLD[/b]: Minimum power per survivor (some traits reduce it). Stops early if all hit this before time’s up.
+- [b]RUN_DURATION[/b]: Total runtime in minutes (default: 2). Increase for rare skills or high thresholds.
+- [b]PREFERRED_SKILLS[/b]: List of desired skills (e.g., [b]lichenology, computers[/b]). May lower trait power.
+- [b]SKILL_POWER[/b]: Temporary power boost for characters with preferred skills during reroll decisions (not in final results).
+- [b]BLOCKED_POSITIONS[/b]: Positions to skip during rerolls.
+- [b]BLOCKED_TRAITS[/b]: Traits that lock a survivor from rerolling.
+- [b]REROLL_WAIT_TIME[/b]: Increase for older PCs to slow reroll speed.
+- [b]PLAY_STYLE[/b]: Power calculation mode (e.g., [b]strategist, beginner[/b]).
 
 
 [size=3][b]Note about config.txt[/b][/size]
-The config.txt file is optional since the release of the UI and removed from the build. Use it if you want to store default values. Setting up all the properties is not needed; you only need to set values you want to keep. Lines starting with 
-[size=6][b]or empty lines are ignored.[/b][/size]
+Since the UI release, [b]config.txt[/b] is optional and not included in the build. Use it for default values. Only set what you need; lines starting with 
+[size=6][b]or blank are ignored.[/b][/size]
 
-Example of optional [b]config.txt[/b]:
+Example [b]config.txt[/b]:
 
 
-# Comment sample line being ignored
+# Sample comment ignored
 POWER_THRESHOLD = 30
 RUN_DURATION = 10
-# empty is also an available skill
 PREFERRED_SKILLS = lichenology, hygiene, computers, empty
 SKILL_POWER = 10
-# Blocked positions start at 0 and end at 2 (0, 1, 2)
 BLOCKED_POSITIONS = 0, 2
 BLOCKED_TRAITS = blood plague survivor, incredible immune system, germophobe
 REROLL_WAIT_TIME = 0.01
+PLAY_STYLE = resourceful
 
 
 
 [size=4][b]Debug Console Mode[/b][/size]
-Run the so2_autoroll.exe with the parameter --enable-debug-console. This console will display additional logs, showing details about the traits and skills selected. This mode is useful for troubleshooting or understanding the trait selection process. Note that this mode is always slower than the default mode.
+Run [b]so2_autoroll.exe --enable-debug-console[/b] for detailed logs on traits and skills. Useful for troubleshooting or analyzing selections, but slower than default mode.

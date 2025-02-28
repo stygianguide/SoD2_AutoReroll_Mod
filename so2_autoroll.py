@@ -521,68 +521,60 @@ def start_roll():
     # Initialize reroll history
     reroll_history = []
 
-    # Initialize the start time for the run
-    start_time = time.time()
-
     # Main loop for rolling survivors
-    while time.time() - start_time < (config.RUN_DURATION * 60):
+    end_time = time.time() + (config.RUN_DURATION * 60)  # Calculate end time once
+    reroll_history = []
+    
+    while time.time() < end_time:
         # Check if the process has been cancelled
         if cancel_process_flag:
             debug_message("Process cancelled.")
             break # Break the loop to stop rerolling
 
-        # Filter out blocked positions
+        # Filter out blocked positions (only recalculate when needed)
         available_positions = [i for i in range(3) if i not in config.BLOCKED_POSITIONS]
 
-        # Filter available positions in a loop to ensure no character has a blocked trait
+        # Filter available positions based on blocked traits
         if available_positions and config.BLOCKED_TRAITS:
             new_available_positions = []
             for pos in available_positions:
-                blocked_traits = [trait for trait in survivors[pos].blocked_traits()]
+                blocked_traits = survivors[pos].blocked_traits()
                 if blocked_traits:
-                    config.BLOCKED_POSITIONS.append(pos)  # Block the position if any trait is blocked
+                    config.BLOCKED_POSITIONS.append(pos)  # Block the position
                     blocked_positions_vars[pos].set(1) # Update the UI checkbox
                     append_status_message(f"Pos #{pos + 1} blocked by traits: {', '.join(blocked_traits)}", True)
                 else:
                     new_available_positions.append(pos)
             available_positions = new_available_positions
 
-        # Initialize temporary powers for each survivor
-        temp_powers = [survivor.power for survivor in survivors]
-
-        # Add SKILL_POWER to the strongest character with a preferred skill if character position is available    
-        if available_positions and config.PREFERRED_SKILLS:
-            for skill in config.PREFERRED_SKILLS:
-                characters_with_skill = [
-                    survivors[i]
-                    for i in available_positions
-                    if skill in survivors[i].skills
-                ]
-                if characters_with_skill:
-                    strongest_with_skill = max(characters_with_skill, key=lambda s: s.power)
-                    index_of_strongest = strongest_with_skill.position
-                    temp_powers[index_of_strongest] += config.SKILL_POWER
-                    debug_message(
-                        f"Adding SKILL_POWER to the strongest survivor with preferred skill '{skill}': "
-                        f"Survivor {index_of_strongest + 1}, new temp power: {temp_powers[index_of_strongest]}."
-                    )
-
-        # Determine the weakest character
-        if available_positions:
-            weakest_index = min(available_positions, key=lambda x: temp_powers[x])
-        else:
-            weakest_index = None  # No available positions
+        # Stop if all positions are blocked
+        if not available_positions:
             append_status_message(f"Stop. All characters are blocked.", True)
-            break # Break the loop to stop rerolling 
+            break
 
+        # Calculate temporary powers (with preferred skill bonus) in one pass
+        temp_powers = [survivor.power for survivor in survivors]
+        
+        # Add skill power bonus more efficiently
+        if available_positions and config.PREFERRED_SKILLS:
+            for pos in available_positions:
+                survivor = survivors[pos]
+                # Check if any preferred skill is present in this survivor's skills
+                if any(skill in survivor.skills for skill in config.PREFERRED_SKILLS):
+                    temp_powers[pos] += config.SKILL_POWER
+                    if config.DEBUG:
+                        debug_message(f"Adding SKILL_POWER to survivor {pos+1} with preferred skill, new temp power: {temp_powers[pos]}.")
+
+        # Determine the weakest character (only among available positions)
+        weakest_index = min(available_positions, key=lambda x: temp_powers[x])
         weakest_power = temp_powers[weakest_index]
 
         # Stop if the lowest power character exceeds the threshold
         if weakest_power > config.POWER_THRESHOLD:
             append_status_message(f"Stop. All characters have power above {config.POWER_THRESHOLD}.", True)
-            break # Break the loop to stop rerolling  
+            break
 
-        #Create the UI summary for the current character before moving to the next    
+        # Only update UI if position changes
         if current_position != weakest_index:
             update_survivor_summary(
                 current_position, 
@@ -591,45 +583,50 @@ def start_roll():
                 survivors[current_position].skills
             )
             root.update_idletasks() # Update the UI to display the summary
-                
-        # Move to the position of the weakest character by moving the cursor to the traits square
-        move_cursor_below_traits_square(left, top, trait_positions[weakest_index], trait_width, trait_height)
-        current_position = weakest_index
+            
+            # Move to the weakest character position
+            move_cursor_below_traits_square(left, top, trait_positions[weakest_index], trait_width, trait_height)
+            current_position = weakest_index
 
-        # Perform reroll and save character to history for final evaluation
+        # Perform reroll
         reroll()
+        
+        # Analyze new character and update
         rerolled_character = analyze_character(
             left, top, weakest_index, 
             skill_positions, skill_width, skill_height, 
             trait_positions, trait_width, trait_height, 
             config
         )        
-        # Add character to reroll history
+        
+        # Add to history and maintain max history size efficiently
         reroll_history.append(rerolled_character)
+        if len(reroll_history) > 3:
+            reroll_history.pop(0)
 
-        # Explicitly block rerolls in the last seconds of the run
-        time_elapsed = time.time() - start_time
-        if time_elapsed >= (config.RUN_DURATION * 60) - 2:
+        # Update the survivor data
+        survivors[weakest_index] = rerolled_character
+
+        # Check if we're near the end of run time
+        remaining_time = end_time - time.time()
+        if remaining_time < 2:  # Last 2 seconds of run
             debug_message(
-                f"-- Near End Explicit Lock: Evaluating Best Survivor from Last 2 Rerolls in Slot {weakest_index + 1}. "
+                f"-- Near End Explicit Lock: Evaluating Best Survivor from Last 3 Rerolls in Slot {weakest_index + 1}. "
                 "No more rerolls will be done. --"
             )
-            # Use "r" up to two times to go back to the best character in reroll history (limit to 2 characters)
+            
+            # Select best survivor from history
             if reroll_history:
                 best_character = max(reroll_history, key=lambda x: x.power)
                 best_index = reroll_history.index(best_character)
-                # Press "r" once if best character is the second in history, twice if it's the first
-                for _ in range(2 - best_index):
-                    pyautogui.press("r")
-                    time.sleep(config.REROLL_WAIT_TIME)
-                survivors[weakest_index] = best_character 
-            break # Break the loop to stop rerolling 
-
-        # Keep only the last 2 survivors in the history
-        if len(reroll_history) > 2:
-            reroll_history.pop(0)
-
-        survivors[weakest_index] = rerolled_character
+                debug_message(f"Best character from last 3 index: {best_index}, character: {best_character}")
+                # Only press "r" if the best character is not the current one
+                if best_index < 2:  # If best_index is 2, it's already the current character
+                    for _ in range(2 - best_index):
+                        pyautogui.press("r")
+                        time.sleep(config.REROLL_WAIT_TIME)
+                survivors[weakest_index] = best_character
+            break
 
     # Update the UI with the final survivors
     append_status_message("Updating survivors summary.", True)
