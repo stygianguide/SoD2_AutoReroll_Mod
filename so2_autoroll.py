@@ -523,7 +523,6 @@ def start_roll():
 
     # Main loop for rolling survivors
     end_time = time.time() + (config.RUN_DURATION * 60)  # Calculate end time once
-    reroll_history = []
     
     while time.time() < end_time:
         # Check if the process has been cancelled
@@ -557,25 +556,46 @@ def start_roll():
         
         # Add skill power bonus more efficiently
         if available_positions and config.PREFERRED_SKILLS:
+            # Group survivors by their skill sets
+            skill_groups = {}
             for pos in available_positions:
                 survivor = survivors[pos]
-                # Check if any preferred skill is present in this survivor's skills
-                if any(skill in survivor.skills for skill in config.PREFERRED_SKILLS):
-                    temp_powers[pos] += config.SKILL_POWER
+                # Convert the skills list to a tuple so it can be used as a dictionary key
+                skill_set = tuple(sorted(survivor.skills))
+                if skill_set not in skill_groups:
+                    skill_groups[skill_set] = []
+                skill_groups[skill_set].append(pos)
+            
+            # For each group of survivors with identical skills
+            for skill_set, positions in skill_groups.items():
+                # Count how many preferred skills are present in this skill set
+                preferred_skills_count = sum(skill in skill_set for skill in config.PREFERRED_SKILLS)
+                
+                if preferred_skills_count > 0 and positions:
+                    # Find the survivor with the highest base power in this group
+                    best_pos = max(positions, key=lambda pos: survivors[pos].power)
+                    
+                    # Add bonus only to the survivor with highest base power
+                    temp_powers[best_pos] += config.SKILL_POWER * preferred_skills_count
+                    
                     if config.DEBUG:
-                        debug_message(f"Adding SKILL_POWER to survivor {pos+1} with preferred skill, new temp power: {temp_powers[pos]}.")
+                        debug_message(f"S{best_pos+1}: +{config.SKILL_POWER * preferred_skills_count} power ({preferred_skills_count} skills) → Total: {temp_powers[best_pos]}")
+                        if len(positions) > 1:
+                            debug_message(f"Identical skills at positions {[p+1 for p in positions]} → Bonus to S{best_pos+1} only")
 
         # Determine the weakest character (only among available positions)
         weakest_index = min(available_positions, key=lambda x: temp_powers[x])
         weakest_power = temp_powers[weakest_index]
 
-        # Stop if the lowest power character exceeds the threshold
+        # Stop if the lowest power survivor exceeds the threshold
         if weakest_power > config.POWER_THRESHOLD:
-            append_status_message(f"Stop. All characters have power above {config.POWER_THRESHOLD}.", True)
+            append_status_message(f"Stop. All survivors have power above {config.POWER_THRESHOLD}.", True)
             break
 
         # Only update UI if position changes
         if current_position != weakest_index:
+            reroll_history = []  # Clear reroll history when moving to a new position
+            # Update the UI with the new position
             update_survivor_summary(
                 current_position, 
                 survivors[current_position].power, 
@@ -583,10 +603,10 @@ def start_roll():
                 survivors[current_position].skills
             )
             root.update_idletasks() # Update the UI to display the summary
-            
-            # Move to the weakest character position
-            move_cursor_below_traits_square(left, top, trait_positions[weakest_index], trait_width, trait_height)
-            current_position = weakest_index
+                        
+        # Move to the weakest survivor position
+        move_cursor_below_traits_square(left, top, trait_positions[weakest_index], trait_width, trait_height)
+        current_position = weakest_index
 
         # Perform reroll
         reroll()
@@ -1032,7 +1052,8 @@ def ui():
 
         for i, var in enumerate(blocked_positions_vars):
             var.set(1 if i in default_config.BLOCKED_POSITIONS else 0)
-
+            
+        blocked_traits_selectable.reset_selection()
         preferred_skills_selectable.reset_selection()
         play_style_combobox.set(default_play_style)  # Reset to the default game mode
 
