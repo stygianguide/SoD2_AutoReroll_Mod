@@ -81,6 +81,7 @@ class Config:
         self.PREFERRED_SKILLS = []
         self.BLOCKED_POSITIONS = []
         self.BLOCKED_TRAITS = []
+        self.REQUIRE_ALL_TRAITS = False
         self.PLAY_STYLE = "strategist"
 
     def __str__(self):
@@ -102,7 +103,7 @@ def load_config():
                     value = value.strip()
                     
                     if hasattr(config, key):
-                        if key in ["DEBUG", "DEBUG_OCR"]:
+                        if key in ["DEBUG", "DEBUG_OCR", "REQUIRE_ALL_TRAITS"]:
                             setattr(config, key, value.lower() == "true")
                         elif key == "PREFERRED_SKILLS":
                             skills = [skill.strip().lower() for skill in value.split(",") if skill.strip() and skill.strip().lower() != ""]
@@ -417,7 +418,7 @@ class Survivor:
         return [trait for trait in self.traits if trait in config.BLOCKED_TRAITS]
 
     def __str__(self):
-        return f"Power: {self.power}, Traits: {self.traits}, Skills: {self.skills}"
+        return f"position: {self.position}, power: {self.power}, traits: {self.traits}, skills: {self.skills}"
 
 
 def analyze_character(left, top, index, skill_positions, skill_width, skill_height, trait_positions, trait_width, trait_height, config):
@@ -535,15 +536,25 @@ def start_roll():
 
         # Filter available positions based on blocked traits
         if available_positions and config.BLOCKED_TRAITS:
+            positions_to_block = []
             new_available_positions = []
+            
+            # Determine which positions to block or keep
             for pos in available_positions:
                 blocked_traits = survivors[pos].blocked_traits()
-                if blocked_traits:
-                    config.BLOCKED_POSITIONS.append(pos)  # Block the position
-                    blocked_positions_vars[pos].set(1) # Update the UI checkbox
-                    append_status_message(f"Pos #{pos + 1} blocked by traits: {', '.join(blocked_traits)}", True)
+                # Block if there are blocked traits and either all traits aren't required or all specified traits are present
+                if blocked_traits and (not config.REQUIRE_ALL_TRAITS or len(blocked_traits) == len(config.BLOCKED_TRAITS)):
+                    positions_to_block.append(pos)
                 else:
                     new_available_positions.append(pos)
+            
+            # Apply blocking actions to positions marked for blocking
+            for pos in positions_to_block:
+                config.BLOCKED_POSITIONS.append(pos)  # Mark position as blocked
+                blocked_positions_vars[pos].set(1)    # Update UI checkbox
+                append_status_message(f"Position #{pos + 1} blocked due to traits: {', '.join(survivors[pos].blocked_traits())}", True)
+            
+            # Update the available positions list
             available_positions = new_available_positions
 
         # Stop if all positions are blocked
@@ -582,10 +593,21 @@ def start_roll():
                         debug_message(f"S{best_pos+1}: +{config.SKILL_POWER * preferred_skills_count} power ({preferred_skills_count} skills) → Total: {temp_powers[best_pos]}")
                         if len(positions) > 1:
                             debug_message(f"Identical skills at positions {[p+1 for p in positions]} → Bonus to S{best_pos+1} only")
+        
+        # Find empty survivors (power=0, traits=[], skills=[]) in available positions
+        empty_survivors = [s for s in survivors if s.position in available_positions and 
+                        s.power == 0 and s.traits == [] and s.skills == []]
 
-        # Determine the weakest character (only among available positions)
-        weakest_index = min(available_positions, key=lambda x: temp_powers[x])
-        weakest_power = temp_powers[weakest_index]
+        if empty_survivors:
+            # Select the first empty survivor found
+            weakest_survivor = empty_survivors[0]
+            weakest_index = weakest_survivor.position
+            weakest_power = 0
+            debug_message(f"Empty survivor found at pos {weakest_index}")
+        else:
+            # Find the position with the smallest temp_powers among available positions
+            weakest_index = min(available_positions, key=lambda x: temp_powers[x])
+            weakest_power = temp_powers[weakest_index]
 
         # Stop if the lowest power survivor exceeds the threshold
         if weakest_power > config.POWER_THRESHOLD:
@@ -681,7 +703,7 @@ if "--enable-debug-console" in sys.argv:
 frame = ttk.Frame(root, padding="10")
 frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-SURVIVOR_FRAME_ROW = 10
+SURVIVOR_FRAME_ROW = 11
 # Create the frame for the survivor summaries
 survivors_frame = ttk.Frame(frame, padding=0, relief=tk.FLAT)
 survivors_frame.grid(row=SURVIVOR_FRAME_ROW, column=0, columnspan=2, sticky=(tk.W, tk.E))
@@ -986,6 +1008,15 @@ def ui():
     blocked_traits_selectable = SelectableListbox (frame, row_number, "Blocked Traits:", traits_tooltip, traits_list, default_config.BLOCKED_TRAITS)            
 
     row_number += 1
+    # Create a BooleanVar to control the Checkbutton state
+    all_traits_var = tk.BooleanVar(value=config.REQUIRE_ALL_TRAITS)  # Set to True to make it checked by default
+    all_traits_label = ttk.Label(frame, text="Require all traits:")
+    all_traits_label.grid(row=row_number, column=0, sticky=tk.W)
+    all_traits_entry = ttk.Checkbutton(frame, text="", variable=all_traits_var)
+    all_traits_entry.grid(row=row_number, column=1, sticky=tk.W)
+    ToolTip(all_traits_label, "All traits must be present to block the character.")
+
+    row_number += 1
     skills_tooltip = "If a preferred skill is found, it will add SKILL_POWER to the character's power. Leave empty to disable." 
     preferred_skills_selectable = SelectableListbox (frame, row_number, "Preferred Skills:", skills_tooltip, ALL_SKILLS, default_config.PREFERRED_SKILLS)
 
@@ -1032,6 +1063,7 @@ def ui():
         config.SKILL_POWER = int(skill_power_entry.get())
         config.PREFERRED_SKILLS = preferred_skills_selectable.get_selected_items()
         config.BLOCKED_TRAITS = blocked_traits_selectable.get_selected_items()
+        config.REQUIRE_ALL_TRAITS = all_traits_var.get()
         config.BLOCKED_POSITIONS = [i for i, var in enumerate(blocked_positions_vars) if var.get() == 1]
         config.PLAY_STYLE = play_style_combobox.get()  # Capture the selected game mode
         start_roll()

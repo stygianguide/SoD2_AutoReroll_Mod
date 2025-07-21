@@ -47,6 +47,7 @@ Adjust settings in the UI:
 - SKILL_POWER: Temporary power boost for characters with preferred skills during reroll decisions (not in final results).
 - BLOCKED_POSITIONS: Positions to skip during rerolls.
 - BLOCKED_TRAITS: Traits that lock a survivor from rerolling.
+- REQUIRE_ALL_TRAITS: True blocks survivors with all BLOCKED_TRAITS; False blocks with any.
 - REROLL_WAIT_TIME: Increase for older PCs to slow reroll speed.
 - PLAY_STYLE: Power calculation mode (e.g., strategist, beginner).
 
@@ -63,6 +64,7 @@ PREFERRED_SKILLS = lichenology, hygiene, computers, empty
 SKILL_POWER = 10
 BLOCKED_POSITIONS = 0, 2
 BLOCKED_TRAITS = blood plague survivor, incredible immune system, germophobe
+REQUIRE_ALL_TRAITS = False
 REROLL_WAIT_TIME = 0.01
 PLAY_STYLE = resourceful
 
