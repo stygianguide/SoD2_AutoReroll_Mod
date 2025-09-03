@@ -1132,8 +1132,8 @@ compiled_traits = {
             "stealth": 7.0,
             "vehicle": 5.0,
             "provided_skills": [
-                "automechanics",
-                "discipline"
+                "discipline",
+                "automechanics"
             ],
             "positive": 21.3,
             "negative": 0
@@ -2622,8 +2622,8 @@ compiled_traits = {
             "stamina": 2.6,
             "guns": 10.0,
             "provided_skills": [
-                "sharpshooting",
-                "marathon"
+                "marathon",
+                "sharpshooting"
             ],
             "positive": 17.6,
             "negative": 0
@@ -4203,8 +4203,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 10.0,
             "provided_skills": [
-                "craftsmanship",
-                "striking"
+                "striking",
+                "craftsmanship"
             ],
             "positive": 14.3,
             "negative": 0
@@ -4326,8 +4326,8 @@ compiled_traits = {
             "stamina": 5.1,
             "stealth": 7.0,
             "provided_skills": [
-                "acrobatics",
-                "stealth"
+                "stealth",
+                "acrobatics"
             ],
             "positive": 12.1,
             "negative": 0
@@ -5131,8 +5131,8 @@ compiled_traits = {
             "stealth": 5.0,
             "guns": 10.0,
             "provided_skills": [
-                "resourcefulness",
                 "assault",
+                "resourcefulness",
                 "medicine"
             ],
             "positive": 27.0,
@@ -9803,8 +9803,8 @@ compiled_traits = {
             "stamina": 2.6,
             "stealth": 7.0,
             "provided_skills": [
-                "stealth",
-                "marathon"
+                "marathon",
+                "stealth"
             ],
             "positive": 12.6,
             "negative": 0
@@ -10305,8 +10305,8 @@ compiled_traits = {
             "stealth": 8.0,
             "radio_usage": 2.5,
             "provided_skills": [
-                "scouting",
-                "programming"
+                "programming",
+                "scouting"
             ],
             "positive": 13.0,
             "negative": 0
@@ -10401,8 +10401,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "driving",
-                "stealth"
+                "stealth",
+                "driving"
             ],
             "positive": 27.0,
             "negative": 0
@@ -13837,8 +13837,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "driving",
-                "discipline"
+                "discipline",
+                "driving"
             ],
             "positive": 38.3,
             "negative": 0
@@ -17477,8 +17477,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 11.5,
             "provided_skills": [
-                "metalwork",
-                "swordplay"
+                "swordplay",
+                "metalwork"
             ],
             "positive": 20.7,
             "negative": 0
@@ -18607,9 +18607,9 @@ compiled_traits = {
             "health": 6.0,
             "melee": 5.0,
             "provided_skills": [
-                "resourcefulness",
+                "backpacking",
                 "endurance",
-                "backpacking"
+                "resourcefulness"
             ],
             "positive": 23.1,
             "negative": 0
@@ -22094,8 +22094,8 @@ compiled_traits = {
             "guns": 12.5,
             "stealth": 8.0,
             "provided_skills": [
-                "scouting",
-                "sharpshooting"
+                "sharpshooting",
+                "scouting"
             ],
             "positive": 30.5,
             "negative": 0
@@ -22202,8 +22202,8 @@ compiled_traits = {
             "carrying_capacity": 2.0,
             "stealth": 5.0,
             "provided_skills": [
-                "resourcefulness",
-                "craftsmanship"
+                "craftsmanship",
+                "resourcefulness"
             ],
             "morale": 0.4,
             "positive": 8.9,
@@ -26411,9 +26411,9 @@ compiled_traits = {
             "morale": 4.0,
             "standing_rewards": 10.0,
             "provided_skills": [
+                "music",
                 "resourcefulness",
-                "acrobatics",
-                "music"
+                "acrobatics"
             ],
             "positive": 28.6,
             "negative": 0
@@ -26708,8 +26708,8 @@ compiled_traits = {
             "health": 2.8,
             "melee": 10.0,
             "provided_skills": [
-                "resourcefulness",
-                "close combat"
+                "close combat",
+                "resourcefulness"
             ],
             "positive": 29.8,
             "negative": 0
@@ -28167,8 +28167,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "driving",
-                "discipline"
+                "discipline",
+                "driving"
             ],
             "positive": 38.3,
             "negative": 0
@@ -28199,8 +28199,8 @@ compiled_traits = {
             "fuel": 10.0,
             "vehicle": 10.0,
             "provided_skills": [
-                "driving",
-                "discipline"
+                "discipline",
+                "driving"
             ],
             "positive": 38.3,
             "negative": 0
@@ -30700,6 +30700,670 @@ compiled_traits = {
             "berserker": 10.0,
             "talbot": 17.0,
             "masochist": -20.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "boot camp survivor": {
+        "categories": {
+            "provided_skills": [
+                "prowess"
+            ],
+            "health": 2.0,
+            "positive": 2.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 2.4,
+            "beginner": 3.0,
+            "mechanic": 1.0,
+            "shadow": 1.0,
+            "resourceful": 0.2,
+            "prodigy": 8.0,
+            "farmer": 1.0,
+            "diplomat": 1.0,
+            "berserker": 3.0,
+            "talbot": 3.0,
+            "masochist": -2.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "cadet instructor": {
+        "categories": {
+            "provided_skills": [
+                "prowess"
+            ],
+            "training": 5.0,
+            "positive": 5.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 6.0,
+            "beginner": 6.0,
+            "mechanic": 2.5,
+            "shadow": 2.5,
+            "resourceful": 0.5,
+            "prodigy": 17.0,
+            "farmer": 2.5,
+            "diplomat": 2.5,
+            "berserker": 2.5,
+            "talbot": 2.5,
+            "masochist": -5.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "combat ready": {
+        "categories": {
+            "provided_skills": [
+                "heroism"
+            ],
+            "training": 5.0,
+            "positive": 5.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 6.0,
+            "beginner": 6.0,
+            "mechanic": 2.5,
+            "shadow": 2.5,
+            "resourceful": 0.5,
+            "prodigy": 17.0,
+            "farmer": 2.5,
+            "diplomat": 2.5,
+            "berserker": 2.5,
+            "talbot": 2.5,
+            "masochist": -5.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "comms engineer": {
+        "categories": {
+            "radio_usage": 4.0,
+            "provided_skills": [
+                "hacking"
+            ],
+            "food": -9.5,
+            "positive": 5.5,
+            "negative": 11.0
+        },
+        "styles": {
+            "strategist": -24.8,
+            "beginner": -2.8,
+            "mechanic": -2.8,
+            "shadow": -2.8,
+            "resourceful": -13.9,
+            "prodigy": 4.2,
+            "farmer": -12.3,
+            "diplomat": 0.0,
+            "berserker": -2.8,
+            "talbot": -2.8,
+            "masochist": 5.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "consul officer": {
+        "categories": {
+            "provided_skills": [
+                "tactics"
+            ],
+            "standing_rewards": 5.0,
+            "positive": 5.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 2.5,
+            "beginner": 2.5,
+            "mechanic": 2.5,
+            "shadow": 2.5,
+            "resourceful": 0.5,
+            "prodigy": 9.5,
+            "farmer": 2.5,
+            "diplomat": 7.5,
+            "berserker": 2.5,
+            "talbot": 2.5,
+            "masochist": -5.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "cooked for the squad": {
+        "categories": {
+            "infection": 27.5,
+            "provided_skills": [
+                "gut packing"
+            ],
+            "food": 0.5,
+            "positive": 31.5,
+            "negative": 3.5
+        },
+        "styles": {
+            "strategist": 34.4,
+            "beginner": 13.9,
+            "mechanic": 13.9,
+            "shadow": 27.7,
+            "resourceful": 3.4,
+            "prodigy": 20.9,
+            "farmer": 14.4,
+            "diplomat": 13.9,
+            "berserker": 33.2,
+            "talbot": 13.9,
+            "masochist": -28.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "dead zone runner": {
+        "categories": {
+            "provided_skills": [
+                "prowess"
+            ],
+            "carrying_capacity": 1.0,
+            "positive": 1.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 0.5,
+            "beginner": 0.5,
+            "mechanic": 0.5,
+            "shadow": 0.5,
+            "resourceful": 3.0,
+            "prodigy": 7.5,
+            "farmer": 0.5,
+            "diplomat": 0.5,
+            "berserker": 0.5,
+            "talbot": 0.5,
+            "masochist": -1.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "designated grunt": {
+        "categories": {
+            "standing_rewards": -1.0,
+            "positive": 0,
+            "negative": 1.0
+        },
+        "styles": {
+            "strategist": -2.5,
+            "beginner": -0.5,
+            "mechanic": -0.5,
+            "shadow": -0.5,
+            "resourceful": -0.1,
+            "prodigy": -0.5,
+            "farmer": -0.5,
+            "diplomat": -1.5,
+            "berserker": -0.5,
+            "talbot": -0.5,
+            "masochist": 1.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "diehard veteran": {
+        "categories": {
+            "provided_skills": [
+                "heroism"
+            ],
+            "health": 4.0,
+            "infection": 10.0,
+            "positive": 14.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 19.8,
+            "beginner": 11.0,
+            "mechanic": 7.0,
+            "shadow": 12.0,
+            "resourceful": 1.4,
+            "prodigy": 14.0,
+            "farmer": 7.0,
+            "diplomat": 7.0,
+            "berserker": 18.0,
+            "talbot": 11.0,
+            "masochist": -14.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "drew desk duty": {
+        "categories": {
+            "stamina": -2.5,
+            "positive": 0,
+            "negative": 2.5
+        },
+        "styles": {
+            "strategist": -8.8,
+            "beginner": -3.0,
+            "mechanic": -1.3,
+            "shadow": -3.8,
+            "resourceful": -0.3,
+            "prodigy": -1.3,
+            "farmer": -1.3,
+            "diplomat": -1.3,
+            "berserker": -3.0,
+            "talbot": -3.0,
+            "masochist": 2.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "facilities engineer": {
+        "categories": {
+            "stamina": 4.0,
+            "provided_skills": [
+                "infrastructure"
+            ],
+            "labor": -2.5,
+            "materials": 0.5,
+            "fuel": 1.5,
+            "positive": 7.0,
+            "negative": 3.5
+        },
+        "styles": {
+            "strategist": -1.4,
+            "beginner": 4.4,
+            "mechanic": 1.8,
+            "shadow": 5.6,
+            "resourceful": 4.8,
+            "prodigy": 8.6,
+            "farmer": -0.9,
+            "diplomat": 1.5,
+            "berserker": 4.4,
+            "talbot": 5.5,
+            "masochist": -3.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "firearms enthusiast": {
+        "categories": {
+            "ammo": 2.5,
+            "provided_skills": [
+                "firearms maintenance"
+            ],
+            "noise": -2.0,
+            "positive": 3.5,
+            "negative": 3.0
+        },
+        "styles": {
+            "strategist": -5.8,
+            "beginner": 0.1,
+            "mechanic": 0.1,
+            "shadow": 0.1,
+            "resourceful": 3.5,
+            "prodigy": 7.2,
+            "farmer": 0.1,
+            "diplomat": 0.1,
+            "berserker": 0.1,
+            "talbot": 1.5,
+            "masochist": -0.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "forager": {
+        "categories": {
+            "food": 3.5,
+            "provided_skills": [
+                "foraging"
+            ],
+            "labor": -1.0,
+            "medicine": -1.0,
+            "positive": 3.5,
+            "negative": 2.0
+        },
+        "styles": {
+            "strategist": -3.3,
+            "beginner": 0.7,
+            "mechanic": 0.0,
+            "shadow": 0.7,
+            "resourceful": 3.6,
+            "prodigy": 7.7,
+            "farmer": 2.2,
+            "diplomat": 0.7,
+            "berserker": 0.7,
+            "talbot": 0.7,
+            "masochist": -1.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "former squad leader": {
+        "categories": {
+            "provided_skills": [
+                "tactics"
+            ],
+            "standing_rewards": 1.0,
+            "positive": 1.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 0.5,
+            "beginner": 0.5,
+            "mechanic": 0.5,
+            "shadow": 0.5,
+            "resourceful": 0.1,
+            "prodigy": 7.5,
+            "farmer": 0.5,
+            "diplomat": 1.5,
+            "berserker": 0.5,
+            "talbot": 0.5,
+            "masochist": -1.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "from an armored unit": {
+        "categories": {
+            "vehicle": 10.0,
+            "provided_skills": [
+                "mobile operations"
+            ],
+            "labor": -1.0,
+            "fuel": 0.5,
+            "positive": 11.5,
+            "negative": 2.0
+        },
+        "styles": {
+            "strategist": 0.7,
+            "beginner": 4.7,
+            "mechanic": 19.5,
+            "shadow": 4.7,
+            "resourceful": 1.6,
+            "prodigy": 11.7,
+            "farmer": 3.7,
+            "diplomat": 4.7,
+            "berserker": 4.7,
+            "talbot": 5.1,
+            "masochist": -9.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "front line experience": {
+        "categories": {
+            "provided_skills": [
+                "heroism"
+            ],
+            "stamina": 4.0,
+            "positive": 4.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 6.0,
+            "beginner": 4.8,
+            "mechanic": 2.0,
+            "shadow": 6.0,
+            "resourceful": 0.4,
+            "prodigy": 9.0,
+            "farmer": 2.0,
+            "diplomat": 2.0,
+            "berserker": 4.8,
+            "talbot": 4.8,
+            "masochist": -4.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "golden eagle marksman": {
+        "categories": {
+            "provided_skills": [
+                "warfighting"
+            ],
+            "stamina": 2.0,
+            "positive": 2.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 3.0,
+            "beginner": 2.4,
+            "mechanic": 1.0,
+            "shadow": 3.0,
+            "resourceful": 0.2,
+            "prodigy": 8.0,
+            "farmer": 1.0,
+            "diplomat": 1.0,
+            "berserker": 2.4,
+            "talbot": 2.4,
+            "masochist": -2.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "officer material": {
+        "categories": {
+            "provided_skills": [
+                "tactics"
+            ],
+            "training": 5.0,
+            "morale": 6.0,
+            "positive": 11.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 13.2,
+            "beginner": 13.2,
+            "mechanic": 5.5,
+            "shadow": 5.5,
+            "resourceful": 1.1,
+            "prodigy": 26.0,
+            "farmer": 5.5,
+            "diplomat": 9.7,
+            "berserker": -6.5,
+            "talbot": 5.5,
+            "masochist": -11.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "practices at the range": {
+        "categories": {
+            "provided_skills": [
+                "warfighting"
+            ],
+            "training": 5.0,
+            "positive": 5.0,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 6.0,
+            "beginner": 6.0,
+            "mechanic": 2.5,
+            "shadow": 2.5,
+            "resourceful": 0.5,
+            "prodigy": 17.0,
+            "farmer": 2.5,
+            "diplomat": 2.5,
+            "berserker": 2.5,
+            "talbot": 2.5,
+            "masochist": -5.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "quartermaster": {
+        "categories": {
+            "noise": 6.0,
+            "provided_skills": [
+                "logistics"
+            ],
+            "morale": -7.0,
+            "materials": 1.5,
+            "fuel": 1.5,
+            "ammo": 1.5,
+            "positive": 10.5,
+            "negative": 7.0
+        },
+        "styles": {
+            "strategist": -17.3,
+            "beginner": -3.3,
+            "mechanic": 4.2,
+            "shadow": 1.5,
+            "resourceful": 11.7,
+            "prodigy": 1.5,
+            "farmer": 1.5,
+            "diplomat": -3.3,
+            "berserker": 15.5,
+            "talbot": 3.5,
+            "masochist": -3.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "red talon contractor": {
+        "categories": {
+            "provided_skills": [
+                "gives access to specializations exclusive for red talon contractors"
+            ],
+            "standing_rewards": -6.6,
+            "positive": 0,
+            "negative": 6.6
+        },
+        "styles": {
+            "strategist": -16.5,
+            "beginner": -3.3,
+            "mechanic": -3.3,
+            "shadow": -3.3,
+            "resourceful": -0.7,
+            "prodigy": 3.7,
+            "farmer": -3.3,
+            "diplomat": -9.9,
+            "berserker": -3.3,
+            "talbot": -3.3,
+            "masochist": 6.6,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "red talon operative": {
+        "categories": {
+            "provided_skills": [
+                "prowess",
+                "tactics",
+                "warfighting",
+                "heroism"
+            ],
+            "training": -10.0,
+            "melee": 9.5,
+            "guns": 9.5,
+            "carrying_capacity": 6.0,
+            "stamina": 10.0,
+            "positive": 35.0,
+            "negative": 10.0
+        },
+        "styles": {
+            "strategist": -4.6,
+            "beginner": 12.4,
+            "mechanic": 12.4,
+            "shadow": 31.9,
+            "resourceful": 19.8,
+            "prodigy": 25.4,
+            "farmer": 12.4,
+            "diplomat": 12.4,
+            "berserker": 26.1,
+            "talbot": 28.9,
+            "masochist": -25.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "skipped boot camp": {
+        "categories": {
+            "health": -2.5,
+            "positive": 0,
+            "negative": 2.5
+        },
+        "styles": {
+            "strategist": -8.0,
+            "beginner": -3.8,
+            "mechanic": -1.3,
+            "shadow": -1.3,
+            "resourceful": -0.3,
+            "prodigy": -1.3,
+            "farmer": -1.3,
+            "diplomat": -1.3,
+            "berserker": -3.8,
+            "talbot": -3.8,
+            "masochist": 2.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "trained off the grid": {
+        "categories": {
+            "food": -5.0,
+            "positive": 0,
+            "negative": 5.0
+        },
+        "styles": {
+            "strategist": -12.5,
+            "beginner": -2.5,
+            "mechanic": -2.5,
+            "shadow": -2.5,
+            "resourceful": -7.5,
+            "prodigy": -2.5,
+            "farmer": -7.5,
+            "diplomat": -2.5,
+            "berserker": -2.5,
+            "talbot": -2.5,
+            "masochist": 5.0,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "vigil guard": {
+        "categories": {
+            "provided_skills": [
+                "warfighting"
+            ],
+            "morale": 3.5,
+            "stamina": 4.0,
+            "positive": 7.5,
+            "negative": 0
+        },
+        "styles": {
+            "strategist": 10.2,
+            "beginner": 9.0,
+            "mechanic": 3.7,
+            "shadow": 7.7,
+            "resourceful": 0.7,
+            "prodigy": 14.2,
+            "farmer": 3.7,
+            "diplomat": 6.2,
+            "berserker": -0.5,
+            "talbot": 6.5,
+            "masochist": -7.5,
+            "minmaxer": 0,
+            "legacy": 0
+        }
+    },
+    "worked as a pioneer": {
+        "categories": {
+            "labor": 3.0,
+            "provided_skills": [
+                "fortifications"
+            ],
+            "unknown": -10.0,
+            "materials": 0.5,
+            "positive": 4.5,
+            "negative": 11.0
+        },
+        "styles": {
+            "strategist": -25.3,
+            "beginner": -3.3,
+            "mechanic": -0.8,
+            "shadow": -3.3,
+            "resourceful": 1.8,
+            "prodigy": 3.7,
+            "farmer": -0.3,
+            "diplomat": -3.3,
+            "berserker": -3.3,
+            "talbot": -3.3,
+            "masochist": 6.5,
             "minmaxer": 0,
             "legacy": 0
         }

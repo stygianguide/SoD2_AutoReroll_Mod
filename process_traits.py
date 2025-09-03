@@ -79,7 +79,7 @@ CATEGORY_CONDITIONS = [
     (["max stamina (community)"], "stamina", 0.2),
 
     # Carrying Capacity category conditions
-    (["max carrying capacity", "carry capacity"], "carrying_capacity", .1),
+    (["max carrying capacity", "carry capacity", "compact ordnance(+1 max consumable stack)"], "carrying_capacity", .1),
     (["light carrying capacity"], "carrying_capacity", 0.1),
     (["+1 max item stack", "+1 inventory slot"], "carrying_capacity", 1),
 

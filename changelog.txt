@@ -1,3 +1,5 @@
+Version 1.2.1
+Added Red Talons traits and skills to the list. Thanks to Ghoritch for the idea.
 Version 1.2.0
 Added a toggle to require all Blocked traits to be present for a character to be blocked.
 Version 1.1.3

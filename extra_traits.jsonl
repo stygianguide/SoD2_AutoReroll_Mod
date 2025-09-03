@@ -1,2 +1,28 @@
 {"name": ["blood donor"], "positive effect(s)": ["+15 morale", "+100% resting trauma & hp recovery"], "negative effect(s)": [], "provided skill(s)": [], "provided hero bonus": []}
 {"name": ["emt driver"], "positive effect(s)": [], "negative effect(s)": [], "provided skill(s)": ["driving"], "provided hero bonus": []}
+{"name": ["boot camp survivor"],"positive effect(s)": ["+20 max health"],"negative effect(s)": [],"provided skill(s)": ["prowess"],"provided hero bonus": []}
+{"name": ["cadet instructor"],"positive effect(s)": ["+50% cardio experience rate"],"negative effect(s)": [],"provided skill(s)": ["prowess"],"provided hero bonus": []}
+{"name": ["combat ready"],"positive effect(s)": ["+50% fighting experience rate"],"negative effect(s)": [],"provided skill(s)": ["heroism"],"provided hero bonus": []}
+{"name": ["comms engineer"],"positive effect(s)": ["+15 max food storage"],"negative effect(s)": ["sometimes wastes food","+100% food consumed per day"],"provided skill(s)": ["hacking"],"provided hero bonus": ["satellite radios(-20% most radio cooldowns)"]}
+{"name": ["consul officer"],"positive effect(s)": ["+50% standing rewards"],"negative effect(s)": [],"provided skill(s)": ["tactics"],"provided hero bonus": []}
+{"name": ["cooked for the squad"],"positive effect(s)": ["+15 max food storage"],"negative effect(s)": ["+25% additional infection from attacks","sometimes wastes food"],"provided skill(s)": ["gut packing"],"provided hero bonus": ["kitchen patrol(+150 infection resistance)"]}
+{"name": ["dead zone runner"],"positive effect(s)": ["+10 light carrying capacity"],"negative effect(s)": [],"provided skill(s)": ["prowess"],"provided hero bonus": []}
+{"name": ["designated grunt"],"positive effect(s)": [],"negative effect(s)": ["-10% standing rewards"],"provided skill(s)": [],"provided hero bonus": []}
+{"name": ["diehard veteran"],"positive effect(s)": ["-40% injury severity","+100 infection resistance"],"negative effect(s)": [],"provided skill(s)": ["heroism"],"provided hero bonus": []}
+{"name": ["drew desk duty"],"positive effect(s)": [],"negative effect(s)": ["+25% fatigue severity"],"provided skill(s)": [],"provided hero bonus": []}
+{"name": ["facilities engineer"],"positive effect(s)": ["+15 max materials storage","+15 max fuel storage"],"negative effect(s)": ["-25% facility action speed","sometimes wastes materials"],"provided skill(s)": ["infrastructure"],"provided hero bonus": ["water conservation(+20 max stamina)"]}
+{"name": ["firearms enthusiast"],"positive effect(s)": ["+15 max ammo storage"],"negative effect(s)": ["+2 noise","sometimes wastes ammo"],"provided skill(s)": ["firearms maintenance"],"provided hero bonus": ["collecting brass(+2 ammo per day)"]}
+{"name": ["forager"],"positive effect(s)": ["+15 max food storage"],"negative effect(s)": ["-1 labor","sometimes wastes medicine"],"provided skill(s)": ["foraging"],"provided hero bonus": ["foraging program(-20% food consumed overall)"]}
+{"name": ["former squad leader"],"positive effect(s)": ["+10% standing rewards"],"negative effect(s)": [],"provided skill(s)": ["tactics"],"provided hero bonus": []}
+{"name": ["from an armored unit"],"positive effect(s)": ["+15 max fuel storage"],"negative effect(s)": ["-1 labor","sometimes wastes fuel"],"provided skill(s)": ["mobile operations"],"provided hero bonus": ["reinforced chassis(+50% vehicle endurance)"]}
+{"name": ["front line experience"],"positive effect(s)": ["-40% fatigue severity"],"negative effect(s)": [],"provided skill(s)": ["heroism"],"provided hero bonus": []}
+{"name": ["golden eagle marksman"],"positive effect(s)": ["+20 max stamina"],"negative effect(s)": [],"provided skill(s)": ["warfighting"],"provided hero bonus": []}
+{"name": ["officer material"],"positive effect(s)": ["+50% wits experience rate","+6 morale"],"negative effect(s)": [],"provided skill(s)": ["tactics"],"provided hero bonus": []}
+{"name": ["practices at the range"],"positive effect(s)": ["+50% shooting experience rate"],"negative effect(s)": [],"provided skill(s)": ["warfighting"],"provided hero bonus": []}
+{"name": ["quartermaster"],"positive effect(s)": ["+15 max materials storage","+15 max fuel storage","+15 max ammo storage"],"negative effect(s)": ["+2 beds used"],"provided skill(s)": ["logistics"],"provided hero bonus": ["noise discipline(-3 noise)"]}
+{"name": ["red talon contractor"],"positive effect(s)": [],"negative effect(s)": ["-66% standing rewards"],"provided skill(s)": ["gives access to specializations exclusive for red talon contractors"],"provided hero bonus": []}
+{"name": ["red talon operative"],"positive effect(s)": ["-95% durability loss per hit (melee)","-95% durability loss per shot (guns)","+60 max carrying capacity","-100% fatigue severity"],"negative effect(s)": ["-100% experience rate"],"provided skill(s)": ["prowess","tactics","heroism","warfighting"],"provided hero bonus": []}
+{"name": ["skipped boot camp"],"positive effect(s)": [],"negative effect(s)": ["+25% injury severity"],"provided skill(s)": [],"provided hero bonus": []}
+{"name": ["trained off the grid"],"positive effect(s)": [],"negative effect(s)": ["+50% food consumed per day"],"provided skill(s)": [],"provided hero bonus": []}
+{"name": ["vigil guard"],"positive effect(s)": ["-1 beds used","-40% fatigue severity"],"negative effect(s)": [],"provided skill(s)": ["warfighting"],"provided hero bonus": []}
+{"name": ["worked as a pioneer"],"positive effect(s)": ["+15 max materials storage"],"negative effect(s)": ["-10% infuence gained","sometimes wastes materials"],"provided skill(s)": ["fortifications"],"provided hero bonus": ["barn raisings(+3 labor)"]}
