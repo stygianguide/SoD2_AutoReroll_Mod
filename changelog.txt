@@ -1,3 +1,5 @@
+Version 1.2.2
+Extended RUN_DURATION max limit.
 Version 1.2.1
 Added Red Talons traits and skills to the list. Thanks to Ghoritch for the idea.
 Version 1.2.0

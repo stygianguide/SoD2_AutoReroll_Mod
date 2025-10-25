@@ -966,7 +966,7 @@ def ui():
         except ValueError:
             return False
 
-    vcmd_duration = (root.register(lambda P: validate_integer(P, 1, 60)), '%P')
+    vcmd_duration = (root.register(lambda P: validate_integer(P, 1, 240)), '%P')
     vcmd_reroll_wait = (root.register(lambda P: validate_float(P, 0.01, 10.0)), '%P')
     vcmd_power = (root.register(lambda P: validate_integer(P, 1, 150)), '%P')
 
@@ -977,7 +977,7 @@ def ui():
     run_duration_entry = ttk.Entry(frame, width=entry_width, validate="key", validatecommand=vcmd_duration)
     run_duration_entry.insert(0, str(config.RUN_DURATION))
     run_duration_entry.grid(row=row_number, column=1, sticky=tk.W)
-    ToolTip(run_duration_label, "Duration of the run in minutes (1-60)")
+    ToolTip(run_duration_label, "Duration of the run in minutes (1-240)")
 
     row_number += 1 
     power_threshold_label = ttk.Label(frame, text="Power Threshold:")
